@@ -1,0 +1,854 @@
+{
+  "round": 1,
+  "status": "retry",
+  "submitted_by": "agent:minimax-code:MiniMax-M3.1-Flash",
+  "submitted_at": "2026-11-07T14:03:43+08:00",
+  "toc_pages": [
+    6,
+    7
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "name": "页码",
+      "passed": true,
+      "reason": "C1 通过：37 条条目物理页单调不减，且都在 1–162 页里"
+    },
+    {
+      "id": "C2",
+      "name": "覆盖与粒度",
+      "passed": true,
+      "reason": "判据2 通过：正文第 9–158 页（150 页）被 17 个 section 连续覆盖，无空洞、无重叠；判据4 通过：17 个 section 都在 3–25 页之间（最短 3 页，最长 15 页）（8 个不足 3 页的短节已并入相邻节：「观察与猜想 翻牌游戏中的数学道理 / 1.5 有理数的乘方」9 页；「数学活动 / 小结 / 复习题1」12 页；「信息技术应用 电子表格与数据计算 / 数学活动」3 页）"
+    },
+    {
+      "id": "C3",
+      "name": "标题在正文页上",
+      "passed": false,
+      "reason": "C3 不通过：18/36 条 body 条目的标题在正文页上找不到 —— 「实验与探究 填幻方」；「阅读与思考 中国人最先使用负数」；「观察与猜想 翻牌游戏中的数学道理」；「数学活动」；「复习题1」"
+    },
+    {
+      "id": "C4",
+      "name": "标题在目录页上",
+      "passed": false,
+      "reason": "C4 不通过：5/41 条标题在目录页上找不到 —— 「复习题1」；「复习题2」；「复习题3」；「4.3 角」；「复习题4」；多半是模型编出来的条目"
+    },
+    {
+      "id": "C5",
+      "name": "层级",
+      "passed": true,
+      "reason": "C5 通过：41 条层级连贯，同级编号连续"
+    },
+    {
+      "id": "C6",
+      "name": "对照（只出报告）",
+      "passed": true,
+      "reason": "C6 对照只出报告，不判失败",
+      "report_only": true
+    }
+  ],
+  "failed_entries": [
+    {
+      "index": 4,
+      "title": "实验与探究 填幻方",
+      "check": "C3",
+      "reason": "标题在第 28 页（±1 页）上找不到"
+    },
+    {
+      "index": 5,
+      "title": "阅读与思考 中国人最先使用负数",
+      "check": "C3",
+      "reason": "标题在第 34 页（±1 页）上找不到"
+    },
+    {
+      "index": 7,
+      "title": "观察与猜想 翻牌游戏中的数学道理",
+      "check": "C3",
+      "reason": "标题在第 47 页（±1 页）上找不到"
+    },
+    {
+      "index": 9,
+      "title": "数学活动",
+      "check": "C3",
+      "reason": "标题在第 56 页（±1 页）上找不到"
+    },
+    {
+      "index": 11,
+      "title": "复习题1",
+      "check": "C3",
+      "reason": "标题在第 58 页（±1 页）上找不到"
+    },
+    {
+      "index": 11,
+      "title": "复习题1",
+      "check": "C4",
+      "reason": "标题在目录页（6、7）上找不到"
+    },
+    {
+      "index": 14,
+      "title": "阅读与思考 数字1与字母X的对话",
+      "check": "C3",
+      "reason": "标题在第 68 页（±1 页）上找不到"
+    },
+    {
+      "index": 16,
+      "title": "信息技术应用 电子表格与数据计算",
+      "check": "C3",
+      "reason": "标题在第 78 页（±1 页）上找不到"
+    },
+    {
+      "index": 17,
+      "title": "数学活动",
+      "check": "C3",
+      "reason": "标题在第 79 页（±1 页）上找不到"
+    },
+    {
+      "index": 19,
+      "title": "复习题2",
+      "check": "C3",
+      "reason": "标题在第 81 页（±1 页）上找不到"
+    },
+    {
+      "index": 19,
+      "title": "复习题2",
+      "check": "C4",
+      "reason": "标题在目录页（6、7）上找不到"
+    },
+    {
+      "index": 22,
+      "title": "阅读与思考 “方程”史话",
+      "check": "C3",
+      "reason": "标题在第 91 页（±1 页）上找不到"
+    },
+    {
+      "index": 24,
+      "title": "实验与探究 无限循环小数化分数",
+      "check": "C3",
+      "reason": "标题在第 99 页（±1 页）上找不到"
+    },
+    {
+      "index": 27,
+      "title": "数学活动",
+      "check": "C3",
+      "reason": "标题在第 116 页（±1 页）上找不到"
+    },
+    {
+      "index": 29,
+      "title": "复习题3",
+      "check": "C3",
+      "reason": "标题在第 118 页（±1 页）上找不到"
+    },
+    {
+      "index": 29,
+      "title": "复习题3",
+      "check": "C4",
+      "reason": "标题在目录页（6、7）上找不到"
+    },
+    {
+      "index": 32,
+      "title": "阅读与思考 几何学的起源",
+      "check": "C3",
+      "reason": "标题在第 131 页（±1 页）上找不到"
+    },
+    {
+      "index": 34,
+      "title": "阅读与思考 长度的测量",
+      "check": "C3",
+      "reason": "标题在第 138 页（±1 页）上找不到"
+    },
+    {
+      "index": 35,
+      "title": "4.3 角",
+      "check": "C3",
+      "reason": "标题在第 139 页（±1 页）上找不到"
+    },
+    {
+      "index": 35,
+      "title": "4.3 角",
+      "check": "C4",
+      "reason": "标题在目录页（6、7）上找不到"
+    },
+    {
+      "index": 37,
+      "title": "数学活动",
+      "check": "C3",
+      "reason": "标题在第 151 页（±1 页）上找不到"
+    },
+    {
+      "index": 39,
+      "title": "复习题4",
+      "check": "C3",
+      "reason": "标题在第 154 页（±1 页）上找不到"
+    },
+    {
+      "index": 39,
+      "title": "复习题4",
+      "check": "C4",
+      "reason": "标题在目录页（6、7）上找不到"
+    }
+  ],
+  "comparison": {
+    "rule": {
+      "source": "layout",
+      "entries": 59,
+      "missing": [
+        {
+          "title": "第三章 一元一次方程第四章 几何图形初步",
+          "page": 7
+        },
+        {
+          "title": "第一章 有理数算等问题．例如： （１）北京冬季里某一天的气温为－３℃～３℃． “－３”的含义是什么？这一天北京的温差是多少？ （２）某年，我国花生产量比上一年增长１．８％， 油菜籽产量比上一年增长－２．７％．“增长－２．７％” 表示什么意思？ （３）夏新同学通过捡、卖废品，既保护了环境， 又积攒了零花钱．下表是他某个月的部分收支情况 （单位：元）． 这里，“结余－１．２”是什么意思？怎么得到的？ 上面的例子涉及“３－（－３）＝？”等新问题． 大小比较和运算等．有了这些知识，上述问题就能顺利解决了．",
+          "page": 8
+        },
+        {
+          "title": "１．１正数和负数",
+          "page": 9
+        },
+        {
+          "title": "习题１．１",
+          "page": 12
+        },
+        {
+          "title": "１．２有理数 １．２．１ 有理数",
+          "page": 13
+        },
+        {
+          "title": "１．２．２ 数轴",
+          "page": 14
+        },
+        {
+          "title": "１．２．３ 相反数",
+          "page": 16
+        },
+        {
+          "title": "１．２．４ 绝对值",
+          "page": 18
+        },
+        {
+          "title": "习题１．２",
+          "page": 21
+        },
+        {
+          "title": "１．３有理数的加减法 １．３．１ 有理数的加法",
+          "page": 23
+        },
+        {
+          "title": "填 幻 方 １．３．２ 有理数的减法",
+          "page": 28
+        },
+        {
+          "title": "习题１．３",
+          "page": 31
+        },
+        {
+          "title": "１．４有理数的乘除法 １．４．１ 有理数的乘法",
+          "page": 35
+        },
+        {
+          "title": "１．４．２ 有理数的除法",
+          "page": 41
+        },
+        {
+          "title": "习题１．４",
+          "page": 44
+        },
+        {
+          "title": "１３．计算２×１，２×１２，２×（－１），２× －（）",
+          "page": 46
+        },
+        {
+          "title": "１．５有理数的乘方 １．５．１ 乘方作－（）",
+          "page": 48
+        },
+        {
+          "title": "１．５．２ 科学记数法",
+          "page": 51
+        },
+        {
+          "title": "１．５．３ 近似数",
+          "page": 52
+        },
+        {
+          "title": "习题１．５",
+          "page": 54
+        },
+        {
+          "title": "复习题１",
+          "page": 58
+        },
+        {
+          "title": "第二章 整式的加减很长的冻土地段．列车在冻土地段、非冻土地段的行驶速度分别是１００ｋｍ／ｈ和１２０ｋｍ／ｈ，请根据 （１）列车在冻土地段行驶时，２ｈ行驶的路程是多少？３ｈ呢？狋ｈ呢？ （２）在西宁到拉萨路段，列车通过非冻土地段所需时间是通过冻土地段所需时间的２．１倍，如果通过冻土地段需要狋ｈ，能用含狋的式子表示这段铁路的全长吗？ （３）在格尔木到拉萨路段，列车通过冻土地段比通过非冻土地段多用０．５ｈ，如果通过冻土地段需要狌ｈ，则这段铁路的全长可以怎样表示？冻土地段与非冻土地段相差多少千米？ 在数学中有重要作用．在本章，我们将学习整式及其元一次方程等后续内容的学习打下基础．",
+          "page": 60
+        },
+        {
+          "title": "２．１整式",
+          "page": 61
+        },
+        {
+          "title": "习题２．１",
+          "page": 66
+        },
+        {
+          "title": "２．２整式的加减",
+          "page": 69
+        },
+        {
+          "title": "原式＝（－３）×（－２）＋２（） 习题２．２",
+          "page": 76
+        },
+        {
+          "title": "小 结复习题２",
+          "page": 81
+        },
+        {
+          "title": "（８）３狓２－５狓－１２狓（",
+          "page": 82
+        },
+        {
+          "title": "第三章 一元一次方程在小学，我们已经见过像２狓＝５０，３狓＋１＝４， ５狓－７＝８这样的简单方程，其中字母狓表示未知数．方程是含有未知数的等式，它是应用广泛的数学工具．研究许多问题时，人们经常用字母表表示相等关系，然后解方程求出未知数． 怎样根据问题中的数量关系列方程？怎样解方程？这是本章研究的主要问题． 解决问题的方法．",
+          "page": 84
+        },
+        {
+          "title": "３．１从算式到方程 ３．１．１ 一元一次方程",
+          "page": 85
+        },
+        {
+          "title": "３．１．２ 等式的性质",
+          "page": 88
+        },
+        {
+          "title": "习题３．１",
+          "page": 90
+        },
+        {
+          "title": "习题３．２",
+          "page": 98
+        },
+        {
+          "title": "（３）６１２狓（ －４＋２狓＝７－１３狓（",
+          "page": 102
+        },
+        {
+          "title": "习题３．３",
+          "page": 105
+        },
+        {
+          "title": "习题３．４",
+          "page": 113
+        },
+        {
+          "title": "复习题３",
+          "page": 118
+        },
+        {
+          "title": "第四章 几何图形初步现实世界中有形态各异、丰富多彩的图形． 的建筑中，你能找到一些熟悉的图形吗？ 给我们带来了很多问题：怎样画出一个五角星？ 怎样设计一个产品包装盒？怎样绘制一张校园布局平面图？不同的图形各有什么特点和性质？所有这些，都需要我们知道更多的图形知识． 的一门学科．本章我们将认识更多的几何图形， 习各种更复杂的几何图形及其性质作好准备．",
+          "page": 120
+        },
+        {
+          "title": "４．１几何图形",
+          "page": 121
+        },
+        {
+          "title": "４．１．１ 立体图形与平面图形",
+          "page": 122
+        },
+        {
+          "title": "４．１．２ 点、线、面、体",
+          "page": 126
+        },
+        {
+          "title": "习题４．１",
+          "page": 128
+        },
+        {
+          "title": "４．２直线、射线、线段",
+          "page": 132
+        },
+        {
+          "title": "习题４．２",
+          "page": 136
+        },
+        {
+          "title": "４．３角 ４．３．１ 角",
+          "page": 139
+        },
+        {
+          "title": "４．３．２ 角的比较与运算",
+          "page": 141
+        },
+        {
+          "title": "４．３．３ 余角和补角",
+          "page": 144
+        },
+        {
+          "title": "习题４．３",
+          "page": 146
+        },
+        {
+          "title": "复习题４",
+          "page": 154
+        }
+      ],
+      "extra": [
+        {
+          "title": "第一章 有理数",
+          "page": null
+        },
+        {
+          "title": "1.1 正数和负数",
+          "page": 9
+        },
+        {
+          "title": "1.2 有理数",
+          "page": 13
+        },
+        {
+          "title": "1.3 有理数的加减法",
+          "page": 23
+        },
+        {
+          "title": "实验与探究 填幻方",
+          "page": 28
+        },
+        {
+          "title": "阅读与思考 中国人最先使用负数",
+          "page": 34
+        },
+        {
+          "title": "1.4 有理数的乘除法",
+          "page": 35
+        },
+        {
+          "title": "观察与猜想 翻牌游戏中的数学道理",
+          "page": 47
+        },
+        {
+          "title": "1.5 有理数的乘方",
+          "page": 48
+        },
+        {
+          "title": "数学活动",
+          "page": 56
+        },
+        {
+          "title": "复习题1",
+          "page": 58
+        },
+        {
+          "title": "第二章 整式的加减",
+          "page": null
+        },
+        {
+          "title": "2.1 整式",
+          "page": 61
+        },
+        {
+          "title": "2.2 整式的加减",
+          "page": 69
+        },
+        {
+          "title": "信息技术应用 电子表格与数据计算",
+          "page": 78
+        },
+        {
+          "title": "数学活动",
+          "page": 79
+        },
+        {
+          "title": "小结",
+          "page": 81
+        },
+        {
+          "title": "复习题2",
+          "page": 81
+        },
+        {
+          "title": "第三章 一元一次方程",
+          "page": null
+        },
+        {
+          "title": "3.1 从算式到方程",
+          "page": 85
+        },
+        {
+          "title": "阅读与思考 “方程”史话",
+          "page": 91
+        },
+        {
+          "title": "实验与探究 无限循环小数化分数",
+          "page": 99
+        },
+        {
+          "title": "数学活动",
+          "page": 116
+        },
+        {
+          "title": "复习题3",
+          "page": 118
+        },
+        {
+          "title": "第四章 几何图形初步",
+          "page": null
+        },
+        {
+          "title": "4.1 几何图形",
+          "page": 121
+        },
+        {
+          "title": "阅读与思考 几何学的起源",
+          "page": 131
+        },
+        {
+          "title": "4.2 直线、射线、线段",
+          "page": 132
+        },
+        {
+          "title": "4.3 角",
+          "page": 139
+        },
+        {
+          "title": "数学活动",
+          "page": 151
+        },
+        {
+          "title": "复习题4",
+          "page": 154
+        }
+      ],
+      "page_mismatch": []
+    },
+    "bookmarks": null,
+    "skipped": [
+      "这本书没有书签"
+    ]
+  },
+  "entries": [
+    {
+      "index": 0,
+      "level": 1,
+      "title": "第一章 有理数",
+      "printed_page": null,
+      "page": null,
+      "kind": "body"
+    },
+    {
+      "index": 1,
+      "level": 2,
+      "title": "1.1 正数和负数",
+      "printed_page": 2,
+      "page": 9,
+      "kind": "body"
+    },
+    {
+      "index": 2,
+      "level": 2,
+      "title": "1.2 有理数",
+      "printed_page": 6,
+      "page": 13,
+      "kind": "body"
+    },
+    {
+      "index": 3,
+      "level": 2,
+      "title": "1.3 有理数的加减法",
+      "printed_page": 16,
+      "page": 23,
+      "kind": "body"
+    },
+    {
+      "index": 4,
+      "level": 3,
+      "title": "实验与探究 填幻方",
+      "printed_page": 21,
+      "page": 28,
+      "kind": "body"
+    },
+    {
+      "index": 5,
+      "level": 3,
+      "title": "阅读与思考 中国人最先使用负数",
+      "printed_page": 27,
+      "page": 34,
+      "kind": "body"
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "1.4 有理数的乘除法",
+      "printed_page": 28,
+      "page": 35,
+      "kind": "body"
+    },
+    {
+      "index": 7,
+      "level": 3,
+      "title": "观察与猜想 翻牌游戏中的数学道理",
+      "printed_page": 40,
+      "page": 47,
+      "kind": "body"
+    },
+    {
+      "index": 8,
+      "level": 2,
+      "title": "1.5 有理数的乘方",
+      "printed_page": 41,
+      "page": 48,
+      "kind": "body"
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "数学活动",
+      "printed_page": 49,
+      "page": 56,
+      "kind": "body"
+    },
+    {
+      "index": 10,
+      "level": 2,
+      "title": "小结",
+      "printed_page": 50,
+      "page": 57,
+      "kind": "body"
+    },
+    {
+      "index": 11,
+      "level": 2,
+      "title": "复习题1",
+      "printed_page": 51,
+      "page": 58,
+      "kind": "body"
+    },
+    {
+      "index": 12,
+      "level": 1,
+      "title": "第二章 整式的加减",
+      "printed_page": null,
+      "page": null,
+      "kind": "body"
+    },
+    {
+      "index": 13,
+      "level": 2,
+      "title": "2.1 整式",
+      "printed_page": 54,
+      "page": 61,
+      "kind": "body"
+    },
+    {
+      "index": 14,
+      "level": 3,
+      "title": "阅读与思考 数字1与字母X的对话",
+      "printed_page": 61,
+      "page": 68,
+      "kind": "body"
+    },
+    {
+      "index": 15,
+      "level": 2,
+      "title": "2.2 整式的加减",
+      "printed_page": 62,
+      "page": 69,
+      "kind": "body"
+    },
+    {
+      "index": 16,
+      "level": 3,
+      "title": "信息技术应用 电子表格与数据计算",
+      "printed_page": 71,
+      "page": 78,
+      "kind": "body"
+    },
+    {
+      "index": 17,
+      "level": 2,
+      "title": "数学活动",
+      "printed_page": 72,
+      "page": 79,
+      "kind": "body"
+    },
+    {
+      "index": 18,
+      "level": 2,
+      "title": "小结",
+      "printed_page": 74,
+      "page": 81,
+      "kind": "body"
+    },
+    {
+      "index": 19,
+      "level": 2,
+      "title": "复习题2",
+      "printed_page": 74,
+      "page": 81,
+      "kind": "body"
+    },
+    {
+      "index": 20,
+      "level": 1,
+      "title": "第三章 一元一次方程",
+      "printed_page": null,
+      "page": null,
+      "kind": "body"
+    },
+    {
+      "index": 21,
+      "level": 2,
+      "title": "3.1 从算式到方程",
+      "printed_page": 78,
+      "page": 85,
+      "kind": "body"
+    },
+    {
+      "index": 22,
+      "level": 3,
+      "title": "阅读与思考 “方程”史话",
+      "printed_page": 84,
+      "page": 91,
+      "kind": "body"
+    },
+    {
+      "index": 23,
+      "level": 2,
+      "title": "3.2 解一元一次方程（一）——合并同类项与移项",
+      "printed_page": 86,
+      "page": 93,
+      "kind": "body"
+    },
+    {
+      "index": 24,
+      "level": 3,
+      "title": "实验与探究 无限循环小数化分数",
+      "printed_page": 92,
+      "page": 99,
+      "kind": "body"
+    },
+    {
+      "index": 25,
+      "level": 2,
+      "title": "3.3 解一元一次方程（二）——去括号与去分母",
+      "printed_page": 93,
+      "page": 100,
+      "kind": "body"
+    },
+    {
+      "index": 26,
+      "level": 2,
+      "title": "3.4 实际问题与一元一次方程",
+      "printed_page": 100,
+      "page": 107,
+      "kind": "body"
+    },
+    {
+      "index": 27,
+      "level": 2,
+      "title": "数学活动",
+      "printed_page": 109,
+      "page": 116,
+      "kind": "body"
+    },
+    {
+      "index": 28,
+      "level": 2,
+      "title": "小结",
+      "printed_page": 110,
+      "page": 117,
+      "kind": "body"
+    },
+    {
+      "index": 29,
+      "level": 2,
+      "title": "复习题3",
+      "printed_page": 111,
+      "page": 118,
+      "kind": "body"
+    },
+    {
+      "index": 30,
+      "level": 1,
+      "title": "第四章 几何图形初步",
+      "printed_page": null,
+      "page": null,
+      "kind": "body"
+    },
+    {
+      "index": 31,
+      "level": 2,
+      "title": "4.1 几何图形",
+      "printed_page": 114,
+      "page": 121,
+      "kind": "body"
+    },
+    {
+      "index": 32,
+      "level": 3,
+      "title": "阅读与思考 几何学的起源",
+      "printed_page": 124,
+      "page": 131,
+      "kind": "body"
+    },
+    {
+      "index": 33,
+      "level": 2,
+      "title": "4.2 直线、射线、线段",
+      "printed_page": 125,
+      "page": 132,
+      "kind": "body"
+    },
+    {
+      "index": 34,
+      "level": 3,
+      "title": "阅读与思考 长度的测量",
+      "printed_page": 131,
+      "page": 138,
+      "kind": "body"
+    },
+    {
+      "index": 35,
+      "level": 2,
+      "title": "4.3 角",
+      "printed_page": 132,
+      "page": 139,
+      "kind": "body"
+    },
+    {
+      "index": 36,
+      "level": 2,
+      "title": "4.4 课题学习 设计制作长方体形状的包装纸盒",
+      "printed_page": 142,
+      "page": 149,
+      "kind": "body"
+    },
+    {
+      "index": 37,
+      "level": 2,
+      "title": "数学活动",
+      "printed_page": 144,
+      "page": 151,
+      "kind": "body"
+    },
+    {
+      "index": 38,
+      "level": 2,
+      "title": "小结",
+      "printed_page": 146,
+      "page": 153,
+      "kind": "body"
+    },
+    {
+      "index": 39,
+      "level": 2,
+      "title": "复习题4",
+      "printed_page": 147,
+      "page": 154,
+      "kind": "body"
+    },
+    {
+      "index": 40,
+      "level": 1,
+      "title": "部分中英文词汇索引",
+      "printed_page": 151,
+      "page": 158,
+      "kind": "appendix"
+    }
+  ]
+}

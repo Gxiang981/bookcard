@@ -1,0 +1,307 @@
+{
+  "version": "bench-v1",
+  "created_at": "2026-11-06T16:12:02+08:00",
+  "label": "MiniMax-M3.1-Flash",
+  "run": "/train/data/bench/v1/runs/2026-11-06-MiniMax-M3.1-Flash",
+  "candidates": "/train/data/bench/v1/runs/2026-11-06-MiniMax-M3.1-Flash/candidates.jsonl",
+  "pages": 90,
+  "segments": 101,
+  "gold_file": "bench/v1/gold.jsonl",
+  "keyword": {
+    "exact": {
+      "precision": 0.8753086419753087,
+      "recall": 0.4352363413136894,
+      "f1": 0.5813858138581386,
+      "hit": 709,
+      "pred": 810,
+      "gold": 1629
+    },
+    "overlap": {
+      "precision": 0.9419753086419753,
+      "recall": 0.47391037446286066,
+      "f1": 0.6305761497275253,
+      "hit": 763,
+      "pred": 810,
+      "gold": 1629
+    },
+    "toc_false_labels": 23,
+    "gold_segments": 98,
+    "predicted_segments": 95,
+    "by_book": {
+      "2f3e20c2e34d": {
+        "segments": 29,
+        "exact": {
+          "precision": 0.8789237668161435,
+          "recall": 0.49122807017543857,
+          "f1": 0.630225080385852,
+          "hit": 196,
+          "pred": 223,
+          "gold": 399
+        },
+        "overlap": {
+          "precision": 0.9551569506726457,
+          "recall": 0.5413533834586466,
+          "f1": 0.6910442717134168,
+          "hit": 213,
+          "pred": 223,
+          "gold": 399
+        },
+        "title": "义务教育教科书 物理 九年级 全册",
+        "evidence": {
+          "rate": 0.9013452914798207,
+          "qualified": 201,
+          "total": 223
+        },
+        "explanation": {
+          "scored": 213,
+          "mean": 1.948356807511737,
+          "zero_rate": 0.009389671361502348
+        }
+      },
+      "4ecda441f6d4": {
+        "segments": 29,
+        "exact": {
+          "precision": 0.9329758713136729,
+          "recall": 0.453125,
+          "f1": 0.6099912357581069,
+          "hit": 348,
+          "pred": 373,
+          "gold": 768
+        },
+        "overlap": {
+          "precision": 0.9758713136729222,
+          "recall": 0.4752604166666667,
+          "f1": 0.6392155825036023,
+          "hit": 364,
+          "pred": 373,
+          "gold": 768
+        },
+        "title": "人教版·普通高中教科书 历史 必修 中外历史纲要 上",
+        "evidence": {
+          "rate": 0.9249329758713136,
+          "qualified": 345,
+          "total": 373
+        },
+        "explanation": {
+          "scored": 364,
+          "mean": 1.9615384615384615,
+          "zero_rate": 0.01098901098901099
+        }
+      },
+      "dc221b94f843": {
+        "segments": 40,
+        "exact": {
+          "precision": 0.7710280373831776,
+          "recall": 0.35714285714285715,
+          "f1": 0.48816568047337283,
+          "hit": 165,
+          "pred": 214,
+          "gold": 462
+        },
+        "overlap": {
+          "precision": 0.8691588785046729,
+          "recall": 0.4134199134199134,
+          "f1": 0.5603204895667397,
+          "hit": 186,
+          "pred": 214,
+          "gold": 462
+        },
+        "title": "义务教育教科书 英语 九年级 全册",
+        "evidence": {
+          "rate": 0.9065420560747663,
+          "qualified": 194,
+          "total": 214
+        },
+        "explanation": {
+          "scored": 186,
+          "mean": 1.8763440860215055,
+          "zero_rate": 0.016129032258064516
+        }
+      }
+    },
+    "by_stratum": {
+      "body": {
+        "segments": 75,
+        "exact": {
+          "precision": 0.8697749196141479,
+          "recall": 0.4430794430794431,
+          "f1": 0.5870862723819859,
+          "hit": 541,
+          "pred": 622,
+          "gold": 1221
+        },
+        "overlap": {
+          "precision": 0.9469453376205788,
+          "recall": 0.48976248976248976,
+          "f1": 0.6456125558483217,
+          "hit": 589,
+          "pred": 622,
+          "gold": 1221
+        },
+        "evidence": {
+          "rate": 0.9163987138263665,
+          "qualified": 570,
+          "total": 622
+        },
+        "explanation": {
+          "scored": 589,
+          "mean": 1.932088285229202,
+          "zero_rate": 0.013582342954159592
+        }
+      },
+      "exercise": {
+        "segments": 12,
+        "exact": {
+          "precision": 0.8979591836734694,
+          "recall": 0.3876651982378855,
+          "f1": 0.5415384615384615,
+          "hit": 88,
+          "pred": 98,
+          "gold": 227
+        },
+        "overlap": {
+          "precision": 0.9387755102040817,
+          "recall": 0.4052863436123348,
+          "f1": 0.5661538461538461,
+          "hit": 92,
+          "pred": 98,
+          "gold": 227
+        },
+        "evidence": {
+          "rate": 0.8775510204081632,
+          "qualified": 86,
+          "total": 98
+        },
+        "explanation": {
+          "scored": 92,
+          "mean": 1.9565217391304348,
+          "zero_rate": 0.010869565217391304
+        }
+      },
+      "notes": {
+        "segments": 11,
+        "exact": {
+          "precision": 0.8888888888888888,
+          "recall": 0.4419889502762431,
+          "f1": 0.5904059040590405,
+          "hit": 80,
+          "pred": 90,
+          "gold": 181
+        },
+        "overlap": {
+          "precision": 0.9111111111111111,
+          "recall": 0.4530386740331492,
+          "f1": 0.6051660516605166,
+          "hit": 82,
+          "pred": 90,
+          "gold": 181
+        },
+        "evidence": {
+          "rate": 0.9333333333333333,
+          "qualified": 84,
+          "total": 90
+        },
+        "explanation": {
+          "scored": 82,
+          "mean": 1.951219512195122,
+          "zero_rate": 0.0
+        }
+      }
+    }
+  },
+  "evidence": {
+    "rate": 0.9135802469135802,
+    "qualified": 740,
+    "total": 810,
+    "failed": [
+      "book:4ecda441f6d4:p0026:出土文献",
+      "book:4ecda441f6d4:p0026:湖北云梦睡虎地秦墓",
+      "book:4ecda441f6d4:p0029:绿林",
+      "book:4ecda441f6d4:p0031:豪强地主势力",
+      "book:4ecda441f6d4:p0050:唐诗",
+      "book:4ecda441f6d4:p0059:王安石变法",
+      "book:4ecda441f6d4:p0081:葡萄牙",
+      "book:4ecda441f6d4:p0081:濠镜澳",
+      "book:4ecda441f6d4:p0091:海外贸易",
+      "book:4ecda441f6d4:p0104:甲午中日战争",
+      "book:4ecda441f6d4:p0112:半殖民地半封建社会",
+      "book:4ecda441f6d4:p0112:奕劻",
+      "book:4ecda441f6d4:p0112:全权大臣",
+      "book:4ecda441f6d4:p0121:军阀割据",
+      "book:4ecda441f6d4:p0121:直系军阀",
+      "book:4ecda441f6d4:p0121:奉系军阀",
+      "book:4ecda441f6d4:p0130:中国国民党第一次全国代表大会",
+      "book:4ecda441f6d4:p0143:抗日民族统一战线",
+      "book:4ecda441f6d4:p0157:抽多补少",
+      "book:4ecda441f6d4:p0157:土地改革",
+      "book:4ecda441f6d4:p0157:西柏坡",
+      "book:4ecda441f6d4:p0157:全国土地会议",
+      "book:4ecda441f6d4:p0157:封建性及半封建性剥削制度",
+      "book:4ecda441f6d4:p0157:《中国土地法大纲》",
+      "book:4ecda441f6d4:p0169:百花齐放、百家争鸣",
+      "book:4ecda441f6d4:p0171:极左思潮",
+      "book:4ecda441f6d4:p0190:统一多民族国家",
+      "book:4ecda441f6d4:p0190:方志敏",
+      "book:2f3e20c2e34d:p0010:分子热运动",
+      "book:2f3e20c2e34d:p0010:硫酸铜",
+      "book:2f3e20c2e34d:p0013:物态",
+      "book:2f3e20c2e34d:p0013:微观特性",
+      "book:2f3e20c2e34d:p0025:进气门",
+      "book:2f3e20c2e34d:p0025:排气门",
+      "book:2f3e20c2e34d:p0025:火花塞",
+      "book:2f3e20c2e34d:p0025:活塞",
+      "book:2f3e20c2e34d:p0030:热机的效率",
+      "book:2f3e20c2e34d:p0034:机械能",
+      "book:2f3e20c2e34d:p0034:化学能",
+      "book:2f3e20c2e34d:p0063:电压",
+      "book:2f3e20c2e34d:p0085:欧姆定律",
+      "book:2f3e20c2e34d:p0138:电磁继电器",
+      "book:2f3e20c2e34d:p0146:电磁感应",
+      "book:2f3e20c2e34d:p0146:electromagnetic induction",
+      "book:2f3e20c2e34d:p0146:感应电流",
+      "book:2f3e20c2e34d:p0148:硬磁性材料",
+      "book:2f3e20c2e34d:p0149:动圈式话筒",
+      "book:2f3e20c2e34d:p0171:音频电信号",
+      "book:2f3e20c2e34d:p0185:汽车尾气",
+      "book:2f3e20c2e34d:p0185:能量转移和能量转化的方向性"
+    ]
+  },
+  "explanation": {
+    "scored": 763,
+    "mean": 1.9370904325032765,
+    "zero_rate": 0.011795543905635648,
+    "judge_failures": 0,
+    "judge_failed_batches": 0
+  },
+  "cost": {
+    "segments": 101,
+    "missing_segments": 0,
+    "input_tokens": 82215,
+    "output_tokens": 127927,
+    "seconds": 1382.61,
+    "failed_segments": 3,
+    "failure_rate": 0.0297029702970297,
+    "per_page_input_tokens": 913.5,
+    "per_page_output_tokens": 1421.41,
+    "per_page_seconds": 15.362
+  },
+  "judge_sample": {
+    "path": "/train/data/bench/v1/runs/2026-11-06-MiniMax-M3.1-Flash/judge_sample.jsonl",
+    "count": 60,
+    "scored": 763
+  },
+  "judge_agreement": null,
+  "judge_audit": {
+    "label": "MiniMax-M3.1-Flash",
+    "html": "/train/data/bench/v1/judge-audit/judge-audit-MiniMax-M3.1-Flash.html",
+    "html_bytes": 139282,
+    "sample": "/train/data/bench/v1/judge-audit/judge-sample-MiniMax-M3.1-Flash.json",
+    "sample_count": 60,
+    "out_dir": "/train/data/bench/v1/judge-audit",
+    "review_export_name": "judge-review-MiniMax-M3.1-Flash.jsonl"
+  },
+  "caveats": [
+    "金标准未经人工抽检（18 页人工抽检未做），数字为预览。"
+  ],
+  "errors": []
+}

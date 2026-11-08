@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bookcard"
+version = "0.1.0"
+description = "从书本提取学习卡片：探针 / 抽卡 / 卡包"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pymupdf>=1.24",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    # 只给测试用：单测里抄一份 App 的 BulkImportBody pydantic 模型复核 manifest
+    "pydantic>=2.0",
+]
+# 扫描件 OCR 取字（契约 §2.2）。运行时依赖不变——这是可选依赖组。
+ocr = [
+    # rapidocr 3.x：模型随包走，ONNX 本地跑，不联网。
+    "rapidocr>=3.4,<4",
+    # onnxruntime：下限写死 1.31.0（2026-10-09 发布，已过 7 天）——
+    # 不追最新发布的那一版（1.31.1 发布不到 7 天，可能不稳）。
+    "onnxruntime>=1.31.0",
+]
+
+[project.scripts]
+bookcard = "bookcard.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# browse-lite 的 schema 与前端单文件要跟着包一起装（契约 browse-lite-v1 §1/§2）。
+# 提示词也跟着包走（契约 §1 / docs/mcp-v1.md §1）：装成 wheel 之后一样能读到。
+[tool.setuptools.package-data]
+bookcard = ["browse/schema.sql", "browse/static/*"]
+"bookcard.prompts" = ["*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

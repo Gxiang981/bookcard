@@ -1,0 +1,20 @@
+{
+  "toc_pages": [6, 7],
+  "entries": [
+    {"level": 1, "title": "1 准备课", "printed_page": 2},
+    {"level": 1, "title": "2 位置", "printed_page": 9},
+    {"level": 1, "title": "3 5以内数的认识和加减法", "printed_page": 14},
+    {"level": 1, "title": "4 认识图形（一）", "printed_page": 34},
+    {"level": 1, "title": "5 6~10的认识和加减法", "printed_page": 39},
+    {"level": 1, "title": "6 11~20各数的认识", "printed_page": 73},
+    {"level": 1, "title": "数学乐园", "printed_page": 82},
+    {"level": 1, "title": "7 认识钟表", "printed_page": 84},
+    {"level": 1, "title": "8 20以内的进位加法", "printed_page": 88},
+    {"level": 1, "title": "9 总复习", "printed_page": 104}
+  ],
+  "anchors": [
+    {"printed_page": 2, "physical_page": 8},
+    {"printed_page": 14, "physical_page": 20},
+    {"printed_page": 104, "physical_page": 110}
+  ]
+}

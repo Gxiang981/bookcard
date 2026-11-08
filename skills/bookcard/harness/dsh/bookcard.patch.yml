@@ -1,0 +1,59 @@
+# BookCard 的 DSH overlay（DeepSeek Harness）
+#
+# 只放三样东西：模型、提供方、MCP。**不放** notify 插件、不放 UI 条目。
+# 结构照抄 ~/.dsh/profiles/desktop/cordis.patch.yml 里对应的那两条。
+#
+# 用法（不碰 ~/.dsh/profiles/desktop/）：
+#   dsh --profile headless --patch skills/bookcard/harness/dsh/bookcard.patch.yml "任务"
+#
+# key 只走环境变量，不写进任何文件：
+#   MINIMAX_CN_API_KEY="$MINIMAX_API_KEY" dsh --profile headless --patch ... "任务"
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: minimax-cn
+    model: MiniMax-M3.1-Flash
+    reasoningEffort: max
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      minimax-cn:
+        models:
+          - id: MiniMax-M3
+            name: MiniMax-M3
+            contextWindow: 1000000
+            maxTokens: 512000
+            input:
+              - text
+              - image
+          - id: MiniMax-M3.1-Flash
+            name: MiniMax-M3.1-Flash
+            contextWindow: 1048576
+            maxTokens: 524288
+            input:
+              - text
+              - image
+            # MiniMax-M3.1-Flash requires adaptive thinking: the endpoint rejects
+            # thinking.type=disabled, so pi-ai must send thinking.type=adaptive
+            # with an output_config.effort instead of a token budget.
+            compat:
+              forceAdaptiveThinking: true
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+        apiKeyEnv: MINIMAX_CN_API_KEY
+- insert:
+    - id: mcp-bookcard
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: bookcard
+        transport: stdio
+        # bookcard 的绝对路径（uv tool install 装出来是这个）。
+        command: ~/.local/bin/bookcard
+        args: [mcp]
+        failOnStartupError: false
+        toolCallTimeoutMs: 600000

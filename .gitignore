@@ -1,0 +1,30 @@
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# 工具缓存
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# 产物
+out/
+*.ttfc.zip
+
+# 训练数据（不入库：数据量大，且含本机屏幕原文）
+train/data/
+
+# 平台运行时状态（不入库）
+.multica/
+.minimax/
+
+# 临时产物
+.tmp-*/

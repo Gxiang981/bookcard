@@ -1,0 +1,5 @@
+# bookcard-share 的依赖。
+#
+# Pillow 只用来编 webp（PyMuPDF 编不了 webp）。场景是 text 的包（没有书页图）
+# 不装 Pillow 也能跑 —— 那一路不碰图片。
+pillow>=10.4

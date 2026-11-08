@@ -1,0 +1,85 @@
+{
+ "pool_index": 102,
+ "source_pdf": "102.pdf",
+ "page_count": 82,
+ "toc_pages": [
+  5
+ ],
+ "offsets": [
+  {
+   "from_printed": 1,
+   "offset": 5
+  }
+ ],
+ "entries": [
+  {
+   "level": 1,
+   "title": "Unit 1 Hello!",
+   "printed_page": 2,
+   "physical_page": 7
+  },
+  {
+   "level": 1,
+   "title": "Unit 2 Colours",
+   "printed_page": 12,
+   "physical_page": 17
+  },
+  {
+   "level": 1,
+   "title": "Unit 3 Look at me!",
+   "printed_page": 22,
+   "physical_page": 27
+  },
+  {
+   "level": 1,
+   "title": "Recycle 1",
+   "printed_page": 32,
+   "physical_page": 37
+  },
+  {
+   "level": 1,
+   "title": "Unit 4 We love animals",
+   "printed_page": 36,
+   "physical_page": 41
+  },
+  {
+   "level": 1,
+   "title": "Unit 5 Let’s eat!",
+   "printed_page": 46,
+   "physical_page": 51
+  },
+  {
+   "level": 1,
+   "title": "Unit 6 Happy birthday!",
+   "printed_page": 56,
+   "physical_page": 61
+  },
+  {
+   "level": 1,
+   "title": "Recycle 2",
+   "printed_page": 66,
+   "physical_page": 71
+  },
+  {
+   "level": 1,
+   "title": "Appendix 1: Words in each unit",
+   "printed_page": 70,
+   "physical_page": 75,
+   "kind": "appendix"
+  },
+  {
+   "level": 1,
+   "title": "Appendix 2: Vocabulary",
+   "printed_page": 72,
+   "physical_page": 77,
+   "kind": "appendix"
+  },
+  {
+   "level": 1,
+   "title": "Appendix 3: Useful expressions",
+   "printed_page": 74,
+   "physical_page": 79,
+   "kind": "appendix"
+  }
+ ]
+}

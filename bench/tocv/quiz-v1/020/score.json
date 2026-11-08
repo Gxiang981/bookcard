@@ -1,0 +1,29 @@
+{
+  "gold": "bench/tocv/gold/020.json",
+  "gold_entries": 50,
+  "draft_entries": 50,
+  "matched": 50,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "page_exact_rate": 1.0,
+  "page_compared": 50,
+  "level_exact_rate": 1.0,
+  "toc_pages": {
+    "gold": [
+      4,
+      5,
+      6
+    ],
+    "draft": [
+      4,
+      5,
+      6
+    ],
+    "correct": true
+  },
+  "missing": [],
+  "extra": [],
+  "page_mismatch": [],
+  "level_mismatch": []
+}

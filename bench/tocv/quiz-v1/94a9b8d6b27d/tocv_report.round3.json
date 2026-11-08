@@ -1,0 +1,520 @@
+{
+  "round": 3,
+  "status": "ok",
+  "submitted_by": "agent:minimax-code:MiniMax-M3.1-Flash",
+  "submitted_at": "2026-11-07T09:16:07+08:00",
+  "toc_pages": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "name": "页码",
+      "passed": true,
+      "reason": "C1 通过：56 条条目物理页单调不减，且都在 1–239 页里"
+    },
+    {
+      "id": "C2",
+      "name": "覆盖与粒度",
+      "passed": true,
+      "reason": "判据2 通过：正文第 9–231 页（223 页）被 43 个 section 连续覆盖，无空洞、无重叠；判据4 通过：43 个 section 都在 3–25 页之间（最短 3 页，最长 9 页）（1 个不足 3 页的短节已并入相邻节：「第二节 看不见的运动 / 第三节 探索宇宙」6 页）"
+    },
+    {
+      "id": "C3",
+      "name": "标题在正文页上",
+      "passed": true,
+      "reason": "C3 通过：55 条 body 条目的标题都在正文页上找到了"
+    },
+    {
+      "id": "C4",
+      "name": "标题在目录页上",
+      "passed": true,
+      "reason": "C4 通过：56 条标题都在目录页（第 4、5、6、7 页）上找到了"
+    },
+    {
+      "id": "C5",
+      "name": "层级",
+      "passed": true,
+      "reason": "C5 通过：56 条层级连贯，同级编号连续"
+    },
+    {
+      "id": "C6",
+      "name": "对照（只出报告）",
+      "passed": true,
+      "reason": "C6 对照只出报告，不判失败",
+      "report_only": true
+    }
+  ],
+  "failed_entries": [],
+  "comparison": {
+    "rule": {
+      "source": "printed",
+      "entries": 55,
+      "missing": [],
+      "extra": [
+        {
+          "title": "欢迎进入物理世界",
+          "page": 8
+        }
+      ],
+      "page_mismatch": []
+    },
+    "bookmarks": null,
+    "skipped": [
+      "这本书没有书签"
+    ]
+  },
+  "entries": [
+    {
+      "index": 0,
+      "level": 1,
+      "title": "欢迎进入物理世界",
+      "printed_page": 1,
+      "page": 8,
+      "kind": "front"
+    },
+    {
+      "index": 1,
+      "level": 1,
+      "title": "第一章 打开物理世界的大门",
+      "printed_page": 2,
+      "page": 9,
+      "kind": "body"
+    },
+    {
+      "index": 2,
+      "level": 2,
+      "title": "第一节 走进神奇",
+      "printed_page": 3,
+      "page": 10,
+      "kind": "body"
+    },
+    {
+      "index": 3,
+      "level": 2,
+      "title": "第二节 探索之路",
+      "printed_page": 5,
+      "page": 12,
+      "kind": "body"
+    },
+    {
+      "index": 4,
+      "level": 2,
+      "title": "第三节 站在巨人的肩膀上",
+      "printed_page": 8,
+      "page": 15,
+      "kind": "body"
+    },
+    {
+      "index": 5,
+      "level": 1,
+      "title": "第二章 运动的世界",
+      "printed_page": 12,
+      "page": 19,
+      "kind": "body"
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "第一节 动与静",
+      "printed_page": 13,
+      "page": 20,
+      "kind": "body"
+    },
+    {
+      "index": 7,
+      "level": 2,
+      "title": "第二节 长度与时间的测量",
+      "printed_page": 17,
+      "page": 24,
+      "kind": "body"
+    },
+    {
+      "index": 8,
+      "level": 2,
+      "title": "第三节 快与慢",
+      "printed_page": 23,
+      "page": 30,
+      "kind": "body"
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "第四节 科学探究：速度的变化",
+      "printed_page": 29,
+      "page": 36,
+      "kind": "body"
+    },
+    {
+      "index": 10,
+      "level": 1,
+      "title": "第三章 声的世界",
+      "printed_page": 33,
+      "page": 40,
+      "kind": "body"
+    },
+    {
+      "index": 11,
+      "level": 2,
+      "title": "第一节 科学探究：声音的产生与传播",
+      "printed_page": 34,
+      "page": 41,
+      "kind": "body"
+    },
+    {
+      "index": 12,
+      "level": 2,
+      "title": "第二节 声音的特性",
+      "printed_page": 40,
+      "page": 47,
+      "kind": "body"
+    },
+    {
+      "index": 13,
+      "level": 2,
+      "title": "第三节 超声与次声",
+      "printed_page": 47,
+      "page": 54,
+      "kind": "body"
+    },
+    {
+      "index": 14,
+      "level": 1,
+      "title": "第四章 多彩的光",
+      "printed_page": 52,
+      "page": 59,
+      "kind": "body"
+    },
+    {
+      "index": 15,
+      "level": 2,
+      "title": "第一节 光的反射",
+      "printed_page": 53,
+      "page": 60,
+      "kind": "body"
+    },
+    {
+      "index": 16,
+      "level": 2,
+      "title": "第二节 平面镜成像",
+      "printed_page": 58,
+      "page": 65,
+      "kind": "body"
+    },
+    {
+      "index": 17,
+      "level": 2,
+      "title": "第三节 光的折射",
+      "printed_page": 62,
+      "page": 69,
+      "kind": "body"
+    },
+    {
+      "index": 18,
+      "level": 2,
+      "title": "第四节 光的色散",
+      "printed_page": 66,
+      "page": 73,
+      "kind": "body"
+    },
+    {
+      "index": 19,
+      "level": 2,
+      "title": "第五节 科学探究：凸透镜成像",
+      "printed_page": 70,
+      "page": 77,
+      "kind": "body"
+    },
+    {
+      "index": 20,
+      "level": 2,
+      "title": "第六节 神奇的眼睛",
+      "printed_page": 75,
+      "page": 82,
+      "kind": "body"
+    },
+    {
+      "index": 21,
+      "level": 1,
+      "title": "第五章 质量与密度",
+      "printed_page": 83,
+      "page": 90,
+      "kind": "body"
+    },
+    {
+      "index": 22,
+      "level": 2,
+      "title": "第一节 质量",
+      "printed_page": 84,
+      "page": 91,
+      "kind": "body"
+    },
+    {
+      "index": 23,
+      "level": 2,
+      "title": "第二节 学习使用天平和量筒",
+      "printed_page": 89,
+      "page": 96,
+      "kind": "body"
+    },
+    {
+      "index": 24,
+      "level": 2,
+      "title": "第三节 科学探究：物质的密度",
+      "printed_page": 92,
+      "page": 99,
+      "kind": "body"
+    },
+    {
+      "index": 25,
+      "level": 2,
+      "title": "第四节 密度知识的应用",
+      "printed_page": 96,
+      "page": 103,
+      "kind": "body"
+    },
+    {
+      "index": 26,
+      "level": 1,
+      "title": "第六章 熟悉而陌生的力",
+      "printed_page": 100,
+      "page": 107,
+      "kind": "body"
+    },
+    {
+      "index": 27,
+      "level": 2,
+      "title": "第一节 力",
+      "printed_page": 101,
+      "page": 108,
+      "kind": "body"
+    },
+    {
+      "index": 28,
+      "level": 2,
+      "title": "第二节 怎样描述力",
+      "printed_page": 105,
+      "page": 112,
+      "kind": "body"
+    },
+    {
+      "index": 29,
+      "level": 2,
+      "title": "第三节 弹力与弹簧测力计",
+      "printed_page": 108,
+      "page": 115,
+      "kind": "body"
+    },
+    {
+      "index": 30,
+      "level": 2,
+      "title": "第四节 来自地球的力",
+      "printed_page": 111,
+      "page": 118,
+      "kind": "body"
+    },
+    {
+      "index": 31,
+      "level": 2,
+      "title": "第五节 科学探究：摩擦力",
+      "printed_page": 117,
+      "page": 124,
+      "kind": "body"
+    },
+    {
+      "index": 32,
+      "level": 1,
+      "title": "第七章 力与运动",
+      "printed_page": 124,
+      "page": 131,
+      "kind": "body"
+    },
+    {
+      "index": 33,
+      "level": 2,
+      "title": "第一节 科学探究：牛顿第一定律",
+      "printed_page": 125,
+      "page": 132,
+      "kind": "body"
+    },
+    {
+      "index": 34,
+      "level": 2,
+      "title": "第二节 力的合成",
+      "printed_page": 131,
+      "page": 138,
+      "kind": "body"
+    },
+    {
+      "index": 35,
+      "level": 2,
+      "title": "第三节 力的平衡",
+      "printed_page": 135,
+      "page": 142,
+      "kind": "body"
+    },
+    {
+      "index": 36,
+      "level": 1,
+      "title": "第八章 压 强",
+      "printed_page": 141,
+      "page": 148,
+      "kind": "body"
+    },
+    {
+      "index": 37,
+      "level": 2,
+      "title": "第一节 压力的作用效果",
+      "printed_page": 142,
+      "page": 149,
+      "kind": "body"
+    },
+    {
+      "index": 38,
+      "level": 2,
+      "title": "第二节 科学探究：液体的压强",
+      "printed_page": 148,
+      "page": 155,
+      "kind": "body"
+    },
+    {
+      "index": 39,
+      "level": 2,
+      "title": "第三节 空气的“力量”",
+      "printed_page": 156,
+      "page": 163,
+      "kind": "body"
+    },
+    {
+      "index": 40,
+      "level": 2,
+      "title": "第四节 流体压强与流速的关系",
+      "printed_page": 163,
+      "page": 170,
+      "kind": "body"
+    },
+    {
+      "index": 41,
+      "level": 1,
+      "title": "第九章 浮 力",
+      "printed_page": 168,
+      "page": 175,
+      "kind": "body"
+    },
+    {
+      "index": 42,
+      "level": 2,
+      "title": "第一节 认识浮力",
+      "printed_page": 169,
+      "page": 176,
+      "kind": "body"
+    },
+    {
+      "index": 43,
+      "level": 2,
+      "title": "第二节 阿基米德原理",
+      "printed_page": 172,
+      "page": 179,
+      "kind": "body"
+    },
+    {
+      "index": 44,
+      "level": 2,
+      "title": "第三节 物体的浮与沉",
+      "printed_page": 177,
+      "page": 184,
+      "kind": "body"
+    },
+    {
+      "index": 45,
+      "level": 1,
+      "title": "第十章 机械与人",
+      "printed_page": 183,
+      "page": 190,
+      "kind": "body"
+    },
+    {
+      "index": 46,
+      "level": 2,
+      "title": "第一节 科学探究：杠杆的平衡条件",
+      "printed_page": 184,
+      "page": 191,
+      "kind": "body"
+    },
+    {
+      "index": 47,
+      "level": 2,
+      "title": "第二节 滑轮及其应用",
+      "printed_page": 191,
+      "page": 198,
+      "kind": "body"
+    },
+    {
+      "index": 48,
+      "level": 2,
+      "title": "第三节 做功了吗",
+      "printed_page": 195,
+      "page": 202,
+      "kind": "body"
+    },
+    {
+      "index": 49,
+      "level": 2,
+      "title": "第四节 做功的快慢",
+      "printed_page": 199,
+      "page": 206,
+      "kind": "body"
+    },
+    {
+      "index": 50,
+      "level": 2,
+      "title": "第五节 机械效率",
+      "printed_page": 202,
+      "page": 209,
+      "kind": "body"
+    },
+    {
+      "index": 51,
+      "level": 2,
+      "title": "第六节 合理利用机械能",
+      "printed_page": 206,
+      "page": 213,
+      "kind": "body"
+    },
+    {
+      "index": 52,
+      "level": 1,
+      "title": "第十一章 小粒子与大宇宙",
+      "printed_page": 213,
+      "page": 220,
+      "kind": "body"
+    },
+    {
+      "index": 53,
+      "level": 2,
+      "title": "第一节 走进微观",
+      "printed_page": 214,
+      "page": 221,
+      "kind": "body"
+    },
+    {
+      "index": 54,
+      "level": 2,
+      "title": "第二节 看不见的运动",
+      "printed_page": 219,
+      "page": 226,
+      "kind": "body"
+    },
+    {
+      "index": 55,
+      "level": 2,
+      "title": "第三节 探索宇宙",
+      "printed_page": 224,
+      "page": 231,
+      "kind": "body"
+    }
+  ]
+}

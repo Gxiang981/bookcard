@@ -1,0 +1,73 @@
+{
+  "gold": "~/multica_workspaces/gaoxi-home-c18f76d8e502/gaox-471-92674214428b/worktree/bench/tocv/gold/007.json",
+  "gold_entries": 41,
+  "draft_entries": 41,
+  "matched": 41,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "page_exact_rate": 1.0,
+  "page_compared": 37,
+  "level_exact_rate": 0.7805,
+  "toc_pages": {
+    "gold": [
+      6,
+      7
+    ],
+    "draft": [
+      6,
+      7
+    ],
+    "correct": true
+  },
+  "missing": [],
+  "extra": [],
+  "page_mismatch": [],
+  "level_mismatch": [
+    {
+      "title": "实验与探究 填幻方",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 中国人最先使用负数",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "观察与猜想 翻牌游戏中的数学道理",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 数字1与字母X的对话",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "信息技术应用 电子表格与数据计算",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 “方程”史话",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "实验与探究 无限循环小数化分数",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 几何学的起源",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 长度的测量",
+      "gold_level": 2,
+      "draft_level": 3
+    }
+  ]
+}

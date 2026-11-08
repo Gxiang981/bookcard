@@ -1,0 +1,818 @@
+/* ======================================================================
+   Design tokens — Playful Dark, copied from the App's Flutter sources.
+   Each value cites its Dart source.
+   ====================================================================== */
+:root {
+  /* palette.dart · AppPalette.playfulDark */
+  --canvas: #131F24;            /* playfulDark.canvas */
+  --surface: #1A2A31;           /* playfulDark.surface */
+  --surface-sunken: #1F3138;    /* playfulDark.surfaceSunken */
+  --surface-raised: #22343C;    /* playfulDark.surfaceRaised */
+  --scrim: rgba(0,0,0,.6);      /* playfulDark.scrim 0x99000000 */
+  --text-primary: #F1F7FB;      /* playfulDark.textPrimary */
+  --text-secondary: #B4C3CB;    /* playfulDark.textSecondary */
+  --text-tertiary: #8FA3AD;     /* playfulDark.textTertiary */
+  --text-disabled: #52656D;     /* playfulDark.textDisabled */
+  --border-subtle: #2E434C;     /* playfulDark.borderSubtle */
+  --border-strong: #3D5560;     /* playfulDark.borderStrong */
+  --focus-ring: #7AA7FF;        /* playfulDark.focusRing */
+  --ink: #58CC02;               /* playfulDark.ink */
+  --on-ink: #0B1A00;            /* playfulDark.onInk */
+  --ink-shade: #46A302;         /* skin.dart playfulInkShadeDark */
+  --celebrate: #FFC800;         /* playfulDark.celebrate */
+  --celebrate-tint: rgba(255,200,0,.2); /* playfulDark.celebrateTint */
+  /* status = tier fg values reused (playfulDark.danger/warning/success/info) */
+  --danger: #FF7A7A;
+  --warning: #FFAA55;
+  --success: #7DDC3A;
+  --info: #6FB5FF;
+  /* tier colors: palette.dart playfulDark.tiers[0..6] (fg / tint = fg@16% / onSolid #131F24) */
+  --t1: #FF7A7A; --t1-tint: rgba(255,122,122,.16);
+  --t2: #FFAA55; --t2-tint: rgba(255,170,85,.16);
+  --t3: #FFD34D; --t3-tint: rgba(255,211,77,.16);
+  --t4: #7DDC3A; --t4-tint: rgba(125,220,58,.16);
+  --t5: #4FD3E6; --t5-tint: rgba(79,211,230,.16);
+  --t6: #6FB5FF; --t6-tint: rgba(111,181,255,.16);
+  --t7: #C99BFF; --t7-tint: rgba(201,155,255,.16);
+  --on-solid: #131F24;          /* tiers[].onSolid */
+  /* text_scene.dart · keyword highlight band: rgba(255,211,77,.32), 7px */
+  --mark-band: rgba(255,211,77,.32);
+  /* bbox_overlay.dart · fill 0x33F5A623 / stroke 0xFFE8890C 2px */
+  --bbox-fill: rgba(245,166,35,.2);
+  --bbox-stroke: #E8890C;
+  /* rating button bottom edge: skinShade(bg) = lerp(bg, black, .28) — skin_surfaces.dart */
+  --edge-unclear: #B87A3D;      /* shade(#FFAA55) */
+  --edge-forgot:  #B85656;      /* shade(#FF7A7A) */
+  --edge-good:    #569A28;      /* shade(#7DDC3A) */
+  --edge-easy:    #4D7FB2;      /* shade(#6FB5FF) */
+
+  /* tokens.dart · AppSpace2 */
+  --s4: 4px; --s6: 6px; --s8: 8px; --s12: 12px; --s16: 16px;
+  --s20: 20px; --s24: 24px; --s32: 32px;
+  /* tokens.dart · AppRadius */
+  --r4: 4px; --r6: 6px; --r8: 8px; --r12: 12px; --r16: 16px; --r24: 24px;
+  /* skin.dart · playfulShape: card 16 / cardLarge 20 / button 16 / row 12 */
+  --r-card: 20px; --r-button: 16px; --r-row: 12px;
+  /* core/design_tokens.dart · headerHeight = 42, headerIconBox = 28 */
+  --header-h: 42px; --header-icon-box: 28px;
+  /* left_panel: AppColors.leftPanelDefaultWidth = 240 */
+  --panel-w: 240px;
+  /* learn_card_stage.dart · LearnStageMetrics */
+  --card-max-w: 640px;          /* cardMaxWidth */
+  --card-min-h: 260px;          /* cardMinHeight */
+  --card-max-h: 420px;          /* cardMaxHeight */
+  --height-reserve: 220px;      /* heightReserve */
+  --outer-pad: 24px;            /* outerPad */
+  --portrait-pad: 12px;         /* portraitPad () */
+  --card-actions-gap: 28px;     /* kCardBackActionsGap (card_back_scaffold.dart:103) */
+  --action-h: 48px;             /* actionHeight */
+  --rating-gap: 10px;           /* ratingGap */
+  --rating-max-w: 160px;        /* ratingMaxButtonWidth */
+  --history-h: 20px;            /* historyHeight */
+  --history-gap: 10px;          /* historyLineGap */
+  --more-size: 32px;            /* moreSize */
+  /* typography.dart · AppType — system font, no web fonts (spec §0) */
+  --font: "Fredoka", ui-rounded, "SF Pro Rounded", system-ui, -apple-system,
+          "Segoe UI", "PingFang SC", sans-serif;
+  /* skin.dart playfulType: display/label w700, uppercaseButtons, tracking 0.
+     Fredoka is a packaged font — spec says system fallback only, so we keep
+     the weights and drop the family. */
+  --w-label: 700;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--canvas);
+  color: var(--text-primary);
+  font-size: 13px;              /* AppType.body 13/18 */
+  line-height: calc(18/13);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 4px; }
+::selection { background: var(--focus-ring); color: var(--on-solid); }
+.num { font-variant-numeric: tabular-nums; } /* typography.dart tabularFigures */
+
+/* ============================ layout ================================= */
+#app { display: flex; flex-direction: column; height: 100%; }
+#main { flex: 1; display: flex; min-height: 0; }
+#stage { flex: 1; min-width: 0; position: relative; display: flex; flex-direction: column; }
+
+/* ============================ header =================================
+   app_header_bar.dart: height = AppColors.headerHeight (42), bottom
+   hairline borderSubtle. Left: book › section; right: tier pills + position. */
+header {
+  height: var(--header-h);
+  flex: none;
+  display: flex; align-items: center;
+  padding: 0 var(--s12);
+  gap: var(--s12);
+  border-bottom: .5px solid var(--border-subtle);
+  background: var(--canvas);
+  position: relative; z-index: 5;
+}
+.icon-btn {
+  width: var(--header-icon-box); height: var(--header-icon-box);
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--r6); color: var(--text-secondary); flex: none;
+}
+.icon-btn:hover { background: rgba(241,247,251,.08); color: var(--text-primary); }
+/* breadcrumb pill — scope_chip.dart look: rounded bordered capsule,
+   book textSecondary, ›, section bold textPrimary, ⌄ chevron */
+#scope-label {
+  display: inline-flex; align-items: center; gap: 4px; max-width: 40%;
+  padding: 4px 10px; border: .5px solid var(--border-subtle);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 400; color: var(--text-secondary);
+  white-space: nowrap; overflow: hidden; flex: none; cursor: pointer;
+}
+#scope-label:hover { border-color: var(--border-strong); }
+#scope-label .book { overflow: hidden; text-overflow: ellipsis; }
+#scope-label .sep { color: var(--text-tertiary); margin: 0 2px; }
+#scope-label .lib { color: var(--text-primary); font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+#scope-label .caret { color: var(--text-tertiary); font-size: 11px; margin-left: 2px; }
+/* thin vertical divider between breadcrumb and pills (gaox208 golden) */
+.vdiv { width: .5px; height: 20px; background: var(--border-subtle); flex: none; margin: 0 4px; }
+#hdr-mid { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; overflow: hidden; }
+
+/* tier pills — widgets/tier_toggle_bar.dart TierToggleChip:
+   padding 8/4, pill border, dot 7px, label `T1 Due`, count w600 tabular;
+   off = hollow dot + textTertiary + borderSubtle, bg transparent. */
+.tier-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px; line-height: calc(14/11); white-space: nowrap;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-tertiary);
+  background: transparent;
+  flex: none;
+}
+.tier-chip .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  border: 1.2px solid rgba(143,163,173,.55); /* textTertiary @55% */
+  background: transparent; flex: none;
+}
+.tier-chip .cnt { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text-tertiary); }
+.tier-chip.on { color: var(--text-primary); font-weight: 500; }
+.tier-chip.on .dot { border-color: var(--tc); background: var(--tc); }
+.tier-chip.on .cnt { color: var(--tc); }
+.tier-chip.on[data-t="T1"] { --tc: var(--t1); background: var(--t1-tint); border-color: var(--t1); }
+.tier-chip.on[data-t="T2"] { --tc: var(--t2); background: var(--t2-tint); border-color: var(--t2); }
+.tier-chip.on[data-t="T4"] { --tc: var(--t4); background: var(--t4-tint); border-color: var(--t4); }
+.tier-chip.on[data-t="T6"] { --tc: var(--t6); background: var(--t6-tint); border-color: var(--t6); }
+.tier-chip.on[data-t="T7"] { --tc: var(--t7); background: var(--t7-tint); border-color: var(--t7); }
+/* reset — tier_toggle_bar.dart TierResetStyle.icon: 22×22 dashed circle + ↺ */
+.tier-reset {
+  width: 22px; height: 22px; flex: none;
+  border: 1px dashed var(--border-strong); border-radius: 50%;
+  color: var(--text-secondary); font-size: 12px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.tier-reset:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+#position {
+  font-size: 11px; color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums; flex: none; white-space: nowrap;
+}
+
+/* ============================ left panel =============================
+   left_panel.dart: 240 wide, surface bg, right hairline; rows r12,
+   active = textPrimary@8%, text body 13. */
+#panel {
+  width: var(--panel-w); flex: none;
+  background: var(--surface);
+  border-right: .5px solid var(--border-subtle);
+  display: flex; flex-direction: column; min-height: 0;
+}
+/* left_panel.dart _Breadcrumb: h8/v4 + bottom hairline; chevron spaced
+   off the label (also used as drawer header on phone) */
+.crumb {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 12px;
+  border-bottom: .5px solid var(--border-subtle);
+  color: var(--text-secondary); font-size: 13px;
+  cursor: pointer; flex: none;
+}
+.crumb:hover { color: var(--text-primary); }
+.crumb .chev { color: var(--text-tertiary); font-size: 14px; flex: none; }
+.crumb .lbl2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#panel .list { flex: 1; overflow-y: auto; padding: 4px; }
+.row {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 8px; margin: 1px 0;
+  border-radius: var(--r-row);
+  font-size: 13px; color: var(--text-primary);
+  cursor: pointer; white-space: nowrap; overflow: hidden;
+}
+.row:hover { background: rgba(241,247,251,.06); }
+.row.active { background: rgba(241,247,251,.08); font-weight: 600; }
+/* 目录叶子的标签是「父 | 子」的全路径，可能很长 —— 折行显示，
+   截断的话好几行看着一模一样（分不清是哪一条）。 */
+.row .lbl { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+.row.wrap { white-space: normal; align-items: flex-start; }
+.row.wrap .lbl { white-space: normal; overflow: visible; word-break: break-word; }
+.row.wrap .arrow { margin-top: 2px; }
+.row .sub { font-size: 11px; color: var(--text-tertiary); display: block; overflow: hidden; text-overflow: ellipsis; }
+.row .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.row .cnt { font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+.row .arrow { color: var(--text-tertiary); font-size: 12px; }
+.row .tier-badge {
+  height: 18px; min-width: 18px; padding: 0 6px; border-radius: 999px;
+  font-size: 10px; font-weight: 800; line-height: 18px; letter-spacing: .4px;
+  font-variant-numeric: tabular-nums; text-align: center; flex: none;
+}
+
+/* ============================ stage / card ===========================
+   learn_card_stage.dart geometry: card ≤640 wide, h = availH-220 →
+   clamp 260..420, group vertically centered-ish; gap card→actions 28. */
+#stage-inner { flex: 1; display: flex; flex-direction: column; align-items: center; min-height: 0; padding: 0 var(--outer-pad); }
+#card-wrap {
+  width: 100%; max-width: var(--card-max-w);
+  perspective: 1400px;
+  position: relative;
+  flex: none;
+}
+#card3d {
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .4s ease-in-out; /* AppMotion.flip 400ms easeInOut */
+}
+#card3d.flipped { transform: rotateY(180deg); }
+.face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: var(--surface);
+  border: 2px solid var(--border-subtle);       /* skinCardLook chunky: 2px border */
+  border-radius: var(--r-card);                  /* playfulShape.cardLarge = 20 */
+  box-shadow: 0 4px 0 var(--border-subtle);      /* chunky edge: offset(0,4) blur 0 */
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.face.back { transform: rotateY(180deg); cursor: pointer; }
+.face.front { align-items: center; justify-content: center; padding: var(--s24); cursor: pointer; }
+.front-word {
+  font-weight: 700;                /* playfulType.display w700 */
+  letter-spacing: 0;               /* playfulType.displayTracking 0 */
+  line-height: 1.1;                /* flip_card.dart frontTextStyle height 1.1 */
+  color: var(--text-primary);
+  text-align: center;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* TierNumberBadge (core/front_tier.dart): solid tier bg + onSolid text */
+.front-tier {
+  position: absolute; right: 12px; top: 10px;
+  height: 18px; min-width: 18px; padding: 0 6px; border-radius: 999px;
+  font-size: 10px; font-weight: 800; line-height: 18px; letter-spacing: .4px;
+  text-align: center;
+}
+/* gaox195 golden: `Book · Library` centered at the card bottom, tertiary */
+.front-footer {
+  position: absolute; bottom: 10px; left: 16px; right: 16px; text-align: center;
+  font-size: 11px; color: var(--text-tertiary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* card_back_scaffold.dart _head: word = AppType.title 16 w700 + tier badge */
+.back-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.back-head .word {
+  font-size: 16px; font-weight: 700; color: var(--text-primary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.back-head .front-tier { position: static; flex: none; }
+/* card_back_scaffold.dart _WhereYouMetIt: micro 10 w600 ls .8 tertiary */
+.scene-label {
+  font-size: 10px; font-weight: 600; letter-spacing: .8px;
+  color: var(--text-tertiary); margin: 14px 0 6px;
+}
+.back-body { flex: 1; overflow-y: auto; padding: var(--s20); }
+.back-text {
+  font-size: 18px; line-height: 1.5; /* kCardBackBodyLineHeight 1.5 */
+  font-weight: 600; color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+.back-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag-chip {
+  padding: 2px 8px; border-radius: 999px; font-size: 11px;
+  background: var(--surface-sunken); border: .5px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+/* `⋯` menu — learn_card_stage.dart CardMoreMenu: 32×32, icon only,
+   popup: surfaceRaised, r12, border borderSubtle .5, item height 40 body 13. */
+#more-btn {
+  position: absolute; top: 8px; right: 8px; z-index: 3;
+  width: var(--more-size); height: var(--more-size);
+  display: none; align-items: center; justify-content: center;
+  color: var(--text-primary); font-size: 18px; letter-spacing: 1px;
+  border-radius: var(--r6);
+}
+#card-wrap.flipped #more-btn { display: flex; }
+#more-btn:hover { background: rgba(241,247,251,.08); }
+#menu {
+  position: absolute; z-index: 40; min-width: 140px;
+  background: var(--surface-raised);
+  border: .5px solid var(--border-subtle);
+  border-radius: var(--r12);
+  box-shadow: 0 4px 16px rgba(0,0,0,.4); /* AppElevation.e2 dark */
+  padding: 4px 0; display: none;
+}
+#menu.open { display: block; }
+#menu .mi {
+  display: flex; align-items: center; width: 100%;
+  height: 40px; padding: 0 16px;
+  font-size: 13px; color: var(--text-primary); text-align: left;
+}
+#menu .mi:hover { background: rgba(241,247,251,.06); }
+
+/* side page buttons ‹ › */
+.nav-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-tertiary); font-size: 16px;
+  border: .5px solid var(--border-subtle);
+  background: var(--surface);
+}
+.nav-arrow:hover { color: var(--text-primary); border-color: var(--border-strong); }
+#prev-btn { left: 8px; } #next-btn { right: 8px; }
+
+/* ============================ actions ================================
+   LearnActionBar: front = `Show answer` (240w chunky primary);
+   back = 4 keys Unclear/Forgot/Good/Easy, w = min(160,(cardW-30)/4),
+   h 48, r12, 3px bottom edge shade(bg,.28), uppercase w700 12px. */
+#actions { flex: none; padding-bottom: var(--s16); width: 100%; max-width: var(--card-max-w); }
+.actions-row { display: flex; justify-content: center; gap: var(--rating-gap); height: var(--action-h); }
+.btn-ghost {
+  height: var(--action-h); border-radius: var(--r12);
+  padding: 0 18px; font-size: 12px; font-weight: var(--w-label);
+  text-transform: uppercase; letter-spacing: .4px;
+  color: var(--text-secondary); background: transparent;
+  border: 1px solid var(--border-strong); cursor: pointer;
+}
+.btn-ghost:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+.btn-rate {
+  height: var(--action-h); border-radius: var(--r12);
+  font-size: 12px; font-weight: var(--w-label);
+  text-transform: uppercase; letter-spacing: .4px;
+  color: var(--surface);                       /* SkinStatusButton fg = p.surface */
+  display: flex; align-items: center; justify-content: center;
+}
+.btn-rate.r-unclear { background: var(--warning); box-shadow: 0 3px 0 var(--edge-unclear); }
+.btn-rate.r-forgot  { background: var(--danger);  box-shadow: 0 3px 0 var(--edge-forgot); }
+.btn-rate.r-good    { background: var(--success); box-shadow: 0 3px 0 var(--edge-good); }
+.btn-rate.r-easy    { background: var(--info);    box-shadow: 0 3px 0 var(--edge-easy); }
+.btn-rate:active { transform: translateY(3px); box-shadow: none !important; }
+.btn-primary {
+  width: 240px; height: var(--action-h);
+  border-radius: var(--r-button);               /* playfulShape.button 16 */
+  background: var(--ink); color: var(--on-ink);
+  font-size: 19px; font-weight: 800;            /* skin_button chunky: 19 w800 ls .8 */
+  text-transform: uppercase; letter-spacing: .8px;
+  box-shadow: 0 4px 0 var(--ink-shade);         /* chunky edge 4px inkShade */
+}
+.btn-primary:active { transform: translateY(4px); box-shadow: none; }
+.btn-primary:disabled, .btn-rate:disabled { opacity: .38; cursor: default; }
+
+/* history line — CardHistoryRow, BELOW the keys ():
+   gap 10, h 20, caption 11 textTertiary + info icon */
+#history {
+  margin-top: var(--history-gap); height: var(--history-h);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 11px; color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+#history .info { font-size: 12px; }
+
+/* ============================ scene ==================================
+   text_scene.dart: container surfaceSunken + borderSubtle 1px + r12;
+   header row (book · p.N) caption secondary; body 13/20 secondary;
+   highlight = bold + band inset 0 -7px rgba(255,211,77,.32). */
+.scene { margin-top: 16px; border-radius: var(--r12); background: var(--surface-sunken); border: 1px solid var(--border-subtle); overflow: hidden; }
+.scene-head {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 12px; border-bottom: .5px solid var(--border-subtle);
+  font-size: 11px; color: var(--text-tertiary);
+}
+.scene-head .book { font-weight: 600; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.scene-head .page { margin-left: auto; font-variant-numeric: tabular-nums; flex: none; }
+.scene-body { padding: 8px 12px 12px; font-size: 13px; line-height: calc(20/13); color: var(--text-secondary); white-space: pre-wrap; }
+.scene-body mark {
+  background: none; color: var(--text-primary); font-weight: 700;
+  box-shadow: inset 0 -7px 0 var(--mark-band); border-radius: 2px;
+}
+.scene-body .clamp { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.scene-more { font-size: 11px; color: var(--info); cursor: pointer; margin-top: 4px; display: inline-block; }
+.scene-img-wrap { position: relative; cursor: zoom-in; }
+.scene-img-wrap img { display: block; width: 100%; height: auto; }
+.scene-img-wrap .bbox {
+  position: absolute; background: var(--bbox-fill);
+  border: 2px solid var(--bbox-stroke); border-radius: 2px;
+  pointer-events: none;
+}
+
+/* fullscreen image — widgets/image_fullscreen.dart */
+#imgfs {
+  position: fixed; inset: 0; z-index: 100; display: none;
+  background: rgba(0,0,0,.85); align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+#imgfs.open { display: flex; }
+#imgfs .wrap { position: relative; max-width: 92vw; max-height: 92vh; }
+#imgfs img { max-width: 92vw; max-height: 92vh; display: block; }
+#imgfs .bbox { position: absolute; background: var(--bbox-fill); border: 2px solid var(--bbox-stroke); pointer-events: none; }
+
+/* ============================ empty / done ===========================
+   design/state_view.dart AppStateView: badge + headline 20 + body 13. */
+#empty {
+  flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: var(--s24); gap: 0;
+}
+#empty .badge {
+  width: 72px; height: 92px; margin-bottom: var(--s16);
+  background: var(--surface); border: 2px solid var(--border-subtle);
+  border-radius: var(--r16); box-shadow: 0 4px 0 var(--border-subtle);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 34px; color: var(--celebrate);
+}
+#empty h2 { font-size: 20px; font-weight: 600; color: var(--text-primary); line-height: calc(26/20); }
+#empty p { margin-top: 8px; font-size: 13px; color: var(--text-secondary); max-width: 420px; }
+#empty .btn-primary { margin-top: 16px; width: auto; padding: 0 24px; font-size: 16px; }
+
+/* ============================ edit view ==============================
+   card_create/edit_panel.dart: header row, field labels 11 w600
+   (required = danger), field areas surface + borderSubtle .5 + r4,
+   footer hairline + Cancel / Save. */
+#edit { flex: 1; display: none; flex-direction: column; min-height: 0; }
+#edit.open { display: flex; }
+#edit .e-head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-bottom: .5px solid var(--border-subtle);
+  font-size: 13px; font-weight: 600;
+}
+#edit .e-scroll { flex: 1; overflow-y: auto; padding: 16px; display: flex; justify-content: center; }
+#edit .e-form { width: 100%; max-width: 560px; }
+.e-label { font-size: 11px; font-weight: 600; color: var(--text-secondary); margin: 0 0 4px; }
+.e-label.req { color: var(--danger); }
+.e-field {
+  background: var(--surface); border: .5px solid var(--border-subtle);
+  border-radius: var(--r4); padding: 6px 12px; margin-bottom: 12px;
+}
+.e-field:focus-within { border-color: var(--focus-ring); }
+.e-field textarea, .e-field input, .e-field select {
+  width: 100%; background: none; border: none; outline: none; resize: none;
+  color: var(--text-primary); font-family: inherit; font-size: 14px; line-height: 1.4;
+}
+.e-field select { font-size: 13px; }
+.e-field ::placeholder { color: var(--text-tertiary); }
+.e-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.e-chips .chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--surface-sunken); border: .5px solid var(--border-subtle);
+  border-radius: 999px; padding: 2px 8px; font-size: 11px; color: var(--text-primary);
+}
+.e-chips .chip .x { color: var(--text-tertiary); cursor: pointer; font-weight: 700; }
+.e-chips input { flex: 1; min-width: 80px; }
+.e-foot {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-top: .5px solid var(--border-subtle);
+}
+.btn-text { padding: 6px 12px; font-size: 13px; color: var(--text-secondary); border-radius: var(--r6); }
+.btn-text:hover { color: var(--text-primary); background: rgba(241,247,251,.06); }
+.btn-save {
+  height: 40px; padding: 0 20px; border-radius: var(--r-button);
+  background: var(--ink); color: var(--on-ink);
+  font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px;
+  box-shadow: 0 4px 0 var(--ink-shade);
+}
+.btn-save:active { transform: translateY(4px); box-shadow: none; }
+.btn-save:disabled { opacity: .38; }
+.e-err { color: var(--danger); font-size: 11px; margin: -8px 0 12px; min-height: 14px; }
+
+/* ============================ drawer (phone) ========================= */
+#scrim {
+  position: fixed; inset: 0; z-index: 60; background: var(--scrim);
+  opacity: 0; pointer-events: none; transition: opacity .2s ease-out;
+}
+#scrim.open { opacity: 1; pointer-events: auto; }
+#drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 61;
+  width: min(280px, 80vw);
+  transform: translateX(-100%); transition: transform .3s ease-in-out;
+  background: var(--surface); border-right: .5px solid var(--border-subtle);
+  display: flex; flex-direction: column;
+}
+#drawer.open { transform: translateX(0); }
+#drawer-btn { display: none; }
+
+/* toast — core/toast.dart: dark pill, bottom center */
+#toast {
+  position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%) translateY(8px);
+  z-index: 120; background: var(--surface-raised); color: var(--text-primary);
+  border: .5px solid var(--border-subtle); border-radius: 999px;
+  padding: 8px 16px; font-size: 13px; opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s; max-width: 80vw;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ============================ responsive ============================= */
+@media (max-width: 767px) {
+  #panel { display: none; }
+  #drawer-btn { display: inline-flex; }
+  #stage-inner { padding: 0 var(--portrait-pad); }
+  /* phone header (gaox208/phone_browse_off.png): row 1 = ≡ + breadcrumb pill +
+     position; row 2 = tier pills (short format) + dashed ↺ reset */
+  header { height: auto; min-height: var(--header-h); flex-wrap: wrap; padding: 4px var(--s12); row-gap: 4px; }
+  #hdr-mid { flex-basis: 100%; order: 10; }
+  #position { margin-left: auto; }
+  .vdiv { display: none; }            /* divider is desktop-row only */
+  /* phone breadcrumb (gaox208/phone_browse_off.png): section name + ⌄ only */
+  #scope-label { max-width: 70%; }
+  #scope-label .book, #scope-label .sep { display: none; }
+  /* side ‹ › buttons would overlap card content — swipe instead */
+  .nav-arrow { display: none; }
+}
+
+/* ============================ 书视图（读原书） =======================
+   scope = 整本书时，#stage 里换掉卡片区：
+     左上 = 选中页大图（点一下进 #imgfs 全屏层）
+     右上 = 目录（标题 / PDF 页号 / offset 都能直接改）
+     底部 = 全书缩略图条（列数随宽度自适应、‹ › 翻屏、能跳页）
+   高度全部塞进 #stage（flex + min-height:0），不给页面加滚动条。
+   只用上面已经有的设计变量，不引新字体/外部资源。 */
+#bookview {
+  flex: 1; display: none; flex-direction: column; min-height: 0;
+  gap: var(--s12); padding: var(--s12) var(--outer-pad) var(--s12);
+}
+#bookview.on { display: flex; }
+
+/* ---- 左上大图 ---- */
+#bv-top { flex: 1; display: flex; gap: var(--s12); min-height: 0; }
+#bv-page { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; min-height: 0; }
+#bv-pos { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+#bv-print { font-size: 11px; color: var(--text-tertiary); }
+.bv-sp { flex: 1; }
+#bv-canvas {
+  flex: 1; min-height: 0; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-sunken); border: .5px solid var(--border-subtle);
+  border-radius: var(--r12); overflow: hidden;
+}
+/* 图片绝对定位铺满画布再 object-fit: contain ——
+   否则 <img height:100%> 对着一个高度未定的容器会解析成「图片原始高度」，
+   画布被撑到图片那么高，溢出压住下面的缩略图条。 */
+#bv-img {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%;
+  object-fit: contain; cursor: zoom-in;
+  -webkit-user-drag: none; user-select: none;
+}
+#bv-nopages {
+  position: absolute; inset: 0; display: none;
+  flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 4px; padding: var(--s24);
+}
+#bv-nopages.on { display: flex; }
+#bv-nopages .bv-badge {
+  width: 56px; height: 72px; margin-bottom: var(--s8);
+  border: 2px solid var(--border-subtle); border-radius: var(--r12);
+  background: var(--surface); box-shadow: 0 4px 0 var(--border-subtle);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: var(--text-tertiary);
+}
+#bv-nopages h3 { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+#bv-nopages p { font-size: 12px; color: var(--text-tertiary); max-width: 320px; }
+
+/* ---- 右上目录 ---- */
+#bv-toc {
+  flex: 0 0 var(--toc-w, 320px); max-width: 52vw;
+  display: flex; flex-direction: column; min-height: 0;
+  background: var(--surface); border: .5px solid var(--border-subtle);
+  border-radius: var(--r12); overflow: hidden;
+}
+#bv-toc-head {
+  flex: none; display: flex; align-items: center; gap: var(--s8);
+  padding: var(--s8) var(--s12); border-bottom: .5px solid var(--border-subtle);
+}
+#bv-toc-head .bv-toc-h { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+#bv-toc-head .bv-off-l { font-size: 11px; color: var(--text-tertiary); }
+#bv-offset {
+  width: 62px; height: 26px; padding: 0 8px;
+  background: var(--surface-sunken); color: var(--text-primary);
+  border: .5px solid var(--border-subtle); border-radius: var(--r6);
+  font-family: inherit; font-size: 12px; outline: none;
+}
+#bv-offset:focus { border-color: var(--focus-ring); }
+.bv-toc-add {
+  width: 26px; height: 26px; flex: none; border-radius: var(--r6);
+  color: var(--text-secondary); font-size: 14px; line-height: 1;
+  border: .5px solid var(--border-subtle); background: var(--surface-sunken);
+}
+.bv-toc-add:hover { color: var(--text-primary); border-color: var(--border-strong); }
+#bv-toc-hint {
+  flex: none; padding: 5px var(--s12);
+  font-size: 10px; color: var(--text-tertiary);
+  border-bottom: .5px solid var(--border-subtle);
+}
+#bv-toc-list { flex: 1; overflow-y: auto; padding: 4px; }
+.bv-toc-row {
+  display: flex; align-items: center; gap: 6px;
+  padding: 3px 6px; border-radius: var(--r6); min-height: 26px;
+}
+.bv-toc-row:hover { background: rgba(241,247,251,.06); }
+.bv-toc-lvl {
+  flex: none; min-width: 18px; height: 18px; padding: 0 4px;
+  border-radius: var(--r6); background: var(--surface-sunken);
+  border: .5px solid var(--border-subtle); color: var(--text-tertiary);
+  font-size: 10px; font-weight: 700; line-height: 16px;
+}
+.bv-toc-lvl:hover { color: var(--text-primary); }
+.bv-toc-title {
+  flex: 1; min-width: 0; font-size: 12px; color: var(--text-primary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: text;
+}
+.bv-toc-title:hover { color: var(--ink); }
+.bv-toc-page {
+  flex: none; font-size: 11px; color: var(--text-secondary); cursor: text;
+  padding: 1px 4px; border-radius: var(--r4);
+}
+.bv-toc-page:hover { background: var(--surface-sunken); color: var(--ink); }
+.bv-toc-print { flex: none; font-size: 10px; color: var(--text-tertiary); min-width: 46px; text-align: right; }
+.bv-toc-print.editable { cursor: pointer; border-radius: var(--r4); padding: 1px 3px; }
+.bv-toc-print.editable:hover { background: var(--surface-sunken); color: var(--text-secondary); }
+.bv-toc-del {
+  flex: none; width: 18px; height: 18px; border-radius: var(--r4);
+  color: var(--text-tertiary); font-size: 13px; line-height: 1;
+}
+.bv-toc-del:hover { color: var(--danger); background: rgba(255,122,122,.12); }
+.bv-toc-input {
+  flex: 1; min-width: 0; height: 22px; padding: 0 6px;
+  background: var(--surface-sunken); color: var(--text-primary);
+  border: 1px solid var(--focus-ring); border-radius: var(--r4);
+  font-family: inherit; font-size: 12px; outline: none;
+}
+.bv-toc-input.num { flex: none; width: 48px; text-align: right; }
+.bv-toc-empty { padding: var(--s12); font-size: 12px; color: var(--text-tertiary); }
+
+/* ---- 底部缩略图条 ----
+   列数随容器宽度自适应：可见列由 auto-fill 决定，溢出的列（grid-auto-columns）
+   同宽，于是这一条是横向滚的一整行，‹ › 一次翻一屏。 */
+#bv-bottom { flex: none; display: flex; flex-direction: column; gap: var(--s8); padding-top: var(--s8); }
+#bv-strip { flex: none; display: flex; align-items: center; gap: var(--s8); min-width: 0; }
+/* 工具行：当前页 / offset / 跳页码，一行平铺在缩略图下面 */
+#bv-tools {
+  flex: none; display: flex; align-items: center; gap: var(--s8);
+  font-size: 11px; color: var(--text-tertiary);
+}
+#bv-tools #bv-pos { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+#bv-tools #bv-print { font-size: 11px; color: var(--text-tertiary); }
+#bv-tools .bv-off-l { font-size: 11px; color: var(--text-tertiary); }
+#bv-tools #bv-toc-hint {
+  font-size: 11px; color: var(--text-tertiary);
+  padding: 0; border-bottom: none;   /* 原来在目录面板头部，现在在工具行 */
+}
+#bv-tools .bv-jump-l { font-size: 11px; color: var(--text-tertiary); }
+.bv-arrow {
+  flex: none; width: 28px; height: 44px; border-radius: var(--r6);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--text-tertiary); font-size: 18px;
+  border: .5px solid var(--border-subtle); background: var(--surface);
+}
+.bv-arrow:hover { color: var(--text-primary); border-color: var(--border-strong); }
+#bv-thumbs {
+  flex: 1; min-width: 0; position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  grid-auto-columns: minmax(104px, 1fr);
+  grid-auto-flow: column;
+  gap: var(--s8);
+  overflow-x: auto; overflow-y: hidden;
+  padding-bottom: 4px;
+  align-items: stretch;
+}
+.bv-thumb {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  height: 116px; padding: 3px; border-radius: var(--r6);
+  border: 1px solid var(--border-subtle); background: var(--surface);
+  overflow: hidden;
+}
+.bv-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.bv-thumb.on { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.bv-thumb .bv-pn {
+  position: absolute; left: 3px; bottom: 3px;
+  font-size: 9px; line-height: 1; padding: 2px 3px; border-radius: var(--r4);
+  background: rgba(19,31,36,.72); color: var(--text-secondary);
+}
+.bv-thumb.on .bv-pn { background: var(--ink); color: var(--on-ink); font-weight: 700; }
+#bv-jump { flex: none; display: flex; align-items: center; gap: 4px; }
+#bv-jump .bv-jump-l { font-size: 11px; color: var(--text-tertiary); }
+#bv-jump-input {
+  width: 58px; height: 28px; padding: 0 8px;
+  background: var(--surface); color: var(--text-primary);
+  border: .5px solid var(--border-subtle); border-radius: var(--r6);
+  font-family: inherit; font-size: 12px; outline: none;
+}
+#bv-jump-input:focus { border-color: var(--focus-ring); }
+#bv-jump-go {
+  height: 28px; padding: 0 12px; border-radius: var(--r6);
+  background: var(--surface-sunken); border: .5px solid var(--border-subtle);
+  color: var(--text-secondary); font-size: 12px;
+}
+#bv-jump-go:hover { color: var(--text-primary); border-color: var(--border-strong); }
+
+/* 窄屏：目录挪到大图下面，缩略图矮一点。 */
+@media (max-width: 767px) {
+  #bookview { padding: var(--s8) var(--portrait-pad) var(--s8); gap: var(--s8); }
+  #bv-top { flex-direction: column; gap: var(--s8); }
+  #bv-toc { flex: 0 0 42%; max-width: none; }
+  .bv-thumb { height: 84px; }
+  .bv-arrow { height: 36px; width: 24px; }
+  #bv-tools .bv-jump-l { display: none; }
+  #bv-tools #bv-toc-hint { display: none; }
+}
+/* 左栏「读原书」入口 —— 一行直达书视图。 */
+.row.book-entry {
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: .5px solid var(--border-subtle);
+  padding-bottom: var(--s6);
+  margin-bottom: var(--s4);
+}
+.row.book-entry .lbl::before {
+  content: none;
+  margin-right: var(--s6);
+  font-weight: 400;
+}
+.row.book-entry:hover { background: rgba(241,247,251,.08); }
+.row.book-entry.active { background: rgba(241,247,251,.1); }
+
+/* 顶栏书名可点（进读原书视图）—— 给个可点的暗示。 */
+#scope-label .book { cursor: pointer; }
+#scope-label .book:hover { color: var(--text-primary); text-decoration: underline dotted; }
+
+/* 「只有读原书」模式（确认页）：容器和最终页一模一样 —— 左栏照常在，
+   只是还没有卡，左栏列的是目录叶子。抽屉是手机上的那份，仍旧收起来。 */
+body.book-only #drawer-btn,
+body.book-only #drawer,
+body.book-only #scrim { display: none !important; }
+
+
+/* ── 两侧栏可拉伸 ───────────────────────────────────────── */
+.split-v {
+  flex: none; width: 7px; cursor: col-resize; position: relative; z-index: 5;
+  background: transparent; transition: background .12s;
+}
+.split-v::after {
+  content: ''; position: absolute; inset: 0 3px;
+  background: var(--border-subtle); opacity: 0; transition: opacity .12s;
+}
+.split-v:hover::after { opacity: 1; }
+body.resizing { cursor: col-resize; user-select: none; }
+body.resizing .split-v::after { opacity: 1; }
+
+/* ── 标题栏上的书标签（领域 / 水平 / 自由标签） ───────────── */
+#book-tags { display: flex; align-items: center; gap: 6px; flex: none; min-width: 0; }
+.bk-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px; border-radius: 999px;
+  border: .5px solid var(--border-subtle); background: var(--surface-sunken);
+  font-size: 12px; color: var(--text-secondary); white-space: nowrap;
+  max-width: 220px; overflow: hidden; text-overflow: ellipsis;
+}
+.bk-tag .bk-k { color: var(--text-tertiary); }
+.bk-tag .bk-v { color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; }
+.bk-tag .bk-v.bk-empty { color: var(--text-tertiary); }
+.bk-tag.editable { cursor: text; }
+.bk-tag.editable:hover { border-color: var(--border-strong); }
+.bk-tag input, .bk-tag select {
+  background: transparent; border: none; outline: none; color: var(--text-primary);
+  font: inherit; font-size: 12px; max-width: 160px;
+}
+.bk-tag .bk-x { cursor: pointer; color: var(--text-tertiary); font-size: 13px; }
+.bk-tag .bk-x:hover { color: var(--text-primary); }
+.bk-tag-add {
+  width: 22px; height: 22px; border-radius: 999px; cursor: pointer;
+  border: .5px solid var(--border-subtle); background: transparent;
+  color: var(--text-secondary); font-size: 13px; line-height: 1;
+}
+.bk-tag-add:hover { border-color: var(--border-strong); color: var(--text-primary); }
+/* 书名可编辑 */
+#scope-label .book { cursor: text; }
+#scope-label .book:hover { color: var(--text-primary); text-decoration: underline dotted; }
+#scope-label input.bk-title-input {
+  background: transparent; border: none; outline: none; color: var(--text-secondary);
+  font: inherit; font-size: 13px; width: 22em; max-width: 100%;
+}
+
+/* 目录头里的层级选择 */
+.bv-lvl-l { font-size: 11px; color: var(--text-tertiary); }
+#bv-level {
+  height: 24px; padding: 0 6px; font-size: 12px;
+  background: var(--surface-sunken); color: var(--text-primary);
+  border: .5px solid var(--border-subtle); border-radius: var(--r6);
+  outline: none; cursor: pointer;
+}
+#bv-level:hover { border-color: var(--border-strong); }

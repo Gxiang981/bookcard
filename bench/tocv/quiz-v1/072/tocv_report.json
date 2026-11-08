@@ -1,0 +1,147 @@
+{
+  "round": 1,
+  "status": "retry",
+  "submitted_by": "agent:minimax-code:MiniMax-M3.1-Flash",
+  "submitted_at": "2026-11-07T14:41:47+08:00",
+  "toc_pages": [
+    6,
+    7
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "name": "页码",
+      "passed": true,
+      "reason": "C1 通过：10 条条目物理页单调不减，且都在 1–120 页里"
+    },
+    {
+      "id": "C2",
+      "name": "覆盖与粒度",
+      "passed": false,
+      "reason": "判据2 通过：正文第 8–110 页（103 页）被 8 个 section 连续覆盖，无空洞、无重叠；判据4 不通过：0 个 section 不足 3 页、1 个超过 25 页 —— 「5 6~10的认识和加减法」34 页；要换切分粒度"
+    },
+    {
+      "id": "C3",
+      "name": "标题在正文页上",
+      "passed": true,
+      "reason": "C3 通过：10 条 body 条目的标题都在正文页上找到了"
+    },
+    {
+      "id": "C4",
+      "name": "标题在目录页上",
+      "passed": true,
+      "reason": "C4 通过：10 条标题都在目录页（第 6、7 页）上找到了"
+    },
+    {
+      "id": "C5",
+      "name": "层级",
+      "passed": true,
+      "reason": "C5 通过：10 条层级连贯，同级编号连续"
+    },
+    {
+      "id": "C6",
+      "name": "对照（只出报告）",
+      "passed": true,
+      "reason": "C6 对照只出报告，不判失败",
+      "report_only": true
+    }
+  ],
+  "failed_entries": [
+    {
+      "index": null,
+      "title": "5 6~10的认识和加减法",
+      "check": "C2",
+      "reason": "这一节 34 页，不在 3–25 页之间"
+    }
+  ],
+  "comparison": {
+    "rule": null,
+    "bookmarks": null,
+    "skipped": [
+      "扫描件没有现成的 OCR 产物，规则对照跳过（可以用 bookcard text 建工作目录后再比）",
+      "这本书没有书签"
+    ]
+  },
+  "entries": [
+    {
+      "index": 0,
+      "level": 1,
+      "title": "1 准备课",
+      "printed_page": 2,
+      "page": 8,
+      "kind": "body"
+    },
+    {
+      "index": 1,
+      "level": 1,
+      "title": "2 位置",
+      "printed_page": 9,
+      "page": 15,
+      "kind": "body"
+    },
+    {
+      "index": 2,
+      "level": 1,
+      "title": "3 5以内数的认识和加减法",
+      "printed_page": 14,
+      "page": 20,
+      "kind": "body"
+    },
+    {
+      "index": 3,
+      "level": 1,
+      "title": "4 认识图形（一）",
+      "printed_page": 34,
+      "page": 40,
+      "kind": "body"
+    },
+    {
+      "index": 4,
+      "level": 1,
+      "title": "5 6~10的认识和加减法",
+      "printed_page": 39,
+      "page": 45,
+      "kind": "body"
+    },
+    {
+      "index": 5,
+      "level": 1,
+      "title": "6 11~20各数的认识",
+      "printed_page": 73,
+      "page": 79,
+      "kind": "body"
+    },
+    {
+      "index": 6,
+      "level": 1,
+      "title": "数学乐园",
+      "printed_page": 82,
+      "page": 88,
+      "kind": "body"
+    },
+    {
+      "index": 7,
+      "level": 1,
+      "title": "7 认识钟表",
+      "printed_page": 84,
+      "page": 90,
+      "kind": "body"
+    },
+    {
+      "index": 8,
+      "level": 1,
+      "title": "8 20以内的进位加法",
+      "printed_page": 88,
+      "page": 94,
+      "kind": "body"
+    },
+    {
+      "index": 9,
+      "level": 1,
+      "title": "9 总复习",
+      "printed_page": 104,
+      "page": 110,
+      "kind": "body"
+    }
+  ]
+}

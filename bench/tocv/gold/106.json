@@ -1,0 +1,372 @@
+{
+ "pool_index": 106,
+ "source_pdf": "106.pdf",
+ "page_count": 154,
+ "toc_pages": [
+  4,
+  5,
+  6
+ ],
+ "offsets": [
+  {
+   "from_printed": 1,
+   "offset": 7
+  }
+ ],
+ "entries": [
+  {
+   "level": 1,
+   "title": "第一单元",
+   "printed_page": 1,
+   "physical_page": 8
+  },
+  {
+   "level": 2,
+   "title": "1 沁园春·长沙",
+   "printed_page": 2,
+   "physical_page": 9
+  },
+  {
+   "level": 2,
+   "title": "2 立在地球边上放号",
+   "printed_page": 4,
+   "physical_page": 11
+  },
+  {
+   "level": 2,
+   "title": "红烛",
+   "printed_page": 4,
+   "physical_page": 11
+  },
+  {
+   "level": 2,
+   "title": "峨日朵雪峰之侧",
+   "printed_page": 6,
+   "physical_page": 13
+  },
+  {
+   "level": 2,
+   "title": "致云雀",
+   "printed_page": 7,
+   "physical_page": 14
+  },
+  {
+   "level": 2,
+   "title": "3 百合花",
+   "printed_page": 12,
+   "physical_page": 19
+  },
+  {
+   "level": 2,
+   "title": "哦，香雪",
+   "printed_page": 19,
+   "physical_page": 26
+  },
+  {
+   "level": 2,
+   "title": "单元学习任务",
+   "printed_page": 29,
+   "physical_page": 36
+  },
+  {
+   "level": 1,
+   "title": "第二单元",
+   "printed_page": 31,
+   "physical_page": 38
+  },
+  {
+   "level": 2,
+   "title": "4 喜看稻菽千重浪——记首届国家最高科技奖获得者袁隆平",
+   "printed_page": 32,
+   "physical_page": 39
+  },
+  {
+   "level": 2,
+   "title": "心有一团火，温暖众人心",
+   "printed_page": 38,
+   "physical_page": 45
+  },
+  {
+   "level": 2,
+   "title": "“探界者”钟扬",
+   "printed_page": 43,
+   "physical_page": 50
+  },
+  {
+   "level": 2,
+   "title": "5 以工匠精神雕琢时代品质",
+   "printed_page": 51,
+   "physical_page": 58
+  },
+  {
+   "level": 2,
+   "title": "6 芣苢",
+   "printed_page": 53,
+   "physical_page": 60
+  },
+  {
+   "level": 2,
+   "title": "插秧歌",
+   "printed_page": 53,
+   "physical_page": 60
+  },
+  {
+   "level": 2,
+   "title": "单元学习任务",
+   "printed_page": 55,
+   "physical_page": 62
+  },
+  {
+   "level": 1,
+   "title": "第三单元",
+   "printed_page": 57,
+   "physical_page": 64
+  },
+  {
+   "level": 2,
+   "title": "7 短歌行",
+   "printed_page": 58,
+   "physical_page": 65
+  },
+  {
+   "level": 2,
+   "title": "归园田居（其一）",
+   "printed_page": 59,
+   "physical_page": 66
+  },
+  {
+   "level": 2,
+   "title": "8 梦游天姥吟留别",
+   "printed_page": 60,
+   "physical_page": 67
+  },
+  {
+   "level": 2,
+   "title": "登高",
+   "printed_page": 61,
+   "physical_page": 68
+  },
+  {
+   "level": 2,
+   "title": "琵琶行并序",
+   "printed_page": 62,
+   "physical_page": 69
+  },
+  {
+   "level": 2,
+   "title": "9 念奴娇·赤壁怀古",
+   "printed_page": 65,
+   "physical_page": 72
+  },
+  {
+   "level": 2,
+   "title": "永遇乐·京口北固亭怀古",
+   "printed_page": 66,
+   "physical_page": 73
+  },
+  {
+   "level": 2,
+   "title": "声声慢（寻寻觅觅）",
+   "printed_page": 67,
+   "physical_page": 74
+  },
+  {
+   "level": 2,
+   "title": "单元学习任务",
+   "printed_page": 69,
+   "physical_page": 76
+  },
+  {
+   "level": 1,
+   "title": "第四单元 家乡文化生活",
+   "printed_page": 71,
+   "physical_page": 78
+  },
+  {
+   "level": 2,
+   "title": "学习活动",
+   "printed_page": null,
+   "physical_page": null
+  },
+  {
+   "level": 3,
+   "title": "一 记录家乡的人和物",
+   "printed_page": 72,
+   "physical_page": 79
+  },
+  {
+   "level": 3,
+   "title": "二 家乡文化生活现状调查",
+   "printed_page": 73,
+   "physical_page": 80
+  },
+  {
+   "level": 3,
+   "title": "三 参与家乡文化建设",
+   "printed_page": 74,
+   "physical_page": 81
+  },
+  {
+   "level": 1,
+   "title": "第五单元 整本书阅读",
+   "printed_page": 79,
+   "physical_page": 86
+  },
+  {
+   "level": 2,
+   "title": "《乡土中国》",
+   "printed_page": 80,
+   "physical_page": 87
+  },
+  {
+   "level": 1,
+   "title": "第六单元",
+   "printed_page": 83,
+   "physical_page": 90
+  },
+  {
+   "level": 2,
+   "title": "10 劝学",
+   "printed_page": 84,
+   "physical_page": 91
+  },
+  {
+   "level": 2,
+   "title": "师说",
+   "printed_page": 85,
+   "physical_page": 92
+  },
+  {
+   "level": 2,
+   "title": "11 反对党八股（节选）",
+   "printed_page": 88,
+   "physical_page": 95
+  },
+  {
+   "level": 2,
+   "title": "12 拿来主义",
+   "printed_page": 94,
+   "physical_page": 101
+  },
+  {
+   "level": 2,
+   "title": "13 读书：目的和前提",
+   "printed_page": 97,
+   "physical_page": 104
+  },
+  {
+   "level": 2,
+   "title": "上图书馆",
+   "printed_page": 100,
+   "physical_page": 107
+  },
+  {
+   "level": 2,
+   "title": "单元学习任务",
+   "printed_page": 103,
+   "physical_page": 110
+  },
+  {
+   "level": 1,
+   "title": "第七单元",
+   "printed_page": 105,
+   "physical_page": 112
+  },
+  {
+   "level": 2,
+   "title": "14 故都的秋",
+   "printed_page": 106,
+   "physical_page": 113
+  },
+  {
+   "level": 2,
+   "title": "荷塘月色",
+   "printed_page": 109,
+   "physical_page": 116
+  },
+  {
+   "level": 2,
+   "title": "15 我与地坛（节选）",
+   "printed_page": 112,
+   "physical_page": 119
+  },
+  {
+   "level": 2,
+   "title": "16 赤壁赋",
+   "printed_page": 118,
+   "physical_page": 125
+  },
+  {
+   "level": 2,
+   "title": "登泰山记",
+   "printed_page": 120,
+   "physical_page": 127
+  },
+  {
+   "level": 2,
+   "title": "单元学习任务",
+   "printed_page": 123,
+   "physical_page": 130
+  },
+  {
+   "level": 1,
+   "title": "第八单元 词语积累与词语解释",
+   "printed_page": 125,
+   "physical_page": 132
+  },
+  {
+   "level": 2,
+   "title": "学习活动",
+   "printed_page": null,
+   "physical_page": null
+  },
+  {
+   "level": 3,
+   "title": "一 丰富词语积累",
+   "printed_page": 126,
+   "physical_page": 133
+  },
+  {
+   "level": 3,
+   "title": "二 把握古今词义的联系与区别",
+   "printed_page": 127,
+   "physical_page": 134
+  },
+  {
+   "level": 3,
+   "title": "三 词义的辨析和词语的使用",
+   "printed_page": 128,
+   "physical_page": 135
+  },
+  {
+   "level": 1,
+   "title": "古诗词诵读",
+   "printed_page": 139,
+   "physical_page": 146
+  },
+  {
+   "level": 2,
+   "title": "静女",
+   "printed_page": 139,
+   "physical_page": 146
+  },
+  {
+   "level": 2,
+   "title": "涉江采芙蓉",
+   "printed_page": 140,
+   "physical_page": 147
+  },
+  {
+   "level": 2,
+   "title": "虞美人（春花秋月何时了）",
+   "printed_page": 141,
+   "physical_page": 148
+  },
+  {
+   "level": 2,
+   "title": "鹊桥仙（纤云弄巧）",
+   "printed_page": 142,
+   "physical_page": 149
+  }
+ ]
+}

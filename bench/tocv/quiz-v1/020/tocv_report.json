@@ -1,0 +1,466 @@
+{
+  "round": 1,
+  "status": "ok",
+  "submitted_by": "agent:minimax-code:MiniMax-M3.1-Flash",
+  "submitted_at": "2026-11-07T09:26:53+08:00",
+  "toc_pages": [
+    4,
+    5,
+    6
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "name": "页码",
+      "passed": true,
+      "reason": "C1 通过：50 条条目物理页单调不减，且都在 1–191 页里"
+    },
+    {
+      "id": "C2",
+      "name": "覆盖与粒度",
+      "passed": true,
+      "reason": "判据2 通过：正文第 8–189 页（182 页）被 38 个 section 连续覆盖，无空洞、无重叠；判据4 通过：38 个 section 都在 3–25 页之间（最短 3 页，最长 8 页）（2 个不足 3 页的短节已并入相邻节：「第2节 欧姆定律 / 第3节 电阻的测量」5 页；「第4节 能源与可持续发展 / 索引」5 页）"
+    },
+    {
+      "id": "C3",
+      "name": "标题在正文页上",
+      "passed": true,
+      "reason": "C3 通过：49 条 body 条目的标题都在正文页上找到了"
+    },
+    {
+      "id": "C4",
+      "name": "标题在目录页上",
+      "passed": true,
+      "reason": "C4 通过：50 条标题都在目录页（第 4、5、6 页）上找到了"
+    },
+    {
+      "id": "C5",
+      "name": "层级",
+      "passed": true,
+      "reason": "C5 通过：50 条层级连贯，同级编号连续"
+    },
+    {
+      "id": "C6",
+      "name": "对照（只出报告）",
+      "passed": true,
+      "reason": "C6 对照只出报告，不判失败",
+      "report_only": true
+    }
+  ],
+  "failed_entries": [],
+  "comparison": {
+    "rule": {
+      "source": "printed",
+      "entries": 50,
+      "missing": [],
+      "extra": [],
+      "page_mismatch": []
+    },
+    "bookmarks": null,
+    "skipped": [
+      "这本书没有书签"
+    ]
+  },
+  "entries": [
+    {
+      "index": 0,
+      "level": 1,
+      "title": "第十三章 内能",
+      "printed_page": 1,
+      "page": 8,
+      "kind": "body"
+    },
+    {
+      "index": 1,
+      "level": 2,
+      "title": "第1节 分子热运动",
+      "printed_page": 2,
+      "page": 9,
+      "kind": "body"
+    },
+    {
+      "index": 2,
+      "level": 2,
+      "title": "第2节 内能",
+      "printed_page": 7,
+      "page": 14,
+      "kind": "body"
+    },
+    {
+      "index": 3,
+      "level": 2,
+      "title": "第3节 比热容",
+      "printed_page": 11,
+      "page": 18,
+      "kind": "body"
+    },
+    {
+      "index": 4,
+      "level": 1,
+      "title": "第十四章 内能的利用",
+      "printed_page": 16,
+      "page": 23,
+      "kind": "body"
+    },
+    {
+      "index": 5,
+      "level": 2,
+      "title": "第1节 热机",
+      "printed_page": 17,
+      "page": 24,
+      "kind": "body"
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "第2节 热机的效率",
+      "printed_page": 22,
+      "page": 29,
+      "kind": "body"
+    },
+    {
+      "index": 7,
+      "level": 2,
+      "title": "第3节 能量的转化和守恒",
+      "printed_page": 27,
+      "page": 34,
+      "kind": "body"
+    },
+    {
+      "index": 8,
+      "level": 1,
+      "title": "第十五章 电流和电路",
+      "printed_page": 31,
+      "page": 38,
+      "kind": "body"
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "第1节 两种电荷",
+      "printed_page": 32,
+      "page": 39,
+      "kind": "body"
+    },
+    {
+      "index": 10,
+      "level": 2,
+      "title": "第2节 电流和电路",
+      "printed_page": 36,
+      "page": 43,
+      "kind": "body"
+    },
+    {
+      "index": 11,
+      "level": 2,
+      "title": "第3节 串联和并联",
+      "printed_page": 41,
+      "page": 48,
+      "kind": "body"
+    },
+    {
+      "index": 12,
+      "level": 2,
+      "title": "第4节 电流的测量",
+      "printed_page": 45,
+      "page": 52,
+      "kind": "body"
+    },
+    {
+      "index": 13,
+      "level": 2,
+      "title": "第5节 串、并联电路中电流的规律",
+      "printed_page": 49,
+      "page": 56,
+      "kind": "body"
+    },
+    {
+      "index": 14,
+      "level": 1,
+      "title": "第十六章 电压 电阻",
+      "printed_page": 54,
+      "page": 61,
+      "kind": "body"
+    },
+    {
+      "index": 15,
+      "level": 2,
+      "title": "第1节 电压",
+      "printed_page": 55,
+      "page": 62,
+      "kind": "body"
+    },
+    {
+      "index": 16,
+      "level": 2,
+      "title": "第2节 串、并联电路中电压的规律",
+      "printed_page": 60,
+      "page": 67,
+      "kind": "body"
+    },
+    {
+      "index": 17,
+      "level": 2,
+      "title": "第3节 电阻",
+      "printed_page": 63,
+      "page": 70,
+      "kind": "body"
+    },
+    {
+      "index": 18,
+      "level": 2,
+      "title": "第4节 变阻器",
+      "printed_page": 68,
+      "page": 75,
+      "kind": "body"
+    },
+    {
+      "index": 19,
+      "level": 1,
+      "title": "第十七章 欧姆定律",
+      "printed_page": 73,
+      "page": 80,
+      "kind": "body"
+    },
+    {
+      "index": 20,
+      "level": 2,
+      "title": "第1节 电流与电压和电阻的关系",
+      "printed_page": 74,
+      "page": 81,
+      "kind": "body"
+    },
+    {
+      "index": 21,
+      "level": 2,
+      "title": "第2节 欧姆定律",
+      "printed_page": 78,
+      "page": 85,
+      "kind": "body"
+    },
+    {
+      "index": 22,
+      "level": 2,
+      "title": "第3节 电阻的测量",
+      "printed_page": 80,
+      "page": 87,
+      "kind": "body"
+    },
+    {
+      "index": 23,
+      "level": 2,
+      "title": "* 第4节 欧姆定律在串、并联电路中的应用",
+      "printed_page": 83,
+      "page": 90,
+      "kind": "body"
+    },
+    {
+      "index": 24,
+      "level": 1,
+      "title": "第十八章 电功率",
+      "printed_page": 86,
+      "page": 93,
+      "kind": "body"
+    },
+    {
+      "index": 25,
+      "level": 2,
+      "title": "第1节 电能 电功",
+      "printed_page": 87,
+      "page": 94,
+      "kind": "body"
+    },
+    {
+      "index": 26,
+      "level": 2,
+      "title": "第2节 电功率",
+      "printed_page": 91,
+      "page": 98,
+      "kind": "body"
+    },
+    {
+      "index": 27,
+      "level": 2,
+      "title": "第3节 测量小灯泡的电功率",
+      "printed_page": 96,
+      "page": 103,
+      "kind": "body"
+    },
+    {
+      "index": 28,
+      "level": 2,
+      "title": "第4节 焦耳定律",
+      "printed_page": 99,
+      "page": 106,
+      "kind": "body"
+    },
+    {
+      "index": 29,
+      "level": 1,
+      "title": "第十九章 生活用电",
+      "printed_page": 104,
+      "page": 111,
+      "kind": "body"
+    },
+    {
+      "index": 30,
+      "level": 2,
+      "title": "第1节 家庭电路",
+      "printed_page": 105,
+      "page": 112,
+      "kind": "body"
+    },
+    {
+      "index": 31,
+      "level": 2,
+      "title": "第2节 家庭电路中电流过大的原因",
+      "printed_page": 109,
+      "page": 116,
+      "kind": "body"
+    },
+    {
+      "index": 32,
+      "level": 2,
+      "title": "第3节 安全用电",
+      "printed_page": 113,
+      "page": 120,
+      "kind": "body"
+    },
+    {
+      "index": 33,
+      "level": 1,
+      "title": "第二十章 电与磁",
+      "printed_page": 118,
+      "page": 125,
+      "kind": "body"
+    },
+    {
+      "index": 34,
+      "level": 2,
+      "title": "第1节 磁现象 磁场",
+      "printed_page": 119,
+      "page": 126,
+      "kind": "body"
+    },
+    {
+      "index": 35,
+      "level": 2,
+      "title": "第2节 电生磁",
+      "printed_page": 124,
+      "page": 131,
+      "kind": "body"
+    },
+    {
+      "index": 36,
+      "level": 2,
+      "title": "第3节 电磁铁 电磁继电器",
+      "printed_page": 129,
+      "page": 136,
+      "kind": "body"
+    },
+    {
+      "index": 37,
+      "level": 2,
+      "title": "第4节 电动机",
+      "printed_page": 133,
+      "page": 140,
+      "kind": "body"
+    },
+    {
+      "index": 38,
+      "level": 2,
+      "title": "第5节 磁生电",
+      "printed_page": 138,
+      "page": 145,
+      "kind": "body"
+    },
+    {
+      "index": 39,
+      "level": 1,
+      "title": "第二十一章 信息的传递",
+      "printed_page": 144,
+      "page": 151,
+      "kind": "body"
+    },
+    {
+      "index": 40,
+      "level": 2,
+      "title": "第1节 现代顺风耳——电话",
+      "printed_page": 145,
+      "page": 152,
+      "kind": "body"
+    },
+    {
+      "index": 41,
+      "level": 2,
+      "title": "第2节 电磁波的海洋",
+      "printed_page": 150,
+      "page": 157,
+      "kind": "body"
+    },
+    {
+      "index": 42,
+      "level": 2,
+      "title": "第3节 广播、电视和移动通信",
+      "printed_page": 154,
+      "page": 161,
+      "kind": "body"
+    },
+    {
+      "index": 43,
+      "level": 2,
+      "title": "第4节 越来越宽的信息之路",
+      "printed_page": 158,
+      "page": 165,
+      "kind": "body"
+    },
+    {
+      "index": 44,
+      "level": 1,
+      "title": "第二十二章 能源与可持续发展",
+      "printed_page": 165,
+      "page": 172,
+      "kind": "body"
+    },
+    {
+      "index": 45,
+      "level": 2,
+      "title": "第1节 能源",
+      "printed_page": 166,
+      "page": 173,
+      "kind": "body"
+    },
+    {
+      "index": 46,
+      "level": 2,
+      "title": "第2节 核能",
+      "printed_page": 170,
+      "page": 177,
+      "kind": "body"
+    },
+    {
+      "index": 47,
+      "level": 2,
+      "title": "第3节 太阳能",
+      "printed_page": 174,
+      "page": 181,
+      "kind": "body"
+    },
+    {
+      "index": 48,
+      "level": 2,
+      "title": "第4节 能源与可持续发展",
+      "printed_page": 178,
+      "page": 185,
+      "kind": "body"
+    },
+    {
+      "index": 49,
+      "level": 1,
+      "title": "索引",
+      "printed_page": 182,
+      "page": 189,
+      "kind": "appendix"
+    }
+  ]
+}

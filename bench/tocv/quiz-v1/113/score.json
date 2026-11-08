@@ -1,0 +1,93 @@
+{
+  "gold": "~/multica_workspaces/gaoxi-home-c18f76d8e502/gaox-471-92674214428b/worktree/bench/tocv/gold/113.json",
+  "gold_entries": 49,
+  "draft_entries": 49,
+  "matched": 49,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "page_exact_rate": 1.0,
+  "page_compared": 49,
+  "level_exact_rate": 0.7347,
+  "toc_pages": {
+    "gold": [
+      5,
+      6
+    ],
+    "draft": [
+      5,
+      6
+    ],
+    "correct": true
+  },
+  "missing": [],
+  "extra": [],
+  "page_mismatch": [],
+  "level_mismatch": [
+    {
+      "title": "阅读与思考 向量及向量符号的由来",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 海伦和秦九韶",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 代数基本定理",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "探究与发现 1 的 n 次方根",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 画法几何与蒙日",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "探究与发现 祖暅原理与柱体、锥体的体积",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 欧几里得《原本》与公理化方法",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "文献阅读与数学写作* 几何学的发展",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 如何得到敏感性问题的诚实反应",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "信息技术应用 统计软件的应用",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 统计学在军事中的应用——二战时德国坦克总量的估计问题",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 大数据",
+      "gold_level": 2,
+      "draft_level": 3
+    },
+    {
+      "title": "阅读与思考 孟德尔遗传规律",
+      "gold_level": 2,
+      "draft_level": 3
+    }
+  ]
+}

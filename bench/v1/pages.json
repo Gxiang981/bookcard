@@ -1,0 +1,854 @@
+{
+ "version": "bench-v1",
+ "rules": "docs/bench-v1.md",
+ "quota_per_book": {
+  "toc": 1,
+  "exercise": 4,
+  "notes": 3,
+  "body": 22
+ },
+ "books": [
+  {
+   "fp": "4ecda441f6d4a48a1c721cce61bcf768dd011f83",
+   "fp12": "4ecda441f6d4",
+   "title": "人教版·普通高中教科书 历史 必修 中外历史纲要 上",
+   "pages": [
+    {
+     "page": 4,
+     "stratum": "toc",
+     "kind": "toc",
+     "text_sha1": "27a456743ad5ea0bbe7c9c8794fe52838410c755",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0004"
+     ]
+    },
+    {
+     "page": 8,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "5979cf13458d2c16727090a598ca594242064f3e",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0008"
+     ]
+    },
+    {
+     "page": 18,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "c68cc679f7923a28f10f32130cfe0cc4edb6e4aa",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0018"
+     ]
+    },
+    {
+     "page": 26,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "5a52e52e1aaaeac4c6ba12905e89d044efa063d6",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0026"
+     ]
+    },
+    {
+     "page": 29,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "ee654bed9bca0341a0f55d3dfcd1e37e5ae8a1be",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0029"
+     ]
+    },
+    {
+     "page": 31,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "40f3d1336b95d47a63589e7f85a63609e8241a2c",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0031"
+     ]
+    },
+    {
+     "page": 38,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "b5b1e938c7e84e41b625201d1d2ec9f874354117",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0038"
+     ]
+    },
+    {
+     "page": 41,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "d954e9f9e3df7097cd47a60ac65cf7e328a8636a",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0041"
+     ]
+    },
+    {
+     "page": 50,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "6464749631cb74019ee3df927ee6468c390578be",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0050"
+     ]
+    },
+    {
+     "page": 59,
+     "stratum": "notes",
+     "kind": "body",
+     "text_sha1": "ed36d3d05eb6e1a0338030838397d1be3a208d1c",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0059"
+     ]
+    },
+    {
+     "page": 63,
+     "stratum": "notes",
+     "kind": "body",
+     "text_sha1": "1215af43af446ecc67efc4ac9b75c2716db7d1e0",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0063"
+     ]
+    },
+    {
+     "page": 67,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "82066af3861ba943da904465ec5846cb3797a14e",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0067"
+     ]
+    },
+    {
+     "page": 73,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "072a65e24472c5055a40b99e5719c7e4e192339d",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0073"
+     ]
+    },
+    {
+     "page": 81,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "d4d8f3a811e8d97894c712b40eec008426484ee9",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0081"
+     ]
+    },
+    {
+     "page": 91,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "e55c4b218cb9e36b008d3fe755326bd608d2a2bd",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0091"
+     ]
+    },
+    {
+     "page": 102,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "40f76535147c034a12cd28caafd4bd3ec6ec4e17",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0102"
+     ]
+    },
+    {
+     "page": 104,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "43e50c9d7f6f3edd62f59996da2dacac8a6ae3fe",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0104"
+     ]
+    },
+    {
+     "page": 112,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "32d0f56c6083134a9e6c6562c643a8e3aa443a6d",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0112"
+     ]
+    },
+    {
+     "page": 121,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "104cdb8fda405905b502c131c61457daa336ba76",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0121"
+     ]
+    },
+    {
+     "page": 125,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "6606c324adcf989f94b0b703e6bfc9396a3853d7",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0125"
+     ]
+    },
+    {
+     "page": 130,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "6a4d6c086d1f2e64921b8d871b4d792be59fff21",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0130"
+     ]
+    },
+    {
+     "page": 134,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "133c9337823c9a2a59bd29217faaed8318ac9889",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0134"
+     ]
+    },
+    {
+     "page": 143,
+     "stratum": "notes",
+     "kind": "body",
+     "text_sha1": "95914e2224bc52df79c5601d62d1533d39c4e145",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0143"
+     ]
+    },
+    {
+     "page": 146,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "60721540926482d546d99364573fb20042f62718",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0146"
+     ]
+    },
+    {
+     "page": 148,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "f540a4548d7d4ba67515f378022e40d8526b036a",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0148"
+     ]
+    },
+    {
+     "page": 157,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "db9af9ae6e4ff1134a436ce0bea025173d9ddecf",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0157"
+     ]
+    },
+    {
+     "page": 169,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "365fcc6cb089cce471102cbae9ad12679bc18d3e",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0169"
+     ]
+    },
+    {
+     "page": 171,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "a0f52e4f5daf1a325d49bd136e40fa623fb267a4",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0171"
+     ]
+    },
+    {
+     "page": 183,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "9476ff19ca30037514e223dee52cf64431d2ead4",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0183"
+     ]
+    },
+    {
+     "page": 190,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "754dae8d8e87e66445cbf53a9a99118e3e34a8bd",
+     "seg_ids": [
+      "book:4ecda441f6d4:p0190"
+     ]
+    }
+   ]
+  },
+  {
+   "fp": "2f3e20c2e34d96f94d5b64b92947e11088d24d87",
+   "fp12": "2f3e20c2e34d",
+   "title": "义务教育教科书 物理 九年级 全册",
+   "pages": [
+    {
+     "page": 4,
+     "stratum": "toc",
+     "kind": "toc",
+     "text_sha1": "b8e01e91a9a34d4a612b817b6f624d30a97abe9d",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0004"
+     ]
+    },
+    {
+     "page": 10,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "a4c2bc241ed00b8e250e16668e570fee828bfd85",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0010"
+     ]
+    },
+    {
+     "page": 13,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "3efc273865439b593a66e2b0c8ae32e255421035",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0013"
+     ]
+    },
+    {
+     "page": 22,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "71733e165a26b2a644939dca801e62032d93c0a2",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0022"
+     ]
+    },
+    {
+     "page": 25,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "eafaa58c3c5500963e39c40c8b66b85c51b9693a",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0025"
+     ]
+    },
+    {
+     "page": 30,
+     "stratum": "notes",
+     "kind": "body",
+     "text_sha1": "cb18d4e56cc4723a4f8bdd5a1a46732799b22bf5",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0030"
+     ]
+    },
+    {
+     "page": 34,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "5a7a6f0edc57b4930f764085f1c852d5d43c1ed1",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0034"
+     ]
+    },
+    {
+     "page": 41,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "73d5cb582e8c572994bf0c57c8e96a66cc8b942c",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0041"
+     ]
+    },
+    {
+     "page": 45,
+     "stratum": "notes",
+     "kind": "body",
+     "text_sha1": "76f3b9d4455cf0c0d6385ba4a76cd3eddbd7ded1",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0045"
+     ]
+    },
+    {
+     "page": 54,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "11b97fb3ab9ceeb420ec6923f1309fe27d12499e",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0054"
+     ]
+    },
+    {
+     "page": 62,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "26d5ad34de3eb342381ed6e902169d766a34f830",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0062"
+     ]
+    },
+    {
+     "page": 63,
+     "stratum": "notes",
+     "kind": "body",
+     "text_sha1": "2756e1361b193f5855530d62a4033afb03833afc",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0063"
+     ]
+    },
+    {
+     "page": 76,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "fa4f7f161ceb5c10497e25c7564d57aaae000f59",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0076"
+     ]
+    },
+    {
+     "page": 85,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "455ce0bdd7f1acf41123f68210f722b86c41e6f7",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0085"
+     ]
+    },
+    {
+     "page": 86,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "050c3788ec4e044b3b7d83c1f9f936446818082b",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0086"
+     ]
+    },
+    {
+     "page": 89,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "187fbf8582f7bfad7bac2eead443560236ff5f88",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0089"
+     ]
+    },
+    {
+     "page": 98,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "9e16906d6bf256e299bd56dd3c5c78f6f84d9383",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0098"
+     ]
+    },
+    {
+     "page": 102,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "f73be1bc414976c7436b754c974b0d0e2f05ac9b",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0102"
+     ]
+    },
+    {
+     "page": 103,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "370a3ab074fd08fd11d9e61364fff06262fef00d",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0103"
+     ]
+    },
+    {
+     "page": 118,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "cab5401632abf2182efba90a36a45927f99f7607",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0118"
+     ]
+    },
+    {
+     "page": 124,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "c32ea9380ff237b496b23bbe3ce09f9c8298a019",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0124"
+     ]
+    },
+    {
+     "page": 128,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "9e28590c659ac001432e9a552d140c86d5d21523",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0128"
+     ]
+    },
+    {
+     "page": 138,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "2a7b66cd34181b2866fd6667fcd7754060ac3d89",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0138"
+     ]
+    },
+    {
+     "page": 146,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "6efbdb0e2a70a1fffb9acc108079bbcc51ddae1b",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0146"
+     ]
+    },
+    {
+     "page": 148,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "31e0e3984c99722411e54b71d6a65da65ecb5e54",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0148"
+     ]
+    },
+    {
+     "page": 149,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "080e42d2c8d9ec2af56871ca158429b843114627",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0149"
+     ]
+    },
+    {
+     "page": 162,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "24086172a9bbaeb62732c56e7eea7c76c54d4c90",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0162"
+     ]
+    },
+    {
+     "page": 171,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "ebde456f9765e3af0271fd0f06a74ba2665c3517",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0171"
+     ]
+    },
+    {
+     "page": 177,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "64157b829fcfacc270f2ed6c4fde7d81b5ad4f02",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0177"
+     ]
+    },
+    {
+     "page": 185,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "e314c1eadd5fb35a93686907158bd7d2e5f8ef31",
+     "seg_ids": [
+      "book:2f3e20c2e34d:p0185"
+     ]
+    }
+   ]
+  },
+  {
+   "fp": "dc221b94f843ae741b27735d5bfca0549cac3d6d",
+   "fp12": "dc221b94f843",
+   "title": "义务教育教科书 英语 七年级 上册",
+   "pages": [
+    {
+     "page": 10,
+     "stratum": "toc",
+     "kind": "toc",
+     "text_sha1": "736c31efc6782495bdc4225f117725a2e5f0b2d9",
+     "seg_ids": [
+      "book:dc221b94f843:p0010"
+     ]
+    },
+    {
+     "page": 16,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "025bd0ce45391b39e80f6c64edadabfe81398c98",
+     "seg_ids": [
+      "book:dc221b94f843:p0016"
+     ]
+    },
+    {
+     "page": 22,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "eee61ddbb8bdbf46328e3292412e2563415ccb71",
+     "seg_ids": [
+      "book:dc221b94f843:p0022"
+     ]
+    },
+    {
+     "page": 23,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "e9cac0ae793b8b30ad55dbe9a54e3b608c50b780",
+     "seg_ids": [
+      "book:dc221b94f843:p0023"
+     ]
+    },
+    {
+     "page": 28,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "77579f9b26062f07f0bdf9a553c8263a7918fa63",
+     "seg_ids": [
+      "book:dc221b94f843:p0028c2",
+      "book:dc221b94f843:p0028c1"
+     ]
+    },
+    {
+     "page": 33,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "8abceebad39f705d243d52c2fc44b839df9a3116",
+     "seg_ids": [
+      "book:dc221b94f843:p0033c2",
+      "book:dc221b94f843:p0033c1"
+     ]
+    },
+    {
+     "page": 36,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "b7b2f5d759c981873d85797c89198d523c510f6a",
+     "seg_ids": [
+      "book:dc221b94f843:p0036c1",
+      "book:dc221b94f843:p0036c2"
+     ]
+    },
+    {
+     "page": 41,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "f23ae07531ca0abb0161bf59d4466db34bdc2fd3",
+     "seg_ids": [
+      "book:dc221b94f843:p0041c2",
+      "book:dc221b94f843:p0041c1"
+     ]
+    },
+    {
+     "page": 45,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "20a304ab4499c0dde27b2cff40a8db892c406a0c",
+     "seg_ids": [
+      "book:dc221b94f843:p0045c1",
+      "book:dc221b94f843:p0045c2"
+     ]
+    },
+    {
+     "page": 51,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "019ee98887a3018249dc8c289248f5f6a3bd8eaa",
+     "seg_ids": [
+      "book:dc221b94f843:p0051"
+     ]
+    },
+    {
+     "page": 54,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "eb91a9f4c6d92d2aacf30f0817a5d130c08dbccd",
+     "seg_ids": [
+      "book:dc221b94f843:p0054"
+     ]
+    },
+    {
+     "page": 56,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "7488ca178ffe73ff647b71b7299ed9b1da7c6f73",
+     "seg_ids": [
+      "book:dc221b94f843:p0056"
+     ]
+    },
+    {
+     "page": 64,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "401cc0ddb65b20051fdd606a68e3412f6a9c8706",
+     "seg_ids": [
+      "book:dc221b94f843:p0064"
+     ]
+    },
+    {
+     "page": 65,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "c527365968b65a48ba7f15de892521791586a382",
+     "seg_ids": [
+      "book:dc221b94f843:p0065c2",
+      "book:dc221b94f843:p0065c1"
+     ]
+    },
+    {
+     "page": 71,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "53dfe62103699bafc25beef2b1193ee665ac816a",
+     "seg_ids": [
+      "book:dc221b94f843:p0071"
+     ]
+    },
+    {
+     "page": 79,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "be8a27743195a8bb19686d10fb2b0575ed59b4e0",
+     "seg_ids": [
+      "book:dc221b94f843:p0079"
+     ]
+    },
+    {
+     "page": 80,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "be6677477009366ffe30b48046919d29a1bb106e",
+     "seg_ids": [
+      "book:dc221b94f843:p0080"
+     ]
+    },
+    {
+     "page": 87,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "90c850e0550068773ddbf91a0d0b0ec9597ac9ee",
+     "seg_ids": [
+      "book:dc221b94f843:p0087"
+     ]
+    },
+    {
+     "page": 90,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "abe337630613394249af069a3144f60dc46150a8",
+     "seg_ids": [
+      "book:dc221b94f843:p0090c2",
+      "book:dc221b94f843:p0090c1"
+     ]
+    },
+    {
+     "page": 99,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "c873ff96ef0bb02a31d0abe2e848ffd6564fb76f",
+     "seg_ids": [
+      "book:dc221b94f843:p0099"
+     ]
+    },
+    {
+     "page": 102,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "265374c8aa26b41d8c84aad214142afa1b3afc02",
+     "seg_ids": [
+      "book:dc221b94f843:p0102"
+     ]
+    },
+    {
+     "page": 103,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "fb2412ce8518aed31c2d683eef42c4ce8b88004c",
+     "seg_ids": [
+      "book:dc221b94f843:p0103"
+     ]
+    },
+    {
+     "page": 109,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "cfa17a569240ba1449471aa6f7d671cb73aa432d",
+     "seg_ids": [
+      "book:dc221b94f843:p0109c2",
+      "book:dc221b94f843:p0109c1"
+     ]
+    },
+    {
+     "page": 110,
+     "stratum": "exercise",
+     "kind": "body",
+     "text_sha1": "d56ca6c62265754dbc660ece893b43c0ff47f41e",
+     "seg_ids": [
+      "book:dc221b94f843:p0110"
+     ]
+    },
+    {
+     "page": 111,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "89466040dee810c776ca33516b4a8f83dd3848da",
+     "seg_ids": [
+      "book:dc221b94f843:p0111"
+     ]
+    },
+    {
+     "page": 117,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "71d467db554ed59ee4a61007be8fd94d06c954da",
+     "seg_ids": [
+      "book:dc221b94f843:p0117"
+     ]
+    },
+    {
+     "page": 121,
+     "stratum": "body",
+     "kind": "body",
+     "text_sha1": "c92fe75f57beae1e4dde9e15438c418ff22a1f70",
+     "seg_ids": [
+      "book:dc221b94f843:p0121c1",
+      "book:dc221b94f843:p0121c2"
+     ]
+    },
+    {
+     "page": 137,
+     "stratum": "notes",
+     "kind": "appendix",
+     "text_sha1": "41dcd8a0cc53a98c80f37fd02bcf848b6d81a28f",
+     "seg_ids": [
+      "book:dc221b94f843:p0137"
+     ]
+    },
+    {
+     "page": 139,
+     "stratum": "notes",
+     "kind": "appendix",
+     "text_sha1": "64bd5279043123db09dc01c3515986f0c98f5f9b",
+     "seg_ids": [
+      "book:dc221b94f843:p0139c2",
+      "book:dc221b94f843:p0139c1"
+     ]
+    },
+    {
+     "page": 141,
+     "stratum": "notes",
+     "kind": "appendix",
+     "text_sha1": "fe89f991146e6d25c9a2bb0af48eb79095441c7f",
+     "seg_ids": [
+      "book:dc221b94f843:p0141c2",
+      "book:dc221b94f843:p0141c1"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookCard · Browse</title>
+<style>
+/* ======================================================================
+   Design tokens — Playful Dark, copied from the App's Flutter sources.
+   Each value cites its Dart source.
+   ====================================================================== */
+:root {
+  /* palette.dart · AppPalette.playfulDark */
+  --canvas: #131F24;            /* playfulDark.canvas */
+  --surface: #1A2A31;           /* playfulDark.surface */
+  --surface-sunken: #1F3138;    /* playfulDark.surfaceSunken */
+  --surface-raised: #22343C;    /* playfulDark.surfaceRaised */
+  --scrim: rgba(0,0,0,.6);      /* playfulDark.scrim 0x99000000 */
+  --text-primary: #F1F7FB;      /* playfulDark.textPrimary */
+  --text-secondary: #B4C3CB;    /* playfulDark.textSecondary */
+  --text-tertiary: #8FA3AD;     /* playfulDark.textTertiary */
+  --text-disabled: #52656D;     /* playfulDark.textDisabled */
+  --border-subtle: #2E434C;     /* playfulDark.borderSubtle */
+  --border-strong: #3D5560;     /* playfulDark.borderStrong */
+  --focus-ring: #7AA7FF;        /* playfulDark.focusRing */
+  --ink: #58CC02;               /* playfulDark.ink */
+  --on-ink: #0B1A00;            /* playfulDark.onInk */
+  --ink-shade: #46A302;         /* skin.dart playfulInkShadeDark */
+  --celebrate: #FFC800;         /* playfulDark.celebrate */
+  --celebrate-tint: rgba(255,200,0,.2); /* playfulDark.celebrateTint */
+  /* status = tier fg values reused (playfulDark.danger/warning/success/info) */
+  --danger: #FF7A7A;
+  --warning: #FFAA55;
+  --success: #7DDC3A;
+  --info: #6FB5FF;
+  /* tier colors: palette.dart playfulDark.tiers[0..6] (fg / tint = fg@16% / onSolid #131F24) */
+  --t1: #FF7A7A; --t1-tint: rgba(255,122,122,.16);
+  --t2: #FFAA55; --t2-tint: rgba(255,170,85,.16);
+  --t3: #FFD34D; --t3-tint: rgba(255,211,77,.16);
+  --t4: #7DDC3A; --t4-tint: rgba(125,220,58,.16);
+  --t5: #4FD3E6; --t5-tint: rgba(79,211,230,.16);
+  --t6: #6FB5FF; --t6-tint: rgba(111,181,255,.16);
+  --t7: #C99BFF; --t7-tint: rgba(201,155,255,.16);
+  --on-solid: #131F24;          /* tiers[].onSolid */
+  /* text_scene.dart · keyword highlight band: rgba(255,211,77,.32), 7px */
+  --mark-band: rgba(255,211,77,.32);
+  /* bbox_overlay.dart · fill 0x33F5A623 / stroke 0xFFE8890C 2px */
+  --bbox-fill: rgba(245,166,35,.2);
+  --bbox-stroke: #E8890C;
+  /* rating button bottom edge: skinShade(bg) = lerp(bg, black, .28) — skin_surfaces.dart */
+  --edge-unclear: #B87A3D;      /* shade(#FFAA55) */
+  --edge-forgot:  #B85656;      /* shade(#FF7A7A) */
+  --edge-good:    #569A28;      /* shade(#7DDC3A) */
+  --edge-easy:    #4D7FB2;      /* shade(#6FB5FF) */
+
+  /* tokens.dart · AppSpace2 */
+  --s4: 4px; --s6: 6px; --s8: 8px; --s12: 12px; --s16: 16px;
+  --s20: 20px; --s24: 24px; --s32: 32px;
+  /* tokens.dart · AppRadius */
+  --r4: 4px; --r6: 6px; --r8: 8px; --r12: 12px; --r16: 16px; --r24: 24px;
+  /* skin.dart · playfulShape: card 16 / cardLarge 20 / button 16 / row 12 */
+  --r-card: 20px; --r-button: 16px; --r-row: 12px;
+  /* core/design_tokens.dart · headerHeight = 42, headerIconBox = 28 */
+  --header-h: 42px; --header-icon-box: 28px;
+  /* left_panel: AppColors.leftPanelDefaultWidth = 240 */
+  --panel-w: 240px;
+  /* learn_card_stage.dart · LearnStageMetrics */
+  --card-max-w: 640px;          /* cardMaxWidth */
+  --card-min-h: 260px;          /* cardMinHeight */
+  --card-max-h: 420px;          /* cardMaxHeight */
+  --height-reserve: 220px;      /* heightReserve */
+  --outer-pad: 24px;            /* outerPad */
+  --portrait-pad: 12px;         /* portraitPad () */
+  --card-actions-gap: 28px;     /* kCardBackActionsGap (card_back_scaffold.dart:103) */
+  --action-h: 48px;             /* actionHeight */
+  --rating-gap: 10px;           /* ratingGap */
+  --rating-max-w: 160px;        /* ratingMaxButtonWidth */
+  --history-h: 20px;            /* historyHeight */
+  --history-gap: 10px;          /* historyLineGap */
+  --more-size: 32px;            /* moreSize */
+  /* typography.dart · AppType — system font, no web fonts (spec §0) */
+  --font: "Fredoka", ui-rounded, "SF Pro Rounded", system-ui, -apple-system,
+          "Segoe UI", "PingFang SC", sans-serif;
+  /* skin.dart playfulType: display/label w700, uppercaseButtons, tracking 0.
+     Fredoka is a packaged font — spec says system fallback only, so we keep
+     the weights and drop the family. */
+  --w-label: 700;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--canvas);
+  color: var(--text-primary);
+  font-size: 13px;              /* AppType.body 13/18 */
+  line-height: calc(18/13);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 4px; }
+::selection { background: var(--focus-ring); color: var(--on-solid); }
+.num { font-variant-numeric: tabular-nums; } /* typography.dart tabularFigures */
+
+/* ============================ layout ================================= */
+#app { display: flex; flex-direction: column; height: 100%; }
+#main { flex: 1; display: flex; min-height: 0; }
+#stage { flex: 1; min-width: 0; position: relative; display: flex; flex-direction: column; }
+
+/* ============================ header =================================
+   app_header_bar.dart: height = AppColors.headerHeight (42), bottom
+   hairline borderSubtle. Left: book › section; right: tier pills + position. */
+header {
+  height: var(--header-h);
+  flex: none;
+  display: flex; align-items: center;
+  padding: 0 var(--s12);
+  gap: var(--s12);
+  border-bottom: .5px solid var(--border-subtle);
+  background: var(--canvas);
+  position: relative; z-index: 5;
+}
+.icon-btn {
+  width: var(--header-icon-box); height: var(--header-icon-box);
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--r6); color: var(--text-secondary); flex: none;
+}
+.icon-btn:hover { background: rgba(241,247,251,.08); color: var(--text-primary); }
+/* breadcrumb pill — scope_chip.dart look: rounded bordered capsule,
+   book textSecondary, ›, section bold textPrimary, ⌄ chevron */
+#scope-label {
+  display: inline-flex; align-items: center; gap: 4px; max-width: 40%;
+  padding: 4px 10px; border: .5px solid var(--border-subtle);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 400; color: var(--text-secondary);
+  white-space: nowrap; overflow: hidden; flex: none; cursor: pointer;
+}
+#scope-label:hover { border-color: var(--border-strong); }
+#scope-label .book { overflow: hidden; text-overflow: ellipsis; }
+#scope-label .sep { color: var(--text-tertiary); margin: 0 2px; }
+#scope-label .lib { color: var(--text-primary); font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+#scope-label .caret { color: var(--text-tertiary); font-size: 11px; margin-left: 2px; }
+/* thin vertical divider between breadcrumb and pills (gaox208 golden) */
+.vdiv { width: .5px; height: 20px; background: var(--border-subtle); flex: none; margin: 0 4px; }
+#hdr-mid { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; overflow: hidden; }
+
+/* tier pills — widgets/tier_toggle_bar.dart TierToggleChip:
+   padding 8/4, pill border, dot 7px, label `T1 Due`, count w600 tabular;
+   off = hollow dot + textTertiary + borderSubtle, bg transparent. */
+.tier-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px; line-height: calc(14/11); white-space: nowrap;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-tertiary);
+  background: transparent;
+  flex: none;
+}
+.tier-chip .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  border: 1.2px solid rgba(143,163,173,.55); /* textTertiary @55% */
+  background: transparent; flex: none;
+}
+.tier-chip .cnt { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text-tertiary); }
+.tier-chip.on { color: var(--text-primary); font-weight: 500; }
+.tier-chip.on .dot { border-color: var(--tc); background: var(--tc); }
+.tier-chip.on .cnt { color: var(--tc); }
+.tier-chip.on[data-t="T1"] { --tc: var(--t1); background: var(--t1-tint); border-color: var(--t1); }
+.tier-chip.on[data-t="T2"] { --tc: var(--t2); background: var(--t2-tint); border-color: var(--t2); }
+.tier-chip.on[data-t="T4"] { --tc: var(--t4); background: var(--t4-tint); border-color: var(--t4); }
+.tier-chip.on[data-t="T6"] { --tc: var(--t6); background: var(--t6-tint); border-color: var(--t6); }
+.tier-chip.on[data-t="T7"] { --tc: var(--t7); background: var(--t7-tint); border-color: var(--t7); }
+/* reset — tier_toggle_bar.dart TierResetStyle.icon: 22×22 dashed circle + ↺ */
+.tier-reset {
+  width: 22px; height: 22px; flex: none;
+  border: 1px dashed var(--border-strong); border-radius: 50%;
+  color: var(--text-secondary); font-size: 12px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.tier-reset:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+#position {
+  font-size: 11px; color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums; flex: none; white-space: nowrap;
+}
+
+/* ============================ left panel =============================
+   left_panel.dart: 240 wide, surface bg, right hairline; rows r12,
+   active = textPrimary@8%, text body 13. */
+#panel {
+  width: var(--panel-w); flex: none;
+  background: var(--surface);
+  border-right: .5px solid var(--border-subtle);
+  display: flex; flex-direction: column; min-height: 0;
+}
+/* left_panel.dart _Breadcrumb: h8/v4 + bottom hairline; chevron spaced
+   off the label (also used as drawer header on phone) */
+.crumb {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 12px;
+  border-bottom: .5px solid var(--border-subtle);
+  color: var(--text-secondary); font-size: 13px;
+  cursor: pointer; flex: none;
+}
+.crumb:hover { color: var(--text-primary); }
+.crumb .chev { color: var(--text-tertiary); font-size: 14px; flex: none; }
+.crumb .lbl2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#panel .list { flex: 1; overflow-y: auto; padding: 4px; }
+.row {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 8px; margin: 1px 0;
+  border-radius: var(--r-row);
+  font-size: 13px; color: var(--text-primary);
+  cursor: pointer; white-space: nowrap; overflow: hidden;
+}
+.row:hover { background: rgba(241,247,251,.06); }
+.row.active { background: rgba(241,247,251,.08); font-weight: 600; }
+.row .lbl { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+.row .sub { font-size: 11px; color: var(--text-tertiary); display: block; overflow: hidden; text-overflow: ellipsis; }
+.row .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.row .cnt { font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+.row .arrow { color: var(--text-tertiary); font-size: 12px; }
+.row .tier-badge {
+  height: 18px; min-width: 18px; padding: 0 6px; border-radius: 999px;
+  font-size: 10px; font-weight: 800; line-height: 18px; letter-spacing: .4px;
+  font-variant-numeric: tabular-nums; text-align: center; flex: none;
+}
+
+/* ============================ stage / card ===========================
+   learn_card_stage.dart geometry: card ≤640 wide, h = availH-220 →
+   clamp 260..420, group vertically centered-ish; gap card→actions 28. */
+#stage-inner { flex: 1; display: flex; flex-direction: column; align-items: center; min-height: 0; padding: 0 var(--outer-pad); }
+#card-wrap {
+  width: 100%; max-width: var(--card-max-w);
+  perspective: 1400px;
+  position: relative;
+  flex: none;
+}
+#card3d {
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .4s ease-in-out; /* AppMotion.flip 400ms easeInOut */
+}
+#card3d.flipped { transform: rotateY(180deg); }
+.face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: var(--surface);
+  border: 2px solid var(--border-subtle);       /* skinCardLook chunky: 2px border */
+  border-radius: var(--r-card);                  /* playfulShape.cardLarge = 20 */
+  box-shadow: 0 4px 0 var(--border-subtle);      /* chunky edge: offset(0,4) blur 0 */
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.face.back { transform: rotateY(180deg); }
+.face.front { align-items: center; justify-content: center; padding: var(--s24); cursor: pointer; }
+.front-word {
+  font-weight: 700;                /* playfulType.display w700 */
+  letter-spacing: 0;               /* playfulType.displayTracking 0 */
+  line-height: 1.1;                /* flip_card.dart frontTextStyle height 1.1 */
+  color: var(--text-primary);
+  text-align: center;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* TierNumberBadge (core/front_tier.dart): solid tier bg + onSolid text */
+.front-tier {
+  position: absolute; right: 12px; top: 10px;
+  height: 18px; min-width: 18px; padding: 0 6px; border-radius: 999px;
+  font-size: 10px; font-weight: 800; line-height: 18px; letter-spacing: .4px;
+  text-align: center;
+}
+/* gaox195 golden: `Book · Library` centered at the card bottom, tertiary */
+.front-footer {
+  position: absolute; bottom: 10px; left: 16px; right: 16px; text-align: center;
+  font-size: 11px; color: var(--text-tertiary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* card_back_scaffold.dart _head: word = AppType.title 16 w700 + tier badge */
+.back-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.back-head .word {
+  font-size: 16px; font-weight: 700; color: var(--text-primary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.back-head .front-tier { position: static; flex: none; }
+/* card_back_scaffold.dart _WhereYouMetIt: micro 10 w600 ls .8 tertiary */
+.scene-label {
+  font-size: 10px; font-weight: 600; letter-spacing: .8px;
+  color: var(--text-tertiary); margin: 14px 0 6px;
+}
+.back-body { flex: 1; overflow-y: auto; padding: var(--s20); }
+.back-text {
+  font-size: 18px; line-height: 1.5; /* kCardBackBodyLineHeight 1.5 */
+  font-weight: 600; color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+.back-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag-chip {
+  padding: 2px 8px; border-radius: 999px; font-size: 11px;
+  background: var(--surface-sunken); border: .5px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+/* `⋯` menu — learn_card_stage.dart CardMoreMenu: 32×32, icon only,
+   popup: surfaceRaised, r12, border borderSubtle .5, item height 40 body 13. */
+#more-btn {
+  position: absolute; top: 8px; right: 8px; z-index: 3;
+  width: var(--more-size); height: var(--more-size);
+  display: none; align-items: center; justify-content: center;
+  color: var(--text-primary); font-size: 18px; letter-spacing: 1px;
+  border-radius: var(--r6);
+}
+#card-wrap.flipped #more-btn { display: flex; }
+#more-btn:hover { background: rgba(241,247,251,.08); }
+#menu {
+  position: absolute; z-index: 40; min-width: 140px;
+  background: var(--surface-raised);
+  border: .5px solid var(--border-subtle);
+  border-radius: var(--r12);
+  box-shadow: 0 4px 16px rgba(0,0,0,.4); /* AppElevation.e2 dark */
+  padding: 4px 0; display: none;
+}
+#menu.open { display: block; }
+#menu .mi {
+  display: flex; align-items: center; width: 100%;
+  height: 40px; padding: 0 16px;
+  font-size: 13px; color: var(--text-primary); text-align: left;
+}
+#menu .mi:hover { background: rgba(241,247,251,.06); }
+
+/* side page buttons ‹ › */
+.nav-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-tertiary); font-size: 16px;
+  border: .5px solid var(--border-subtle);
+  background: var(--surface);
+}
+.nav-arrow:hover { color: var(--text-primary); border-color: var(--border-strong); }
+#prev-btn { left: 8px; } #next-btn { right: 8px; }
+
+/* ============================ actions ================================
+   LearnActionBar: front = `Show answer` (240w chunky primary);
+   back = 4 keys Unclear/Forgot/Good/Easy, w = min(160,(cardW-30)/4),
+   h 48, r12, 3px bottom edge shade(bg,.28), uppercase w700 12px. */
+#actions { flex: none; padding-bottom: var(--s16); width: 100%; max-width: var(--card-max-w); }
+.actions-row { display: flex; justify-content: center; gap: var(--rating-gap); height: var(--action-h); }
+.btn-rate {
+  height: var(--action-h); border-radius: var(--r12);
+  font-size: 12px; font-weight: var(--w-label);
+  text-transform: uppercase; letter-spacing: .4px;
+  color: var(--surface);                       /* SkinStatusButton fg = p.surface */
+  display: flex; align-items: center; justify-content: center;
+}
+.btn-rate.r-unclear { background: var(--warning); box-shadow: 0 3px 0 var(--edge-unclear); }
+.btn-rate.r-forgot  { background: var(--danger);  box-shadow: 0 3px 0 var(--edge-forgot); }
+.btn-rate.r-good    { background: var(--success); box-shadow: 0 3px 0 var(--edge-good); }
+.btn-rate.r-easy    { background: var(--info);    box-shadow: 0 3px 0 var(--edge-easy); }
+.btn-rate:active { transform: translateY(3px); box-shadow: none !important; }
+.btn-primary {
+  width: 240px; height: var(--action-h);
+  border-radius: var(--r-button);               /* playfulShape.button 16 */
+  background: var(--ink); color: var(--on-ink);
+  font-size: 19px; font-weight: 800;            /* skin_button chunky: 19 w800 ls .8 */
+  text-transform: uppercase; letter-spacing: .8px;
+  box-shadow: 0 4px 0 var(--ink-shade);         /* chunky edge 4px inkShade */
+}
+.btn-primary:active { transform: translateY(4px); box-shadow: none; }
+.btn-primary:disabled, .btn-rate:disabled { opacity: .38; cursor: default; }
+
+/* history line — CardHistoryRow, BELOW the keys ():
+   gap 10, h 20, caption 11 textTertiary + info icon */
+#history {
+  margin-top: var(--history-gap); height: var(--history-h);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 11px; color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+#history .info { font-size: 12px; }
+
+/* ============================ scene ==================================
+   text_scene.dart: container surfaceSunken + borderSubtle 1px + r12;
+   header row (book · p.N) caption secondary; body 13/20 secondary;
+   highlight = bold + band inset 0 -7px rgba(255,211,77,.32). */
+.scene { margin-top: 16px; border-radius: var(--r12); background: var(--surface-sunken); border: 1px solid var(--border-subtle); overflow: hidden; }
+.scene-head {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 12px; border-bottom: .5px solid var(--border-subtle);
+  font-size: 11px; color: var(--text-tertiary);
+}
+.scene-head .book { font-weight: 600; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.scene-head .page { margin-left: auto; font-variant-numeric: tabular-nums; flex: none; }
+.scene-body { padding: 8px 12px 12px; font-size: 13px; line-height: calc(20/13); color: var(--text-secondary); white-space: pre-wrap; }
+.scene-body mark {
+  background: none; color: var(--text-primary); font-weight: 700;
+  box-shadow: inset 0 -7px 0 var(--mark-band); border-radius: 2px;
+}
+.scene-body .clamp { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.scene-more { font-size: 11px; color: var(--info); cursor: pointer; margin-top: 4px; display: inline-block; }
+.scene-img-wrap { position: relative; cursor: zoom-in; }
+.scene-img-wrap img { display: block; width: 100%; height: auto; }
+.scene-img-wrap .bbox {
+  position: absolute; background: var(--bbox-fill);
+  border: 2px solid var(--bbox-stroke); border-radius: 2px;
+  pointer-events: none;
+}
+
+/* fullscreen image — widgets/image_fullscreen.dart */
+#imgfs {
+  position: fixed; inset: 0; z-index: 100; display: none;
+  background: rgba(0,0,0,.85); align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+#imgfs.open { display: flex; }
+#imgfs .wrap { position: relative; max-width: 92vw; max-height: 92vh; }
+#imgfs img { max-width: 92vw; max-height: 92vh; display: block; }
+#imgfs .bbox { position: absolute; background: var(--bbox-fill); border: 2px solid var(--bbox-stroke); pointer-events: none; }
+
+/* ============================ empty / done ===========================
+   design/state_view.dart AppStateView: badge + headline 20 + body 13. */
+#empty {
+  flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: var(--s24); gap: 0;
+}
+#empty .badge {
+  width: 72px; height: 92px; margin-bottom: var(--s16);
+  background: var(--surface); border: 2px solid var(--border-subtle);
+  border-radius: var(--r16); box-shadow: 0 4px 0 var(--border-subtle);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 34px; color: var(--celebrate);
+}
+#empty h2 { font-size: 20px; font-weight: 600; color: var(--text-primary); line-height: calc(26/20); }
+#empty p { margin-top: 8px; font-size: 13px; color: var(--text-secondary); max-width: 420px; }
+#empty .btn-primary { margin-top: 16px; width: auto; padding: 0 24px; font-size: 16px; }
+
+/* ============================ edit view ==============================
+   card_create/edit_panel.dart: header row, field labels 11 w600
+   (required = danger), field areas surface + borderSubtle .5 + r4,
+   footer hairline + Cancel / Save. */
+#edit { flex: 1; display: none; flex-direction: column; min-height: 0; }
+#edit.open { display: flex; }
+#edit .e-head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-bottom: .5px solid var(--border-subtle);
+  font-size: 13px; font-weight: 600;
+}
+#edit .e-scroll { flex: 1; overflow-y: auto; padding: 16px; display: flex; justify-content: center; }
+#edit .e-form { width: 100%; max-width: 560px; }
+.e-label { font-size: 11px; font-weight: 600; color: var(--text-secondary); margin: 0 0 4px; }
+.e-label.req { color: var(--danger); }
+.e-field {
+  background: var(--surface); border: .5px solid var(--border-subtle);
+  border-radius: var(--r4); padding: 6px 12px; margin-bottom: 12px;
+}
+.e-field:focus-within { border-color: var(--focus-ring); }
+.e-field textarea, .e-field input, .e-field select {
+  width: 100%; background: none; border: none; outline: none; resize: none;
+  color: var(--text-primary); font-family: inherit; font-size: 14px; line-height: 1.4;
+}
+.e-field select { font-size: 13px; }
+.e-field ::placeholder { color: var(--text-tertiary); }
+.e-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.e-chips .chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--surface-sunken); border: .5px solid var(--border-subtle);
+  border-radius: 999px; padding: 2px 8px; font-size: 11px; color: var(--text-primary);
+}
+.e-chips .chip .x { color: var(--text-tertiary); cursor: pointer; font-weight: 700; }
+.e-chips input { flex: 1; min-width: 80px; }
+.e-foot {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-top: .5px solid var(--border-subtle);
+}
+.btn-text { padding: 6px 12px; font-size: 13px; color: var(--text-secondary); border-radius: var(--r6); }
+.btn-text:hover { color: var(--text-primary); background: rgba(241,247,251,.06); }
+.btn-save {
+  height: 40px; padding: 0 20px; border-radius: var(--r-button);
+  background: var(--ink); color: var(--on-ink);
+  font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px;
+  box-shadow: 0 4px 0 var(--ink-shade);
+}
+.btn-save:active { transform: translateY(4px); box-shadow: none; }
+.btn-save:disabled { opacity: .38; }
+.e-err { color: var(--danger); font-size: 11px; margin: -8px 0 12px; min-height: 14px; }
+
+/* ============================ drawer (phone) ========================= */
+#scrim {
+  position: fixed; inset: 0; z-index: 60; background: var(--scrim);
+  opacity: 0; pointer-events: none; transition: opacity .2s ease-out;
+}
+#scrim.open { opacity: 1; pointer-events: auto; }
+#drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 61;
+  width: min(280px, 80vw);
+  transform: translateX(-100%); transition: transform .3s ease-in-out;
+  background: var(--surface); border-right: .5px solid var(--border-subtle);
+  display: flex; flex-direction: column;
+}
+#drawer.open { transform: translateX(0); }
+#drawer-btn { display: none; }
+
+/* toast — core/toast.dart: dark pill, bottom center */
+#toast {
+  position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%) translateY(8px);
+  z-index: 120; background: var(--surface-raised); color: var(--text-primary);
+  border: .5px solid var(--border-subtle); border-radius: 999px;
+  padding: 8px 16px; font-size: 13px; opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s; max-width: 80vw;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ============================ responsive ============================= */
+@media (max-width: 767px) {
+  #panel { display: none; }
+  #drawer-btn { display: inline-flex; }
+  #stage-inner { padding: 0 var(--portrait-pad); }
+  /* phone header (gaox208/phone_browse_off.png): row 1 = ≡ + breadcrumb pill +
+     position; row 2 = tier pills (short format) + dashed ↺ reset */
+  header { height: auto; min-height: var(--header-h); flex-wrap: wrap; padding: 4px var(--s12); row-gap: 4px; }
+  #hdr-mid { flex-basis: 100%; order: 10; }
+  #position { margin-left: auto; }
+  .vdiv { display: none; }            /* divider is desktop-row only */
+  /* phone breadcrumb (gaox208/phone_browse_off.png): section name + ⌄ only */
+  #scope-label { max-width: 70%; }
+  #scope-label .book, #scope-label .sep { display: none; }
+  /* side ‹ › buttons would overlap card content — swipe instead */
+  .nav-arrow { display: none; }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <button id="drawer-btn" class="icon-btn" title="Library">☰</button>
+    <div id="scope-label">BookCard</div>
+    <div class="vdiv" id="scope-div"></div>
+    <div id="hdr-mid">
+      <div id="tiers" style="display:flex;align-items:center;gap:6px;overflow-x:auto;min-width:0;"></div>
+      <button id="tier-reset" class="tier-reset" title="Show all" style="display:none;">↺</button>
+    </div>
+    <div id="position" class="num"></div>
+  </header>
+  <div id="main">
+    <aside id="panel">
+      <div class="crumb" id="crumb"><span class="chev">‹</span><span id="crumb-txt" class="lbl2">Books</span></div>
+      <div class="list" id="panel-list"></div>
+    </aside>
+    <div id="stage">
+      <div id="stage-inner">
+        <div style="height:16px;flex:none;"></div>
+        <div id="card-wrap">
+          <div id="card3d">
+            <div class="face front" id="face-front">
+              <div class="front-word" id="front-word"></div>
+              <div class="front-tier" id="front-tier"></div>
+              <div class="front-footer" id="front-footer"></div>
+            </div>
+            <div class="face back">
+              <div class="back-body" id="back-body"></div>
+            </div>
+          </div>
+          <button id="more-btn" title="More">⋯</button>
+          <div id="menu"></div>
+        </div>
+        <div style="height:var(--card-actions-gap);flex:none;"></div>
+        <div id="actions">
+          <div class="actions-row" id="actions-row"></div>
+          <div id="history"></div>
+        </div>
+      </div>
+      <button id="prev-btn" class="nav-arrow" title="Previous (←)">‹</button>
+      <button id="next-btn" class="nav-arrow" title="Next (→)">›</button>
+      <div id="empty">
+        <div class="badge">✓</div>
+        <h2 id="empty-title">All done in this section</h2>
+        <p id="empty-body">Every card here has been reviewed. Pick another section from the left panel.</p>
+      </div>
+      <div id="edit">
+        <div class="e-head"><button class="icon-btn" id="edit-back">‹</button><span>Edit card</span></div>
+        <div class="e-scroll"><div class="e-form">
+          <div class="e-label req">Front *</div>
+          <div class="e-field"><textarea id="e-front" rows="1" placeholder="word / phrase / expression" maxlength="500"></textarea></div>
+          <div class="e-err" id="e-front-err"></div>
+          <div class="e-label">Back</div>
+          <div class="e-field"><textarea id="e-back" rows="4" placeholder="definition / notes"></textarea></div>
+          <div class="e-label">Tags</div>
+          <div class="e-field"><div class="e-chips" id="e-tags"><input id="e-tag-input" placeholder="add tag + Enter"></div></div>
+          <div class="e-label">Library</div>
+          <div class="e-field"><select id="e-lib"></select></div>
+        </div></div>
+        <div class="e-foot">
+          <button class="btn-text" id="e-cancel">Cancel</button>
+          <div style="flex:1"></div>
+          <button class="btn-save" id="e-save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="scrim"></div>
+<aside id="drawer">
+  <div class="crumb" id="drawer-crumb"><span class="chev">‹</span><span id="drawer-crumb-txt" class="lbl2">Books</span></div>
+  <div class="list" id="drawer-list"></div>
+</aside>
+<div id="imgfs"><div class="wrap"><img id="imgfs-img" alt=""><div id="imgfs-boxes"></div></div></div>
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* ======================================================================
+   Browse-lite frontend — single file, spec: docs/browse-lite-v1.md §5.
+   ====================================================================== */
+
+/* Tier metadata — order + labels from lib/core/front_tier.dart
+   (kToggleTiers = T1,T2,T4,T6,T7; label = Due/New/Learned/Ignored/Mastered;
+    colors = playfulDark.tiers[index of Tn-1]). */
+const TIERS = {
+  T1: {label:'Due',     fg:'#FF7A7A', tint:'rgba(255,122,122,.16)'},
+  T2: {label:'New',     fg:'#FFAA55', tint:'rgba(255,170,85,.16)'},
+  T4: {label:'Learned', fg:'#7DDC3A', tint:'rgba(125,220,58,.16)'},
+  T6: {label:'Ignored', fg:'#6FB5FF', tint:'rgba(111,181,255,.16)'},
+  T7: {label:'Mastered',fg:'#C99BFF', tint:'rgba(201,155,255,.16)'},
+};
+const TIER_ORDER = ['T1','T2','T4','T6','T7'];
+
+/* ---- SM-2, ported from lib/core/sm2.dart (computeSm2) + rating.dart ---- */
+/* rating.dart sm2RatingOf: unclear|forgot → 'again'; good|easy → 'good'. */
+function sm2RatingOf(ui) {
+  if (ui === 'unclear' || ui === 'forgot' || ui === 'again') return 'again';
+  return 'good';
+}
+const round1 = x => Math.round(x * 10) / 10;
+function computeSm2(rating, rep = 0, ease = 1.8, interval = 0, nowMs = Date.now()) {
+  rep = rep || 0; ease = ease || 1.8; interval = interval || 0;
+  if (rating === 'again') {
+    rep += 1;
+    ease = round1(Math.max(1.3, ease - 0.1));
+    interval = interval > 0 ? Math.max(1, Math.floor(interval / 2)) : 1;
+  } else { // 'good' — learningRate = 1 → one loop
+    rep += 1;
+    ease = round1(Math.min(2.5, ease + 0.1));
+    if (rep === 1) interval = 1;
+    else if (rep === 2) interval = 3;
+    else interval = Math.min(365, Math.max(1, Math.round(interval * ease)));
+  }
+  return { repetition: rep, easeFactor: ease, intervalDays: interval,
+           nextReviewAtMs: nowMs + interval * 86400000 };
+}
+/* Tier — §4: ignored→T6 · mastered→T7 · reviews==0→T2 · due→T1 · else T4 */
+function tierOf(st) {
+  if (st.ignored) return 'T6';
+  if (st.mastered) return 'T7';
+  if (st.reviews === 0) return 'T2';
+  if (st.next_review_at != null && st.next_review_at <= Date.now()) return 'T1';
+  return 'T4';
+}
+
+/* ============================ HTTP api (§4) =========================== */
+const MOCK = new URLSearchParams(location.search).has('mock');
+const api = MOCK ? makeMockApi() : makeHttpApi();
+
+function makeHttpApi() {
+  const req = async (m, url, body) => {
+    const r = await fetch(url, {
+      method: m,
+      headers: body ? {'Content-Type': 'application/json'} : undefined,
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || ('HTTP ' + r.status));
+    return j;
+  };
+  return {
+    tree: () => req('GET', '/api/tree'),
+    cards: (scope, off) => {
+      const q = scope.lib ? 'library=' + encodeURIComponent(scope.lib)
+                          : 'book=' + encodeURIComponent(scope.book);
+      return req('GET', `/api/cards?${q}${off.size ? '&off=' + [...off].join(',') : ''}`);
+    },
+    card: id => req('GET', '/api/cards/' + encodeURIComponent(id)),
+    rate: (id, rating) => req('POST', `/api/cards/${encodeURIComponent(id)}/rate`, {rating}),
+    ignore: (id, ignored) => req('POST', `/api/cards/${encodeURIComponent(id)}/ignore`, {ignored}),
+    put: (id, data) => req('PUT', `/api/cards/${encodeURIComponent(id)}`, data),
+  };
+}
+
+/* ============================ mock backend ===========================
+   Same contract as §4, in-memory. Data: text-scene book + image-scene
+   book + public book; states mixed so all 5 tiers have nonzero counts. */
+function makeMockApi() {
+  const DAY = 86400000, now = Date.now();
+  /* Draw a fake book page: real <text> lines, one of which contains the
+     card's phrase; the bbox marks just that phrase (word-sized). */
+  const FS = 30, X0 = 80, LINE_H = 56;
+  const svgPage = (phrase, pageNo) => {
+    const filler = [
+      'She wiped the counter and opened the window.',
+      'It had been raining since early morning.',
+      'Nobody remembered to lock the back door.',
+      'The instructions were simpler than they looked.',
+      'We spent the afternoon sorting the cupboard.',
+      'He promised he would call before dinner.',
+      'By evening everything was back in its place.',
+    ];
+    // place the phrase-bearing sentence at line index 2, in monospace so
+    // the bbox x/w are exact (Courier advance = 0.6em ⇒ 18px at size 30)
+    const sentence = `Before lunch she decided to ${phrase} the whole shelf.`;
+    const lines = [filler[0], filler[1], sentence, filler[2], filler[3], filler[4], filler[5], filler[6]];
+    const texts = lines.map((t, i) =>
+      `<text x="${X0}" y="${180 + i * LINE_H}" font-family="${i === 2 ? "'Courier New',monospace" : 'Georgia,serif'}" font-size="${FS}" fill="#3a3a34">${t}</text>`).join('');
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1754">` +
+      `<rect width="1240" height="1754" fill="#f4efe4"/>` +
+      `<text x="${X0}" y="100" font-family="Georgia,serif" font-size="44" font-weight="bold" fill="#6d6d66">Unit ${pageNo} — Phrasal Verbs</text>` +
+      texts +
+      `<text x="1120" y="1700" font-family="Georgia,serif" font-size="28" fill="#8a8a82">${pageNo}</text>` +
+      `</svg>`;
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+  };
+  /* word-sized bbox around `phrase` inside the sentence on line 2 —
+     the line is Courier (0.6em advance ⇒ 18px/char at FS 30), so the box
+     coordinates are exact. */
+  const phraseBox = (phrase) => {
+    const pre = `Before lunch she decided to `;
+    const adv = FS * 0.6;
+    const x = X0 + pre.length * adv;
+    const w = phrase.length * adv;
+    return {x, y: 180 + 2 * LINE_H - FS - 6, w, h: FS + 12};
+  };
+
+  const books = [
+    {id: 'bk_everyday', title: 'The Design of Everyday Things', subtitle: 'key vocabulary',
+     visibility: 'private', scene_mode: 'text'},
+    {id: 'bk_pictures', title: 'Grammar in Pictures', subtitle: 'illustrated scenes',
+     visibility: 'private', scene_mode: 'image'},
+    {id: 'bk_phrases',  title: 'Everyday English Phrases', subtitle: 'public pack',
+     visibility: 'public', scene_mode: 'none'},
+  ];
+  const libs = [
+    {id: 'lib_ch1', book_id: 'bk_everyday', name: 'Chapter 1 · Psychopathology', sort_order: 0},
+    {id: 'lib_ch2', book_id: 'bk_everyday', name: 'Chapter 2 · Design Concepts', sort_order: 1},
+    {id: 'lib_pic1', book_id: 'bk_pictures', name: 'Unit 1 · Everyday Actions', sort_order: 0},
+    {id: 'lib_pub',  book_id: 'bk_phrases',  name: 'Small Talk', sort_order: 0},
+  ];
+  const st = (o) => Object.assign({
+    repetition: 0, ease: 2.5, interval_days: 0, next_review_at: null,
+    last_reviewed_at: null, reviews: 0, lapses: 0, ignored: 0, mastered: 0,
+  }, o);
+  const txScene = (book, page, printed, text, hls) =>
+    ({kind: 'text', book, page, printed_page: printed, text, highlights: hls});
+  /* highlight = first occurrence of kw in text (end exclusive, per §3) */
+  const kw = (text, word) => {
+    const i = text.toLowerCase().indexOf(word.toLowerCase());
+    return i < 0 ? [] : [{start: i, end: i + word.length}];
+  };
+  const t1 = 'The most important aspect of affordance is that it signals how an object can be used. A chair affords sitting, a knob affords turning, and a door plate affords pushing.';
+  const tLong = 'When an affordance is well designed, the user never has to think about whether to push or pull. The problem shows up most clearly in buildings: glass doors with identical handles on both sides force every visitor to guess, and the guess is wrong half the time. Norman argues that this failure is never the user\'s fault — it belongs to the designer, who chose form over function. The fix is not a bigger label or a brighter sign; it is a different shape entirely, one whose geometry already answers the question the user was about to ask. Good design, in other words, makes the instruction manual unnecessary.';
+  const cards = [
+    // lib_ch1 — T1 due (overdue days vary), T2 new, T4 learned, T6 ignored, T7 mastered, T1 due-now
+    {id:'c_afford', library_id:'lib_ch1', front:'affordance', back:'A relationship between an object and a user that signals how the object can be used.', tags:['concept'],
+     sort_order:0, scene:txScene('The Design of Everyday Things',12,'8',t1,kw(t1,'affordance')),
+     state:st({repetition:3, ease:2.4, interval_days:6, next_review_at:now-18*DAY, last_reviewed_at:now-24*DAY, reviews:3})},
+    {id:'c_signif', library_id:'lib_ch1', front:'signifier', back:'A perceivable cue — a mark, sound, or label — that communicates where an action should take place.', tags:['concept'],
+     sort_order:1, scene:txScene('The Design of Everyday Things',14,'10','Signifiers are the parts of affordance people actually perceive. A flat plate on a door is a signifier that says "push"; a vertical handle is a signifier that says "pull".',kw('Signifiers are the parts of affordance people actually perceive. A flat plate on a door is a signifier that says "push"; a vertical handle is a signifier that says "pull".','signifier')),
+     state:st({})},
+    {id:'c_mapping', library_id:'lib_ch1', front:'mapping', back:'The relationship between controls and their effects — a light switch directly above the lamp it controls is a natural mapping.', tags:['concept'],
+     sort_order:2, scene:txScene('The Design of Everyday Things',23,'17','Natural mapping takes advantage of spatial analogy: arrange the controls to mirror the layout of the things they control.',kw('Natural mapping takes advantage of spatial analogy: arrange the controls to mirror the layout of the things they control.','mapping')),
+     state:st({repetition:2, ease:2.2, interval_days:4, next_review_at:now+5*DAY, last_reviewed_at:now-1*DAY, reviews:2})},
+    {id:'c_feedback', library_id:'lib_ch1', front:'feedback', back:'The signal an object returns after an action — a click, a light, a vibration — confirming the action registered.', tags:['concept'],
+     sort_order:3, scene:txScene('The Design of Everyday Things',27,'21','Without immediate feedback the user is left uncertain: did the press register? Feedback must be prompt and informative.',kw('Without immediate feedback the user is left uncertain: did the press register? Feedback must be prompt and informative.','feedback')),
+     state:st({repetition:1, ease:1.8, interval_days:1, next_review_at:now-2*3600*1000, last_reviewed_at:now-1*DAY, reviews:1})},
+    {id:'c_constraint', library_id:'lib_ch1', front:'constraint', back:'A limitation — physical, cultural, semantic, or logical — that narrows the set of possible actions.', tags:['concept'],
+     sort_order:4, scene:txScene('The Design of Everyday Things',41,'33','Physical constraints rely on the shape of the object itself: a key that only fits one way removes the possibility of error.',kw('Physical constraints rely on the shape of the object itself: a key that only fits one way removes the possibility of error.','Physical constraints')),
+     state:st({ignored:1, repetition:2, ease:2.0, interval_days:3, next_review_at:now-9*DAY, last_reviewed_at:now-12*DAY, reviews:2})},
+    {id:'c_discover', library_id:'lib_ch1', front:'discoverability', back:'The property that lets a user figure out what actions are possible just by looking.', tags:['concept'],
+     sort_order:5, scene:txScene('The Design of Everyday Things',9,'5','Discoverability results from the combined effect of affordances, signifiers, constraints, mappings, feedback, and the conceptual model.',kw('Discoverability results from the combined effect of affordances, signifiers, constraints, mappings, feedback, and the conceptual model.','Discoverability')),
+     state:st({mastered:1, repetition:6, ease:2.5, interval_days:64, next_review_at:now+58*DAY, last_reviewed_at:now-6*DAY, reviews:6})},
+    // lib_ch2 — incl. one long-paragraph scene → Show more
+    {id:'c_concept', library_id:'lib_ch2', front:'conceptual model', back:'The mental picture a user builds of how something works — design succeeds when the designer\'s model matches the user\'s.', tags:['concept','chapter2'],
+     sort_order:0, scene:txScene('The Design of Everyday Things',55,'47',tLong,kw(tLong,'the instruction manual unnecessary')),
+     state:st({repetition:2, ease:2.1, interval_days:3, next_review_at:now-3*DAY, last_reviewed_at:now-6*DAY, reviews:2})},
+    {id:'c_gulfofex', library_id:'lib_ch2', front:'gulf of execution', back:'The gap between what the user wants to do and what the system appears to allow.', tags:['concept'],
+     sort_order:1, scene:txScene('The Design of Everyday Things',58,'50','Bridging the gulf of execution means designing controls so the required action is obvious.',kw('Bridging the gulf of execution means designing controls so the required action is obvious.','gulf of execution')),
+     state:st({})},
+    {id:'c_gulfev', library_id:'lib_ch2', front:'gulf of evaluation', back:'The gap between the state of the system and what the user can perceive and interpret.', tags:['concept'],
+     sort_order:2, scene:null,
+     state:st({})},
+    {id:'c_vissim', library_id:'lib_ch2', front:'visceral design', back:'Design that speaks to instinct — the immediate, emotional response to appearance.', tags:['emotion'],
+     sort_order:3, scene:txScene('The Design of Everyday Things',88,'76','Visceral responses are fast and subconscious: the same response mechanism that makes us love a smooth curve makes us fear a sharp edge.',kw('Visceral responses are fast and subconscious: the same response mechanism that makes us love a smooth curve makes us fear a sharp edge.','Visceral')),
+     state:st({repetition:4, ease:2.3, interval_days:12, next_review_at:now+9*DAY, last_reviewed_at:now-3*DAY, reviews:4})},
+    {id:'c_behav', library_id:'lib_ch2', front:'behavioral design', back:'Design for use — how well the product performs its function and how pleasurable it is to operate.', tags:['emotion'],
+     sort_order:4, scene:txScene('The Design of Everyday Things',91,'79','Behavioral design is about function first: a tool that fails its task cannot be saved by beauty.',kw('Behavioral design is about function first: a tool that fails its task cannot be saved by beauty.','Behavioral')),
+     state:st({mastered:1, repetition:8, ease:2.5, interval_days:120, next_review_at:now+102*DAY, last_reviewed_at:now-18*DAY, reviews:8})},
+    {id:'c_refl', library_id:'lib_ch2', front:'reflective design', back:'Design that engages memory and identity — what owning or using the thing says about you.', tags:['emotion'],
+     sort_order:5, scene:txScene('The Design of Everyday Things',95,'83','Reflective design is where stories live: the souvenir, the heirloom, the product that becomes part of a personal narrative.',kw('Reflective design is where stories live: the souvenir, the heirloom, the product that becomes part of a personal narrative.','Reflective')),
+     state:st({repetition:1, ease:1.9, interval_days:1, next_review_at:now-5*DAY, last_reviewed_at:now-6*DAY, reviews:1, lapses:1})},
+    // lib_pic1 — image scenes with boxes on the SVG page
+    {id:'p_tidy', library_id:'lib_pic1', front:'tidy up', back:'To make a place neat by putting things back where they belong.', tags:['phrasal-verb'],
+     sort_order:0, scene:{kind:'image', book:'Grammar in Pictures', page:12, src:svgPage('tidy up',12), width:1240, height:1754,
+       boxes:[phraseBox('tidy up')]},
+     state:st({repetition:2, ease:2.2, interval_days:4, next_review_at:now-2*DAY, last_reviewed_at:now-6*DAY, reviews:2})},
+    {id:'p_runout', library_id:'lib_pic1', front:'run out of', back:'To have none of something left: "We ran out of milk."', tags:['phrasal-verb'],
+     sort_order:1, scene:{kind:'image', book:'Grammar in Pictures', page:13, src:svgPage('run out of',13), width:1240, height:1754,
+       boxes:[phraseBox('run out of')]},
+     state:st({})},
+    {id:'p_putoff', library_id:'lib_pic1', front:'put off', back:'To delay doing something; to postpone.', tags:['phrasal-verb'],
+     sort_order:2, scene:{kind:'image', book:'Grammar in Pictures', page:14, src:svgPage('put off',14), width:1240, height:1754,
+       boxes:[phraseBox('put off')]},
+     state:st({repetition:5, ease:2.5, interval_days:30, next_review_at:now+24*DAY, last_reviewed_at:now-6*DAY, reviews:5})},
+    {id:'p_lookfwd', library_id:'lib_pic1', front:'look forward to', back:'To feel pleased about something that is going to happen.', tags:['phrasal-verb'],
+     sort_order:3, scene:{kind:'image', book:'Grammar in Pictures', page:15, src:svgPage('look forward to',15), width:1240, height:1754,
+       boxes:[phraseBox('look forward to')]},
+     state:st({ignored:1, repetition:1, ease:2.0, interval_days:1, next_review_at:now-4*DAY, last_reviewed_at:now-5*DAY, reviews:1})},
+    {id:'p_getover', library_id:'lib_pic1', front:'get over', back:'To recover from an illness, a shock, or a difficult experience.', tags:['phrasal-verb'],
+     sort_order:4, scene:{kind:'image', book:'Grammar in Pictures', page:16, src:svgPage('get over',16), width:1240, height:1754,
+       boxes:[phraseBox('get over')]},
+     state:st({mastered:1, repetition:7, ease:2.5, interval_days:90, next_review_at:now+80*DAY, last_reviewed_at:now-10*DAY, reviews:7})},
+    {id:'p_breakdown', library_id:'lib_pic1', front:'break down', back:'To stop working (machine); to lose control of emotions.', tags:['phrasal-verb'],
+     sort_order:5, scene:{kind:'image', book:'Grammar in Pictures', page:17, src:svgPage('break down',17), width:1240, height:1754,
+       boxes:[phraseBox('break down')]},
+     state:st({})},
+    // lib_pub — public pack: scene null by contract
+    {id:'pub_1', library_id:'lib_pub', front:'How\'s it going?', back:'A casual way to ask how someone is; answer with "Good, you?" or "Not bad."', tags:['smalltalk'],
+     sort_order:0, scene:null, state:st({})},
+    {id:'pub_2', library_id:'lib_pub', front:'Long time no see', back:'Informal greeting used when meeting someone after a long time.', tags:['smalltalk'],
+     sort_order:1, scene:null,
+     state:st({repetition:2, ease:2.3, interval_days:4, next_review_at:now-1*DAY, last_reviewed_at:now-5*DAY, reviews:2})},
+    {id:'pub_3', library_id:'lib_pub', front:'What have you been up to?', back:'Asks what someone has been doing recently — expects a short summary, not a report.', tags:['smalltalk'],
+     sort_order:2, scene:null, state:st({mastered:1, repetition:5, ease:2.5, interval_days:45, next_review_at:now+30*DAY, last_reviewed_at:now-15*DAY, reviews:5})},
+    {id:'pub_4', library_id:'lib_pub', front:'Catch you later', back:'Casual goodbye: "I\'ll see you soon."', tags:['smalltalk'],
+     sort_order:3, scene:null, state:st({})},
+  ];
+  cards.forEach(c => { c.edited = 0; });
+
+  const inScope = (scope) => cards.filter(c => {
+    const lib = libs.find(l => l.id === c.library_id);
+    return scope.lib ? c.library_id === scope.lib : lib.book_id === scope.book;
+  });
+  const detail = (c) => {
+    const lib = libs.find(l => l.id === c.library_id);
+    return {id: c.id, library_id: c.library_id, book_id: lib.book_id,
+      front: c.front, back: c.back, tags: c.tags, tier: tierOf(c.state),
+      scene: c.scene, state: c.state, edited: c.edited};
+  };
+  const delay = (v) => new Promise(r => setTimeout(() => r(v), 0));
+  return {
+    tree: () => delay(books.map(b => ({
+      id: b.id, title: b.title, subtitle: b.subtitle, visibility: b.visibility,
+      scene_mode: b.scene_mode,
+      libraries: libs.filter(l => l.book_id === b.id).map(l => ({
+        id: l.id, name: l.name,
+        count: cards.filter(c => c.library_id === l.id).length,
+      })),
+    }))),
+    cards: (scope, off) => delay((() => {
+      const all = inScope(scope);
+      const tier_counts = {T1:0,T2:0,T4:0,T6:0,T7:0};
+      all.forEach(c => tier_counts[tierOf(c.state)]++);
+      const list = all.filter(c => !off.has(tierOf(c.state)))
+        .sort((a, b) => a.sort_order - b.sort_order)
+        .map(c => ({id: c.id, front: c.front,
+          back_preview: c.back.slice(0, 80), tier: tierOf(c.state),
+          library_id: c.library_id, sort_order: c.sort_order}));
+      return {cards: list, tier_counts};
+    })()),
+    card: (id) => delay(detail(cards.find(c => c.id === id))),
+    rate: (id, rating) => delay((() => {
+      const c = cards.find(c => c.id === id);
+      const s = c.state;
+      const r = computeSm2(sm2RatingOf(rating), s.repetition, s.ease, s.interval_days);
+      s.repetition = r.repetition; s.ease = r.easeFactor;
+      s.interval_days = r.intervalDays; s.next_review_at = r.nextReviewAtMs;
+      s.last_reviewed_at = Date.now(); s.reviews += 1;
+      if (sm2RatingOf(rating) === 'again') s.lapses += 1;
+      if (rating === 'easy') s.mastered = 1;
+      if (rating === 'unclear' || rating === 'forgot') s.mastered = 0;
+      return detail(c);
+    })()),
+    ignore: (id, ignored) => delay((() => {
+      const c = cards.find(c => c.id === id); c.state.ignored = ignored ? 1 : 0;
+      return detail(c);
+    })()),
+    put: (id, data) => delay((() => {
+      const c = cards.find(c => c.id === id);
+      const f = (data.front || '').trim();
+      if (f.length < 1 || f.length > 500) { const e = new Error('front must be 1–500 chars'); e.status = 400; throw e; }
+      c.front = f; c.back = data.back || ''; c.tags = data.tags || [];
+      if (data.library_id && libs.some(l => l.id === data.library_id)) c.library_id = data.library_id;
+      c.edited = 1;
+      return detail(c);
+    })()),
+  };
+}
+
+/* ============================ state ================================== */
+const S = {
+  tree: [],                    // /api/tree
+  scope: null,                 // {book} or {lib}
+  off: new Set(),              // tiers turned off
+  cards: [],                   // filtered list (current scope)
+  tierCounts: {},
+  idx: 0,
+  card: null,                  // detail of current card
+  flipped: false,
+  busy: false,
+  panel: {level: 'books', book: null, lib: null}, // left-panel drill state
+  editing: false,
+  menuOpen: false,
+};
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g,
+  m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+let toastTimer = null;
+function toast(msg) {
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+const apiErr = (e) => toast(e.message || String(e));
+
+/* ============================ URL hash ===============================
+   #/lib/<id>/card/<id> — persists place across refresh. */
+function writeHash() {
+  if (!S.scope || !S.cards[S.idx]) { location.hash = ''; return; }
+  const seg = S.scope.lib ? 'lib' : 'book';
+  const id = S.scope.lib || S.scope.book;
+  location.hash = `#/${seg}/${id}/card/${S.cards[S.idx].id}`;
+}
+function readHash() {
+  const m = location.hash.match(/^#\/(lib|book)\/([^/]+)\/card\/([^/]+)/);
+  return m ? {kind: m[1], id: decodeURIComponent(m[2]), card: decodeURIComponent(m[3])} : null;
+}
+
+/* ============================ history line ===========================
+   learn_card_stage.dart CardHistoryData.lineText (table). */
+function historyLine(st) {
+  if (!st || st.reviews === 0) return 'New card · never reviewed';
+  const ms = st.next_review_at;
+  if (ms == null) return `Rep ${st.repetition}`;
+  const MIN = 60000, H = 60 * MIN, D = 24 * H;
+  const diff = ms - Date.now();
+  const span = (a) => {
+    if (a >= D) return `${Math.floor(a / D)}d`;
+    if (a >= H) return `${Math.floor(a / H)}h`;
+    if (a >= MIN) return `${Math.floor(a / MIN)}m`;
+    return 'now';
+  };
+  if (diff <= 0) {
+    const days = Math.floor(-diff / D);
+    return days < 1 ? `Rep ${st.repetition} · Due now`
+                    : `Rep ${st.repetition} · Overdue ${days}d`;
+  }
+  const s = span(diff);
+  return s === 'now' ? `Rep ${st.repetition} · Due now`
+                     : `Rep ${st.repetition} · Next in ${s}`;
+}
+
+/* ============================ data flow ============================== */
+async function boot() {
+  const qp = new URLSearchParams(location.search);
+  (qp.get('off') || '').split(',').filter(t => TIERS[t]).forEach(t => S.off.add(t));
+  try { S.tree = await api.tree(); } catch (e) { apiErr(e); S.tree = []; }
+  const h = readHash();
+  let scope = null, wantCard = null;
+  if (h) {
+    const book = S.tree.find(b => b.id === h.id);
+    const lib = book && book.libraries.find(l => l.id === h.id)
+      || S.tree.flatMap(b => b.libraries).find(l => l.id === h.id);
+    if (h.kind === 'lib' && lib) scope = {lib: lib.id};
+    else if (h.kind === 'book' && book) scope = {book: book.id};
+    if (scope) wantCard = h.card;
+  }
+  if (!scope) {
+    const b = S.tree[0];
+    scope = b && b.libraries[0] ? {lib: b.libraries[0].id}
+        : b ? {book: b.id} : null;
+  }
+  await selectScope(scope, wantCard);
+  // screenshot hooks (dev only): ?shot=back|menu|edit|drawer|done
+  const shot = new URLSearchParams(location.search).get('shot');
+  if (shot === 'back') flip(true);
+  else if (shot === 'menu') { flip(true); toggleMenu(true); }
+  else if (shot === 'edit') openEdit();
+  else if (shot === 'drawer') openDrawer(true);
+  else if (shot === 'done') { S.idx = S.cards.length; renderStage(); }
+}
+
+async function selectScope(scope, wantCard) {
+  S.scope = scope;
+  S.flipped = false;
+  try {
+    const r = await api.cards(scope, S.off);
+    S.cards = r.cards; S.tierCounts = r.tier_counts;
+  } catch (e) { apiErr(e); S.cards = []; S.tierCounts = {}; }
+  S.idx = wantCard ? Math.max(0, S.cards.findIndex(c => c.id === wantCard)) : 0;
+  if (S.idx < 0) S.idx = 0;
+  await loadCard();
+  renderAll();
+}
+
+async function loadCard() {
+  const lite = S.cards[S.idx];
+  if (!lite) { S.card = null; return; }
+  try { S.card = await api.card(lite.id); }
+  catch (e) { apiErr(e); S.card = lite; }
+}
+
+function currentScopeLabel() {
+  if (!S.scope) return {book: '', lib: ''};
+  for (const b of S.tree) {
+    for (const l of b.libraries) {
+      if (S.scope.lib === l.id) return {book: b.title, lib: l.name};
+    }
+    if (S.scope.book === b.id) return {book: b.title, lib: ''};
+  }
+  return {book: '', lib: ''};
+}
+
+/* ============================ render ================================= */
+function renderAll() { renderHeader(); renderPanel(); renderStage(); }
+
+function renderHeader() {
+  const {book, lib} = currentScopeLabel();
+  $('scope-label').innerHTML = lib
+    ? `<span class="book">${esc(book)}</span><span class="sep">›</span><span class="lib">${esc(lib)}</span><span class="caret">⌄</span>`
+    : `<span class="book">${esc(book || 'BookCard')}</span><span class="caret">⌄</span>`;
+  const t = $('tiers'); t.innerHTML = '';
+  for (const k of TIER_ORDER) {
+    const n = S.tierCounts[k] || 0;
+    if (n === 0) continue;                       // R109: count 0 → chip hidden
+    const on = !S.off.has(k);
+    const b = document.createElement('button');
+    b.className = 'tier-chip' + (on ? ' on' : '');
+    b.dataset.t = k;
+    b.title = `${k} ${TIERS[k].label} · ${n}`;
+    b.innerHTML = `<span class="dot"></span><span>${k}</span><span class="cnt num">${n}</span>`;
+    b.onclick = () => toggleTier(k);
+    t.appendChild(b);
+  }
+  $('tier-reset').style.display = S.off.size ? 'inline-flex' : 'none';
+  const total = S.cards.length;
+  const pos = total === 0 ? '0 / 0' : `${Math.min(S.idx + 1, total)} / ${total}`;
+  $('position').textContent = pos;
+}
+
+function toggleTier(k) {
+  S.off.has(k) ? S.off.delete(k) : S.off.add(k);
+  const cur = S.cards[S.idx];
+  selectScope(S.scope, cur && cur.id);
+}
+$('tier-reset').onclick = () => { S.off.clear(); const cur = S.cards[S.idx]; selectScope(S.scope, cur && cur.id); };
+
+/* ------------------------------ left panel --------------------------
+   Drill-down: books → libraries → word list (tap = jump), tier dot/row. */
+function panelRows() {
+  const p = S.panel;
+  if (p.level === 'books') {
+    return {crumb: 'Books', rows: S.tree.map(b => ({
+      label: b.title, sub: b.subtitle, arrow: '›',
+      cnt: b.libraries.reduce((a, l) => a + l.count, 0),
+      on: () => { p.book = b; p.level = 'libs'; renderPanel(); },
+    }))};
+  }
+  if (p.level === 'libs') {
+    const b = p.book;
+    return {crumb: b.title, back: () => { p.level = 'books'; renderPanel(); },
+      rows: b.libraries.map(l => ({
+        label: l.name, cnt: l.count, arrow: '›',
+        active: S.scope && S.scope.lib === l.id,
+        on: () => { p.lib = l; p.level = 'words'; selectScope({lib: l.id}); renderPanel(); },
+      }))};
+  }
+  // words
+  const l = p.lib;
+  return {crumb: `${p.book.title} / ${l.name}`, back: () => { p.level = 'libs'; renderPanel(); },
+    rows: S.cards.map((c, i) => ({
+      label: c.front, tier: c.tier, active: i === S.idx,
+      on: () => { goTo(i); closeDrawer(); },
+    }))};
+}
+
+function renderPanel() {
+  for (const [listEl, crumbEl, crumbTxt] of
+      [[$('panel-list'), $('crumb'), $('crumb-txt')],
+       [$('drawer-list'), $('drawer-crumb'), $('drawer-crumb-txt')]]) {
+    const {crumb, back, rows} = panelRows();
+    crumbTxt.textContent = crumb;
+    crumbEl.style.display = back ? 'flex' : 'none';
+    if (back) crumbEl.onclick = back;
+    listEl.innerHTML = '';
+    for (const r of rows) {
+      const d = document.createElement('div');
+      d.className = 'row' + (r.active ? ' active' : '');
+      let inner = '';
+      if (r.tier && TIERS[r.tier]) {
+        inner += `<span class="dot" style="background:${TIERS[r.tier].fg}"></span>`;
+      }
+      inner += `<span class="lbl">${esc(r.label)}${r.sub ? `<span class="sub">${esc(r.sub)}</span>` : ''}</span>`;
+      if (r.tier && TIERS[r.tier]) {
+        inner += `<span class="tier-badge" style="background:${TIERS[r.tier].fg};color:var(--on-solid)">${r.tier}</span>`;
+      }
+      if (r.cnt != null) inner += `<span class="cnt num">${r.cnt}</span>`;
+      if (r.arrow) inner += `<span class="arrow">${r.arrow}</span>`;
+      d.innerHTML = inner;
+      d.onclick = r.on;
+      listEl.appendChild(d);
+    }
+  }
+}
+
+/* ------------------------------ stage ------------------------------- */
+function cardHeight() {
+  const h = $('stage').clientHeight;
+  const w = $('stage').clientWidth;
+  // portrait: <600 wide & taller than wide → card eats remaining
+  if (w < 600 && h > w) {
+    const a = 48 + 10 + 20; // actions = 48 + gap 10 + history 20
+    return Math.max(140, h - 12 - 28 - a - 12 - 16);
+  }
+  return Math.min(Math.max(h - 220, 260), 420);
+}
+
+function renderStage() {
+  const editing = S.editing;
+  $('edit').classList.toggle('open', editing);
+  $('stage-inner').style.display = editing ? 'none' : 'flex';
+  $('prev-btn').style.display = editing ? 'none' : '';
+  $('next-btn').style.display = editing ? 'none' : '';
+  if (editing) return;
+
+  const has = S.cards.length > 0 && S.idx < S.cards.length;
+  $('card-wrap').style.display = has ? '' : 'none';
+  $('actions').style.display = has ? '' : 'none';
+  $('prev-btn').style.display = has ? '' : 'none';
+  $('next-btn').style.display = has ? '' : 'none';
+  $('empty').style.display = has ? 'none' : 'flex';
+  if (!has) {
+    $('empty-title').textContent = S.cards.length === 0 && S.off.size
+      ? 'Nothing in these tiers' : 'All done in this section';
+    return;
+  }
+
+  const c = S.card || S.cards[S.idx];
+  // geometry
+  $('card-wrap').style.height = cardHeight() + 'px';
+  // front
+  $('front-word').textContent = c.front;
+  fitFront(c.front);
+  const {book: fb, lib: fl} = currentScopeLabel();
+  $('front-footer').textContent = [fb, fl].filter(Boolean).join(' · ');
+  const tierEl = $('front-tier');
+  const tk = c.tier || (S.cards[S.idx] && S.cards[S.idx].tier);
+  if (tk && TIERS[tk]) {
+    tierEl.style.display = 'block';
+    tierEl.textContent = tk;
+    tierEl.style.background = TIERS[tk].fg;
+    tierEl.style.color = 'var(--on-solid)';
+  } else tierEl.style.display = 'none';
+  // back
+  renderBack(c);
+  // flip state
+  $('card3d').classList.toggle('flipped', S.flipped);
+  $('card-wrap').classList.toggle('flipped', S.flipped);
+  // actions
+  const row = $('actions-row');
+  row.innerHTML = '';
+  if (!S.flipped) {
+    const b = document.createElement('button');
+    b.className = 'btn-primary'; b.textContent = 'Show answer';
+    b.disabled = S.busy; b.onclick = () => flip(true);
+    row.appendChild(b);
+  } else {
+    const cardW = Math.min($('stage').clientWidth, 640);
+    const w = Math.min(160, (cardW - 30) / 4);
+    const keys = [['Unclear','unclear','r-unclear','1'],['Forgot','forgot','r-forgot','2'],
+                  ['Good','good','r-good','3'],['Easy','easy','r-easy','4']];
+    for (const [label, rating, cls] of keys) {
+      const b = document.createElement('button');
+      b.className = 'btn-rate ' + cls; b.textContent = label;
+      b.style.width = w + 'px'; b.disabled = S.busy;
+      b.onclick = () => rate(rating);
+      row.appendChild(b);
+    }
+  }
+  // history
+  const st = c.state;
+  $('history').innerHTML = st
+    ? `<span>${esc(historyLine(st))}</span><span class="info">ⓘ</span>`
+    : '';
+  renderHeader();
+}
+
+function fitFront(text) {
+  // LearnFlipCard: cap = (cardW * .16).clamp(32,120); fitFrontText then
+  // shrinks (wrap first, ≤3 lines) until it fits the face.
+  const el = $('front-word');
+  const face = $('face-front');
+  const availW = face.clientWidth - 48;              // face padding 24×2
+  const availH = face.clientHeight - 48 - 30;        // padding + footer line
+  let size = Math.min(Math.max(availW * 0.16, 32), 120);
+  el.style.webkitLineClamp = 'none';
+  el.style.fontSize = size + 'px';
+  while (size > 20 && (el.scrollWidth > availW || el.scrollHeight > availH)) {
+    size -= 4; el.style.fontSize = size + 'px';
+  }
+  el.style.webkitLineClamp = '3';
+}
+
+function renderBack(c) {
+  const el = $('back-body');
+  const tk = c.tier || (S.cards[S.idx] && S.cards[S.idx].tier);
+  // card_back_scaffold.dart _head: word (title 16 w700) + tier badge
+  let html = `<div class="back-head"><span class="word">${esc(c.front)}</span>` +
+    (tk && TIERS[tk]
+      ? `<span class="front-tier" style="background:${TIERS[tk].fg};color:var(--on-solid)">${tk}</span>`
+      : '') + `</div>`;
+  html += `<div class="back-text">${esc(c.back || '')}</div>`;
+  if (c.tags && c.tags.length) {
+    html += `<div class="back-tags">` + c.tags.map(t => `<span class="tag-chip">${esc(t)}</span>`).join('') + `</div>`;
+  }
+  const sc = c.scene;
+  if (sc) html += `<div class="scene-label">WHERE YOU MET IT</div>`;
+  if (sc && sc.kind === 'text') {
+    html += `<div class="scene">
+      <div class="scene-head"><span class="book">${esc(sc.book)}</span>
+        <span class="page num">p.${esc(sc.printed_page || sc.page)}</span></div>
+      <div class="scene-body" id="scene-body"></div></div>`;
+  } else if (sc && sc.kind === 'image') {
+    html += `<div class="scene">
+      <div class="scene-head"><span class="book">${esc(sc.book)}</span>
+        <span class="page num">p.${esc(sc.printed_page || sc.page)}</span></div>
+      <div class="scene-img-wrap" id="scene-img">
+        <img src="${esc(sc.src)}" alt="">
+        ${(sc.boxes || []).map(b => `<div class="bbox" style="left:${b.x / sc.width * 100}%;top:${b.y / sc.height * 100}%;width:${b.w / sc.width * 100}%;height:${b.h / sc.height * 100}%"></div>`).join('')}
+      </div></div>`;
+  }
+  el.innerHTML = html;
+  // text scene body with highlights + 6-line collapse (text_scene.dart)
+  if (sc && sc.kind === 'text') {
+    const body = $('scene-body');
+    const spans = [];
+    let last = 0;
+    const hls = (sc.highlights || []).slice().sort((a, b) => a.start - b.start);
+    const len = sc.text.length;
+    for (const h of hls) {
+      const s = Math.min(len, Math.max(last, h.start | 0));
+      const e = Math.min(len, h.end | 0);
+      if (e <= s) continue;                     // out-of-order / empty range
+      spans.push(esc(sc.text.slice(last, s)), `<mark>${esc(sc.text.slice(s, e))}</mark>`);
+      last = e;
+    }
+    spans.push(esc(sc.text.slice(last)));
+    body.innerHTML = `<div class="clamp" id="scene-clamp">${spans.join('')}</div>`;
+    const clamp = $('scene-clamp');
+    requestAnimationFrame(() => {
+      if (clamp.scrollHeight > clamp.clientHeight + 1) {
+        const more = document.createElement('span');
+        more.className = 'scene-more'; more.textContent = 'Show more';
+        more.onclick = (e) => {
+          e.stopPropagation();
+          const open = clamp.classList.toggle('clamp');
+          more.textContent = open ? 'Show less' : 'Show more';
+        };
+        body.appendChild(more);
+      }
+    });
+  }
+  if (sc && sc.kind === 'image') {
+    $('scene-img').onclick = (e) => { e.stopPropagation(); openFullscreen(sc); };
+  }
+}
+
+function openFullscreen(sc) {
+  const fs = $('imgfs');
+  $('imgfs-img').src = sc.src;
+  const boxes = $('imgfs-boxes');
+  boxes.innerHTML = '';
+  const img = $('imgfs-img');
+  const place = () => {
+    const wrap = img.getBoundingClientRect();
+    boxes.innerHTML = (sc.boxes || []).map(b =>
+      `<div class="bbox" style="left:${b.x / sc.width * 100}%;top:${b.y / sc.height * 100}%;width:${b.w / sc.width * 100}%;height:${b.h / sc.height * 100}%"></div>`).join('');
+  };
+  img.onload = place;
+  if (img.complete) place();
+  fs.classList.add('open');
+}
+$('imgfs').onclick = () => $('imgfs').classList.remove('open');
+
+/* ------------------------------ flip / paging ----------------------- */
+function flip(toBack) {
+  S.flipped = toBack == null ? !S.flipped : !!toBack;
+  renderStage();
+}
+$('face-front').onclick = () => flip(true);
+async function goTo(i) {
+  if (!S.cards.length) return;
+  S.idx = (i + S.cards.length) % S.cards.length;
+  S.flipped = false; S.menuOpen = false; $('menu').classList.remove('open');
+  await loadCard();
+  writeHash();
+  renderStage(); renderPanel();
+}
+const next = () => goTo(S.idx + 1);
+const prev = () => goTo(S.idx - 1);
+$('next-btn').onclick = next;
+$('prev-btn').onclick = prev;
+
+/* horizontal swipe on the card (phone) — ~50px threshold, ignore vertical */
+(() => {
+  let x0 = null, y0 = null;
+  const wrap = $('card-wrap');
+  wrap.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') return;      // touch/pen only — desktop uses ‹ ›
+    x0 = e.clientX; y0 = e.clientY;
+  });
+  wrap.addEventListener('pointerup', (e) => {
+    if (x0 == null) return;
+    const dx = e.clientX - x0, dy = e.clientY - y0;
+    x0 = y0 = null;
+    if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy)) {
+      dx < 0 ? next() : prev();
+    }
+  });
+  wrap.addEventListener('pointercancel', () => { x0 = y0 = null; });
+})();
+
+/* ------------------------------ rating ------------------------------ */
+async function rate(rating) {
+  if (S.busy || !S.card) return;
+  S.busy = true; renderStage();
+  try {
+    const id = S.card.id;
+    await api.rate(id, rating);
+    // refresh list + counts, then auto-advance in the filtered list (§5)
+    const r = await api.cards(S.scope, S.off);
+    S.cards = r.cards; S.tierCounts = r.tier_counts;
+    // still in the filtered set ⇒ the card after it; left the set (its tier
+    // is off) ⇒ the card now at the same index. Past the end ⇒ All done.
+    const k = S.cards.findIndex(c => c.id === id);
+    S.idx = Math.min(k >= 0 ? k + 1 : S.idx, S.cards.length);
+    S.flipped = false;
+    await loadCard();
+    writeHash();
+  } catch (e) { apiErr(e); }
+  S.busy = false;
+  renderStage(); renderPanel();
+}
+
+/* ------------------------------ ⋯ menu ------------------------------ */
+function toggleMenu(open) {
+  S.menuOpen = open == null ? !S.menuOpen : open;
+  const m = $('menu');
+  if (!S.menuOpen) { m.classList.remove('open'); return; }
+  const ignored = S.card && S.card.state && S.card.state.ignored;
+  const items = [
+    {label: ignored ? 'Unignore' : 'Ignore', fn: doIgnore},
+    {label: 'Skip', fn: () => next()},
+    {label: 'Edit card', fn: openEdit},
+  ];
+  m.innerHTML = items.map((it, i) => `<button class="mi" data-i="${i}">${it.label}</button>`).join('');
+  [...m.children].forEach((b, i) => b.onclick = () => { toggleMenu(false); items[i].fn(); });
+  const wrap = $('card-wrap').getBoundingClientRect();
+  m.style.top = (8 + 32 + 4) + 'px';
+  m.style.right = '8px';
+  m.classList.add('open');
+}
+$('more-btn').onclick = (e) => { e.stopPropagation(); toggleMenu(); };
+document.addEventListener('click', (e) => {
+  if (S.menuOpen && !$('menu').contains(e.target)) toggleMenu(false);
+});
+
+async function doIgnore() {
+  if (!S.card || !S.card.state) return;
+  const id = S.card.id;
+  const nowIgnored = !S.card.state.ignored;
+  try {
+    await api.ignore(id, nowIgnored);
+    const r = await api.cards(S.scope, S.off);
+    S.cards = r.cards; S.tierCounts = r.tier_counts;
+    // keep place on the same card if still visible, else stay at index
+    const ni = S.cards.findIndex(c => c.id === id);
+    S.idx = ni >= 0 ? ni : Math.min(S.idx, Math.max(0, S.cards.length - 1));
+    await loadCard(); writeHash();
+  } catch (e) { apiErr(e); }
+  renderStage(); renderPanel();
+}
+
+/* ------------------------------ edit -------------------------------- */
+function openEdit() {
+  if (!S.card) return;
+  const c = S.card;
+  S.editing = true;
+  $('e-front').value = c.front || '';
+  $('e-back').value = c.back || '';
+  $('e-front-err').textContent = '';
+  // tags chip input
+  const box = $('e-tags');
+  box.querySelectorAll('.chip').forEach(x => x.remove());
+  for (const t of (c.tags || [])) addTagChip(t);
+  // library dropdown — same book only
+  const sel = $('e-lib');
+  sel.innerHTML = '';
+  const book = S.tree.find(b => b.libraries.some(l => l.id === c.library_id));
+  for (const l of (book ? book.libraries : [])) {
+    const o = document.createElement('option');
+    o.value = l.id; o.textContent = l.name;
+    if (l.id === c.library_id) o.selected = true;
+    sel.appendChild(o);
+  }
+  renderStage();
+  $('e-front').focus();
+}
+function eTags() {
+  return [...$('e-tags').querySelectorAll('.chip')].map(x => x.dataset.t);
+}
+function addTagChip(t) {
+  t = t.trim(); if (!t) return;
+  const chip = document.createElement('span');
+  chip.className = 'chip'; chip.dataset.t = t;
+  chip.innerHTML = `${esc(t)}<span class="x">×</span>`;
+  chip.querySelector('.x').onclick = () => chip.remove();
+  $('e-tags').insertBefore(chip, $('e-tag-input'));
+}
+$('e-tag-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ',') {
+    e.preventDefault(); addTagChip(e.target.value); e.target.value = '';
+  } else if (e.key === 'Backspace' && !e.target.value) {
+    const chips = $('e-tags').querySelectorAll('.chip');
+    if (chips.length) chips[chips.length - 1].remove();
+  }
+});
+$('e-save').onclick = async () => {
+  const front = $('e-front').value.trim();
+  if (front.length < 1) { $('e-front-err').textContent = 'Front cannot be empty'; return; }
+  if (front.length > 500) { $('e-front-err').textContent = 'Front must be at most 500 characters'; return; }
+  $('e-save').disabled = true; $('e-save').textContent = 'Saving…';
+  try {
+    const id = S.card.id;
+    await api.put(id, {front, back: $('e-back').value, tags: eTags(), library_id: $('e-lib').value});
+    const r = await api.cards(S.scope, S.off);
+    S.cards = r.cards; S.tierCounts = r.tier_counts;
+    const ni = S.cards.findIndex(c => c.id === id);
+    if (ni >= 0) S.idx = ni;
+    S.editing = false;
+    await loadCard(); writeHash();
+    renderPanel();
+  } catch (e) { $('e-front-err').textContent = e.message; }
+  $('e-save').disabled = false; $('e-save').textContent = 'Save';
+  renderStage();
+};
+const closeEdit = () => { S.editing = false; renderStage(); };
+$('e-cancel').onclick = closeEdit;
+$('edit-back').onclick = closeEdit;
+
+/* ------------------------------ drawer ------------------------------ */
+function openDrawer(open) {
+  $('drawer').classList.toggle('open', open);
+  $('scrim').classList.toggle('open', open);
+}
+function closeDrawer() { openDrawer(false); }
+$('drawer-btn').onclick = () => openDrawer(true);
+$('scope-label').onclick = () => {
+  if (window.innerWidth < 768) openDrawer(true);
+};
+$('scrim').onclick = closeDrawer;
+
+/* ------------------------------ keyboard ---------------------------- */
+document.addEventListener('keydown', (e) => {
+  if (S.editing) {
+    if (e.key === 'Escape') closeEdit();
+    return;
+  }
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+  const has = S.cards.length > 0;
+  if (e.key === ' ' && has) { e.preventDefault(); flip(); }
+  else if (e.key === 'ArrowRight' && has) next();
+  else if (e.key === 'ArrowLeft' && has) prev();
+  else if (S.flipped && ['1','2','3','4'].includes(e.key)) {
+    rate(['unclear','forgot','good','easy'][+e.key - 1]);
+  } else if (e.key === 'Escape') { toggleMenu(false); closeDrawer(); $('imgfs').classList.remove('open'); }
+});
+
+/* keep the left word list pointing at the right scope */
+const _selOrig = selectScope;
+selectScope = async function(scope, wantCard) {
+  await _selOrig(scope, wantCard);
+  // sync panel drill state to the chosen scope
+  if (scope && scope.lib) {
+    for (const b of S.tree) for (const l of b.libraries)
+      if (l.id === scope.lib) { S.panel.book = b; S.panel.lib = l; S.panel.level = 'words'; }
+  } else if (scope && scope.book) {
+    const b = S.tree.find(x => x.id === scope.book);
+    if (b) { S.panel.book = b; S.panel.level = 'libs'; }
+  }
+  renderPanel();
+};
+
+let rsT;
+window.addEventListener('resize', () => { clearTimeout(rsT); rsT = setTimeout(renderStage, 120); });
+window.addEventListener('hashchange', () => {
+  const h = readHash();
+  if (h && S.scope) {
+    const id = h.kind === 'lib' ? h.id : h.id;
+    if ((S.scope.lib || S.scope.book) !== id) { selectScope(h.kind === 'lib' ? {lib: id} : {book: id}, h.card); return; }
+    const i = S.cards.findIndex(c => c.id === h.card);
+    if (i >= 0 && i !== S.idx) goTo(i);
+  }
+});
+
+boot();
+</script>
+</body>
+</html>

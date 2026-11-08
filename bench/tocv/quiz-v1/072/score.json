@@ -1,0 +1,27 @@
+{
+  "gold": "~/multica_workspaces/gaoxi-home-c18f76d8e502/gaox-471-92674214428b/worktree/bench/tocv/gold/072.json",
+  "gold_entries": 10,
+  "draft_entries": 10,
+  "matched": 10,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "page_exact_rate": 1.0,
+  "page_compared": 10,
+  "level_exact_rate": 1.0,
+  "toc_pages": {
+    "gold": [
+      6,
+      7
+    ],
+    "draft": [
+      6,
+      7
+    ],
+    "correct": true
+  },
+  "missing": [],
+  "extra": [],
+  "page_mismatch": [],
+  "level_mismatch": []
+}

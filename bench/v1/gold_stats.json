@@ -1,0 +1,118 @@
+{
+  "books": {
+    "4ecda441f6d4": {
+      "segs": 30,
+      "candidates": 598,
+      "accept": 592,
+      "boundary": 1,
+      "reject": 5,
+      "fatal": 4,
+      "judge_failed": 4,
+      "judge_failed_candidates": 0,
+      "judge_failed_missed": 4,
+      "missed_proposed": 270,
+      "missed_dropped": {
+        "not_in_text": 82,
+        "overlap_candidate": 0,
+        "overlap_missed": 0
+      },
+      "missed_accepted": 180,
+      "human_fixed": 0,
+      "rewritten": 13,
+      "rewrite_failed": 0,
+      "ref_expl_score": {
+        "0": 0,
+        "1": 0,
+        "2": 768
+      },
+      "gold_words": 768
+    },
+    "2f3e20c2e34d": {
+      "segs": 30,
+      "candidates": 282,
+      "accept": 280,
+      "boundary": 0,
+      "reject": 2,
+      "fatal": 6,
+      "judge_failed": 0,
+      "judge_failed_candidates": 0,
+      "judge_failed_missed": 0,
+      "missed_proposed": 150,
+      "missed_dropped": {
+        "not_in_text": 19,
+        "overlap_candidate": 1,
+        "overlap_missed": 1
+      },
+      "missed_accepted": 125,
+      "human_fixed": 0,
+      "rewritten": 6,
+      "rewrite_failed": 0,
+      "ref_expl_score": {
+        "0": 0,
+        "1": 0,
+        "2": 399
+      },
+      "gold_words": 399
+    },
+    "dc221b94f843": {
+      "segs": 41,
+      "candidates": 288,
+      "accept": 276,
+      "boundary": 3,
+      "reject": 9,
+      "fatal": 5,
+      "judge_failed": 0,
+      "judge_failed_candidates": 0,
+      "judge_failed_missed": 0,
+      "missed_proposed": 219,
+      "missed_dropped": {
+        "not_in_text": 16,
+        "overlap_candidate": 0,
+        "overlap_missed": 0
+      },
+      "missed_accepted": 189,
+      "human_fixed": 2,
+      "rewritten": 7,
+      "rewrite_failed": 0,
+      "ref_expl_score": {
+        "0": 0,
+        "1": 0,
+        "2": 462
+      },
+      "gold_words": 462
+    }
+  },
+  "totals": {
+    "segs": 101,
+    "candidates": 1168,
+    "accept": 1148,
+    "boundary": 4,
+    "reject": 16,
+    "fatal": 15,
+    "judge_failed": 4,
+    "judge_failed_candidates": 0,
+    "judge_failed_missed": 4,
+    "missed_proposed": 639,
+    "missed_dropped": {
+      "not_in_text": 117,
+      "overlap_candidate": 1,
+      "overlap_missed": 1
+    },
+    "missed_accepted": 494,
+    "human_fixed": 2,
+    "rewritten": 26,
+    "rewrite_failed": 0,
+    "ref_expl_score": {
+      "0": 0,
+      "1": 0,
+      "2": 1629
+    },
+    "gold_words": 1629
+  },
+  "version": "bench-v1",
+  "model": "MiniMax-M3",
+  "effort": "max",
+  "max_tokens": 32768,
+  "generated_at": "2026-11-06T13:55:51+08:00",
+  "elapsed_seconds": 2889.2
+}

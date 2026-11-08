@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+/*{{CSS}}*/
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <button id="drawer-btn" class="icon-btn" title="Library">☰</button>
+    <div id="scope-label">BookCard</div>
+    <div id="book-tags"></div>
+    <div class="vdiv" id="scope-div"></div>
+    <div id="hdr-mid">
+      <div id="tiers" style="display:flex;align-items:center;gap:6px;overflow-x:auto;min-width:0;"></div>
+      <button id="tier-reset" class="tier-reset" title="Show all" style="display:none;">↺</button>
+    </div>
+    <div id="pkg-tools">
+      <button id="btn-import" class="icon-btn" title="导入改动（edits.json）">⤓</button>
+      <button id="btn-export" class="icon-btn" title="导出改动（edits.json）">⤒</button>
+      <input id="file-import" type="file" accept=".json,application/json" style="display:none;">
+    </div>
+    <div id="position" class="num"></div>
+  </header>
+  <div id="main">
+    <aside id="panel">
+      <div class="crumb" id="crumb"><span class="chev">‹</span><span id="crumb-txt" class="lbl2">Books</span></div>
+      <div class="list" id="panel-list"></div>
+    </aside>
+    <div id="panel-split" class="split-v" title="拖动调整左栏宽度"></div>
+    <div id="stage">
+      <div id="stage-inner">
+        <div style="height:16px;flex:none;"></div>
+        <div id="card-wrap">
+          <div id="card3d">
+            <div class="face front" id="face-front">
+              <div class="front-word" id="front-word"></div>
+              <div class="front-tier" id="front-tier"></div>
+              <div class="front-footer" id="front-footer"></div>
+            </div>
+            <div class="face back" id="face-back">
+              <div class="back-body" id="back-body"></div>
+            </div>
+          </div>
+          <button id="more-btn" title="More">⋯</button>
+          <div id="menu"></div>
+        </div>
+        <div style="height:var(--card-actions-gap);flex:none;"></div>
+        <div id="actions">
+          <div class="actions-row" id="actions-row"></div>
+          <div id="history"></div>
+        </div>
+      </div>
+      <button id="prev-btn" class="nav-arrow" title="Previous (←)">‹</button>
+      <button id="next-btn" class="nav-arrow" title="Next (→)">›</button>
+      <div id="empty">
+        <div class="badge">✓</div>
+        <h2 id="empty-title">All done in this section</h2>
+        <p id="empty-body">Every card here has been reviewed. Pick another section from the left panel.</p>
+      </div>
+      <!-- 书视图：scope 是整本书时显示（点左栏最上面那级「书」进来）。
+           左边大图（点开全屏）+ 右边可编辑目录 + 底部缩略图条。
+           翻页统一交给底部缩略图条，大图区不再单独放翻页按钮和页码头。 -->
+      <div id="bookview">
+        <div id="bv-top">
+          <div id="bv-page">
+            <div id="bv-canvas">
+              <img id="bv-img" alt="">
+              <div id="bv-nopages">
+                <div class="bv-badge">▤</div>
+                <h3 id="bv-nopages-title">这本书没有页图</h3>
+                <p id="bv-nopages-body">包里没有页图，下面只有目录可以看。</p>
+              </div>
+            </div>
+          </div>
+          <div id="toc-split" class="split-v" title="拖动调整目录栏宽度"></div>
+          <div id="bv-toc">
+            <div id="bv-toc-head">
+              <span class="bv-toc-h">目录</span>
+              <span class="bv-sp"></span>
+              <label class="bv-lvl-l" for="bv-level">层级</label>
+              <select id="bv-level" title="只看这一级：左右栏同时切到这一层"></select>
+              <button id="bv-toc-add" class="bv-toc-add" title="加一条目录">＋</button>
+            </div>
+            <div id="bv-toc-list"></div>
+          </div>
+        </div>
+        <div id="bv-bottom">
+          <div id="bv-strip">
+            <button id="bv-scroll-prev" class="bv-arrow" title="往回翻一屏">‹</button>
+            <div id="bv-thumbs"></div>
+            <button id="bv-scroll-next" class="bv-arrow" title="往前翻一屏">›</button>
+          </div>
+          <!-- 工具行：当前页 / offset / 跳页码，平铺在缩略图下面 -->
+          <div id="bv-tools">
+            <span id="bv-pos" class="num">p.1 / 1</span>
+            <span id="bv-print" class="num"></span>
+            <span class="bv-sp"></span>
+            <span class="bv-off-l">offset</span>
+            <input id="bv-offset" class="num" type="number" step="1" placeholder="未探测" title="印刷页号 = PDF 页号 + offset">
+            <span id="bv-toc-hint">PDF 页 = 印刷页 + offset（offset = 前置页数）</span>
+            <span class="bv-sp"></span>
+            <span class="bv-jump-l">跳到 p.</span>
+            <input id="bv-jump-input" class="num" type="number" step="1" min="1" title="跳到第几页" placeholder="页码">
+            <button id="bv-jump-go">Go</button>
+          </div>
+        </div>
+      </div>
+      <div id="edit">
+        <div class="e-head"><button class="icon-btn" id="edit-back">‹</button><span>Edit card</span></div>
+        <div class="e-scroll"><div class="e-form">
+          <div class="e-label req">Front *</div>
+          <div class="e-field"><textarea id="e-front" rows="1" placeholder="word / phrase / expression" maxlength="500"></textarea></div>
+          <div class="e-err" id="e-front-err"></div>
+          <div class="e-label">Back</div>
+          <div class="e-field"><textarea id="e-back" rows="4" placeholder="definition / notes"></textarea></div>
+          <div class="e-label">Tags</div>
+          <div class="e-field"><div class="e-chips" id="e-tags"><input id="e-tag-input" placeholder="add tag + Enter"></div></div>
+          <div class="e-label">Library</div>
+          <div class="e-field"><select id="e-lib"></select></div>
+        </div></div>
+        <div class="e-foot">
+          <button class="btn-text" id="e-cancel">Cancel</button>
+          <div style="flex:1"></div>
+          <button class="btn-save" id="e-save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="scrim"></div>
+<aside id="drawer">
+  <div class="crumb" id="drawer-crumb"><span class="chev">‹</span><span id="drawer-crumb-txt" class="lbl2">Books</span></div>
+  <div class="list" id="drawer-list"></div>
+</aside>
+<div id="imgfs"><div class="wrap"><img id="imgfs-img" alt=""><div id="imgfs-boxes"></div></div></div>
+<div id="toast"></div>
+
+<script type="application/json" id="bookcard-data">{{DATA}}</script>
+<script>
+/*{{JS}}*/
+</script>
+</body>
+</html>

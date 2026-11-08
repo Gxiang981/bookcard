@@ -1,0 +1,190 @@
+{
+  "round": 1,
+  "status": "ok",
+  "submitted_by": "agent:minimax-code:MiniMax-M3.1-Flash",
+  "submitted_at": "2026-11-07T09:21:40+08:00",
+  "toc_pages": [
+    5
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "name": "页码",
+      "passed": true,
+      "reason": "C1 通过：11 条条目物理页单调不减，且都在 1–82 页里"
+    },
+    {
+      "id": "C2",
+      "name": "覆盖与粒度",
+      "passed": true,
+      "reason": "判据2 通过：正文第 7–79 页（73 页）被 9 个 section 连续覆盖，无空洞、无重叠；判据4 通过：9 个 section 都在 3–25 页之间（最短 4 页，最长 10 页）（1 个不足 3 页的短节已并入相邻节：「Appendix 1: Words in each unit / Appendix 2: Vocabulary / Appendix 3: Useful expressions」5 页）"
+    },
+    {
+      "id": "C3",
+      "name": "标题在正文页上",
+      "passed": true,
+      "reason": "C3 通过：8 条 body 条目的标题都在正文页上找到了"
+    },
+    {
+      "id": "C4",
+      "name": "标题在目录页上",
+      "passed": true,
+      "reason": "C4 通过：11 条标题都在目录页（第 5 页）上找到了"
+    },
+    {
+      "id": "C5",
+      "name": "层级",
+      "passed": true,
+      "reason": "C5 通过：11 条层级连贯，同级编号连续"
+    },
+    {
+      "id": "C6",
+      "name": "对照（只出报告）",
+      "passed": true,
+      "reason": "C6 对照只出报告，不判失败",
+      "report_only": true
+    }
+  ],
+  "failed_entries": [],
+  "comparison": {
+    "rule": {
+      "source": "printed",
+      "entries": 6,
+      "missing": [
+        {
+          "title": "Unit 3 Look at me!Recycle 1",
+          "page": 37
+        },
+        {
+          "title": "Unit 6 Happy birthday!Recycle 2Appendix 1: Words in each unitAppendix 2: VocabularyAppendix 3: Useful expressions",
+          "page": 79
+        }
+      ],
+      "extra": [
+        {
+          "title": "Unit 3 Look at me!",
+          "page": 27
+        },
+        {
+          "title": "Recycle 1",
+          "page": 37
+        },
+        {
+          "title": "Unit 6 Happy birthday!",
+          "page": 61
+        },
+        {
+          "title": "Recycle 2",
+          "page": 71
+        },
+        {
+          "title": "Appendix 1: Words in each unit",
+          "page": 75
+        },
+        {
+          "title": "Appendix 2: Vocabulary",
+          "page": 77
+        },
+        {
+          "title": "Appendix 3: Useful expressions",
+          "page": 79
+        }
+      ],
+      "page_mismatch": []
+    },
+    "bookmarks": null,
+    "skipped": [
+      "这本书没有书签"
+    ]
+  },
+  "entries": [
+    {
+      "index": 0,
+      "level": 1,
+      "title": "Unit 1 Hello!",
+      "printed_page": 2,
+      "page": 7,
+      "kind": "body"
+    },
+    {
+      "index": 1,
+      "level": 1,
+      "title": "Unit 2 Colours",
+      "printed_page": 12,
+      "page": 17,
+      "kind": "body"
+    },
+    {
+      "index": 2,
+      "level": 1,
+      "title": "Unit 3 Look at me!",
+      "printed_page": 22,
+      "page": 27,
+      "kind": "body"
+    },
+    {
+      "index": 3,
+      "level": 1,
+      "title": "Recycle 1",
+      "printed_page": 32,
+      "page": 37,
+      "kind": "body"
+    },
+    {
+      "index": 4,
+      "level": 1,
+      "title": "Unit 4 We love animals",
+      "printed_page": 36,
+      "page": 41,
+      "kind": "body"
+    },
+    {
+      "index": 5,
+      "level": 1,
+      "title": "Unit 5 Let’s eat!",
+      "printed_page": 46,
+      "page": 51,
+      "kind": "body"
+    },
+    {
+      "index": 6,
+      "level": 1,
+      "title": "Unit 6 Happy birthday!",
+      "printed_page": 56,
+      "page": 61,
+      "kind": "body"
+    },
+    {
+      "index": 7,
+      "level": 1,
+      "title": "Recycle 2",
+      "printed_page": 66,
+      "page": 71,
+      "kind": "body"
+    },
+    {
+      "index": 8,
+      "level": 1,
+      "title": "Appendix 1: Words in each unit",
+      "printed_page": 70,
+      "page": 75,
+      "kind": "appendix"
+    },
+    {
+      "index": 9,
+      "level": 1,
+      "title": "Appendix 2: Vocabulary",
+      "printed_page": 72,
+      "page": 77,
+      "kind": "appendix"
+    },
+    {
+      "index": 10,
+      "level": 1,
+      "title": "Appendix 3: Useful expressions",
+      "printed_page": 74,
+      "page": 79,
+      "kind": "appendix"
+    }
+  ]
+}

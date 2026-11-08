@@ -1,0 +1,215 @@
+{
+  "version": "bench-v1",
+  "generated_at": "2026-11-06T14:07:50+08:00",
+  "quota": {
+    "exercise": 1,
+    "notes": 1,
+    "body": 4
+  },
+  "sort_key": "sha1(\"bench-v1:audit:<fp12>:<page>\")",
+  "labeler": "bench:v1:gold",
+  "books": [
+    {
+      "fp12": "4ecda441f6d4",
+      "title": "人教版·普通高中教科书 历史 必修 中外历史纲要 上",
+      "lang": "zh",
+      "pages": [
+        {
+          "page": 31,
+          "stratum": "exercise",
+          "seg_ids": [
+            "book:4ecda441f6d4:p0031"
+          ],
+          "chunks": 1,
+          "gold_words": 34,
+          "sort_key": "137a11e688db59965bd2b8165e7c27f60a874e9f"
+        },
+        {
+          "page": 143,
+          "stratum": "notes",
+          "seg_ids": [
+            "book:4ecda441f6d4:p0143"
+          ],
+          "chunks": 1,
+          "gold_words": 26,
+          "sort_key": "b3ad20bc1057ea0d1b3e11a6ecd59819d5e4d4e2"
+        },
+        {
+          "page": 18,
+          "stratum": "body",
+          "seg_ids": [
+            "book:4ecda441f6d4:p0018"
+          ],
+          "chunks": 1,
+          "gold_words": 39,
+          "sort_key": "072462f4a6096d349b7a00b777d67f832a307db1"
+        },
+        {
+          "page": 146,
+          "stratum": "body",
+          "seg_ids": [
+            "book:4ecda441f6d4:p0146"
+          ],
+          "chunks": 1,
+          "gold_words": 31,
+          "sort_key": "0ba4a8fb785fba15c9a1f065654836e073bbc43d"
+        },
+        {
+          "page": 148,
+          "stratum": "body",
+          "seg_ids": [
+            "book:4ecda441f6d4:p0148"
+          ],
+          "chunks": 1,
+          "gold_words": 19,
+          "sort_key": "0c821e55130e7ca1f01b5cc5766480e6127c49fe"
+        },
+        {
+          "page": 91,
+          "stratum": "body",
+          "seg_ids": [
+            "book:4ecda441f6d4:p0091"
+          ],
+          "chunks": 1,
+          "gold_words": 19,
+          "sort_key": "0fa58c43bd051fcde1bb5a29681218a42370a044"
+        }
+      ]
+    },
+    {
+      "fp12": "2f3e20c2e34d",
+      "title": "义务教育教科书 物理 九年级 全册",
+      "lang": "zh",
+      "pages": [
+        {
+          "page": 86,
+          "stratum": "exercise",
+          "seg_ids": [
+            "book:2f3e20c2e34d:p0086"
+          ],
+          "chunks": 1,
+          "gold_words": 23,
+          "sort_key": "19355722ce36c2a104524af2d95bc409f261695b"
+        },
+        {
+          "page": 45,
+          "stratum": "notes",
+          "seg_ids": [
+            "book:2f3e20c2e34d:p0045"
+          ],
+          "chunks": 1,
+          "gold_words": 13,
+          "sort_key": "7188699ff6705a641029571132fa65703d880de0"
+        },
+        {
+          "page": 103,
+          "stratum": "body",
+          "seg_ids": [
+            "book:2f3e20c2e34d:p0103"
+          ],
+          "chunks": 1,
+          "gold_words": 9,
+          "sort_key": "0d5b2241dc3ce2d8e32eef45f0f993dbc6eca2be"
+        },
+        {
+          "page": 148,
+          "stratum": "body",
+          "seg_ids": [
+            "book:2f3e20c2e34d:p0148"
+          ],
+          "chunks": 1,
+          "gold_words": 14,
+          "sort_key": "11ce6684f1bedb988f1d28f907f4ce050eff7453"
+        },
+        {
+          "page": 162,
+          "stratum": "body",
+          "seg_ids": [
+            "book:2f3e20c2e34d:p0162"
+          ],
+          "chunks": 1,
+          "gold_words": 18,
+          "sort_key": "28b4256fb2663acce2bfc00ac087a81516549f8d"
+        },
+        {
+          "page": 54,
+          "stratum": "body",
+          "seg_ids": [
+            "book:2f3e20c2e34d:p0054"
+          ],
+          "chunks": 1,
+          "gold_words": 10,
+          "sort_key": "353ad0ee4e26696ee7133583e5f964594dcf0462"
+        }
+      ]
+    },
+    {
+      "fp12": "dc221b94f843",
+      "title": "义务教育教科书 英语 七年级 上册",
+      "lang": "en",
+      "pages": [
+        {
+          "page": 22,
+          "stratum": "exercise",
+          "seg_ids": [
+            "book:dc221b94f843:p0022"
+          ],
+          "chunks": 1,
+          "gold_words": 17,
+          "sort_key": "55c5dab25d8fa8c9a55aa4068e1cc7f61d35d9b5"
+        },
+        {
+          "page": 137,
+          "stratum": "notes",
+          "seg_ids": [
+            "book:dc221b94f843:p0137"
+          ],
+          "chunks": 1,
+          "gold_words": 11,
+          "sort_key": "5ce29a5a072e0c5d2340c9f2f339dd6cca1fc9c7"
+        },
+        {
+          "page": 64,
+          "stratum": "body",
+          "seg_ids": [
+            "book:dc221b94f843:p0064"
+          ],
+          "chunks": 1,
+          "gold_words": 19,
+          "sort_key": "08d52242ed9202bddfeef78f7111c62409de0373"
+        },
+        {
+          "page": 23,
+          "stratum": "body",
+          "seg_ids": [
+            "book:dc221b94f843:p0023"
+          ],
+          "chunks": 1,
+          "gold_words": 16,
+          "sort_key": "095d257d0ae82c5d578f684bf41908cd395d234a"
+        },
+        {
+          "page": 103,
+          "stratum": "body",
+          "seg_ids": [
+            "book:dc221b94f843:p0103"
+          ],
+          "chunks": 1,
+          "gold_words": 10,
+          "sort_key": "0e828e33a5748d1e064bcbc1ea239737f6e8e9a4"
+        },
+        {
+          "page": 121,
+          "stratum": "body",
+          "seg_ids": [
+            "book:dc221b94f843:p0121c1",
+            "book:dc221b94f843:p0121c2"
+          ],
+          "chunks": 2,
+          "gold_words": 24,
+          "sort_key": "131accb1d7f51790b9c43a18bdccc2a7a1569ab5"
+        }
+      ]
+    }
+  ]
+}

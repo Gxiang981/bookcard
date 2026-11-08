@@ -1,0 +1,373 @@
+{
+  "round": 2,
+  "status": "retry",
+  "submitted_by": "agent:minimax-code:MiniMax-M3.1-Flash",
+  "submitted_at": "2026-11-07T14:23:13+08:00",
+  "toc_pages": [
+    4,
+    5
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "name": "页码",
+      "passed": true,
+      "reason": "C1 通过：36 条条目物理页单调不减，且都在 1–162 页里"
+    },
+    {
+      "id": "C2",
+      "name": "覆盖与粒度",
+      "passed": true,
+      "reason": "判据2 通过：正文第 10–161 页（152 页）被 25 个 section 连续覆盖，无空洞、无重叠；判据4 通过：25 个 section 都在 3–25 页之间（最短 3 页，最长 14 页）（2 个不足 3 页的短节已并入相邻节：「实验活动3 燃烧的条件 / 附录Ⅰ 初中化学实验室常用仪器」3 页；「附录Ⅱ 相对原子质量表 / 附录Ⅲ 部分名词中英文对照表 / 元素周期表」4 页）"
+    },
+    {
+      "id": "C3",
+      "name": "标题在正文页上",
+      "passed": true,
+      "reason": "C3 通过：31 条 body 条目的标题都在正文页上找到了"
+    },
+    {
+      "id": "C4",
+      "name": "标题在目录页上",
+      "passed": false,
+      "reason": "C4 不通过：4/36 条标题在目录页上找不到 —— 「课题3 制取氧气」；「课题1 分子和原子」；「附录Ⅰ 初中化学实验室常用仪器」；「附录Ⅱ 相对原子质量表」；多半是模型编出来的条目"
+    },
+    {
+      "id": "C5",
+      "name": "层级",
+      "passed": true,
+      "reason": "C5 通过：36 条层级连贯，同级编号连续"
+    },
+    {
+      "id": "C6",
+      "name": "对照（只出报告）",
+      "passed": true,
+      "reason": "C6 对照只出报告，不判失败",
+      "report_only": true
+    }
+  ],
+  "failed_entries": [
+    {
+      "index": 8,
+      "title": "课题3 制取氧气",
+      "check": "C4",
+      "reason": "标题在目录页（4、5）上找不到"
+    },
+    {
+      "index": 11,
+      "title": "课题1 分子和原子",
+      "check": "C4",
+      "reason": "标题在目录页（4、5）上找不到"
+    },
+    {
+      "index": 32,
+      "title": "附录Ⅰ 初中化学实验室常用仪器",
+      "check": "C4",
+      "reason": "标题在目录页（4、5）上找不到"
+    },
+    {
+      "index": 33,
+      "title": "附录Ⅱ 相对原子质量表",
+      "check": "C4",
+      "reason": "标题在目录页（4、5）上找不到"
+    }
+  ],
+  "comparison": {
+    "rule": null,
+    "bookmarks": null,
+    "skipped": [
+      "扫描件没有现成的 OCR 产物，规则对照跳过（可以用 bookcard text 建工作目录后再比）",
+      "这本书没有书签"
+    ]
+  },
+  "entries": [
+    {
+      "index": 0,
+      "level": 1,
+      "title": "结言 化学使世界变得更加绚丽多彩",
+      "printed_page": 1,
+      "page": 6,
+      "kind": "front"
+    },
+    {
+      "index": 1,
+      "level": 1,
+      "title": "第一单元 走进化学世界",
+      "printed_page": 5,
+      "page": 10,
+      "kind": "body"
+    },
+    {
+      "index": 2,
+      "level": 2,
+      "title": "课题1 物质的变化和性质",
+      "printed_page": 6,
+      "page": 11,
+      "kind": "body"
+    },
+    {
+      "index": 3,
+      "level": 2,
+      "title": "课题2 化学是一门以实验为基础的科学",
+      "printed_page": 11,
+      "page": 16,
+      "kind": "body"
+    },
+    {
+      "index": 4,
+      "level": 2,
+      "title": "课题3 走进化学实验室",
+      "printed_page": 17,
+      "page": 22,
+      "kind": "body"
+    },
+    {
+      "index": 5,
+      "level": 1,
+      "title": "第二单元 我们周围的空气",
+      "printed_page": 25,
+      "page": 30,
+      "kind": "body"
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "课题1 空气",
+      "printed_page": 26,
+      "page": 31,
+      "kind": "body"
+    },
+    {
+      "index": 7,
+      "level": 2,
+      "title": "课题2 氧气",
+      "printed_page": 33,
+      "page": 38,
+      "kind": "body"
+    },
+    {
+      "index": 8,
+      "level": 2,
+      "title": "课题3 制取氧气",
+      "printed_page": 37,
+      "page": 42,
+      "kind": "body"
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "实验活动1 氧气的实验室制取与性质",
+      "printed_page": 45,
+      "page": 50,
+      "kind": "body"
+    },
+    {
+      "index": 10,
+      "level": 1,
+      "title": "第三单元 物质构成的奥秘",
+      "printed_page": 47,
+      "page": 52,
+      "kind": "body"
+    },
+    {
+      "index": 11,
+      "level": 2,
+      "title": "课题1 分子和原子",
+      "printed_page": 48,
+      "page": 53,
+      "kind": "body"
+    },
+    {
+      "index": 12,
+      "level": 2,
+      "title": "课题2 原子的结构",
+      "printed_page": 53,
+      "page": 58,
+      "kind": "body"
+    },
+    {
+      "index": 13,
+      "level": 2,
+      "title": "课题3 元素",
+      "printed_page": 59,
+      "page": 64,
+      "kind": "body"
+    },
+    {
+      "index": 14,
+      "level": 1,
+      "title": "第四单元 自然界的水",
+      "printed_page": 67,
+      "page": 72,
+      "kind": "body"
+    },
+    {
+      "index": 15,
+      "level": 2,
+      "title": "课题1 爱护水资源",
+      "printed_page": 68,
+      "page": 73,
+      "kind": "body"
+    },
+    {
+      "index": 16,
+      "level": 2,
+      "title": "课题2 水的净化",
+      "printed_page": 74,
+      "page": 79,
+      "kind": "body"
+    },
+    {
+      "index": 17,
+      "level": 2,
+      "title": "课题3 水的组成",
+      "printed_page": 79,
+      "page": 84,
+      "kind": "body"
+    },
+    {
+      "index": 18,
+      "level": 2,
+      "title": "课题4 化学式与化合价",
+      "printed_page": 83,
+      "page": 88,
+      "kind": "body"
+    },
+    {
+      "index": 19,
+      "level": 1,
+      "title": "第五单元 化学方程式",
+      "printed_page": 91,
+      "page": 96,
+      "kind": "body"
+    },
+    {
+      "index": 20,
+      "level": 2,
+      "title": "课题1 质量守恒定律",
+      "printed_page": 92,
+      "page": 97,
+      "kind": "body"
+    },
+    {
+      "index": 21,
+      "level": 2,
+      "title": "课题2 如何正确书写化学方程式",
+      "printed_page": 99,
+      "page": 104,
+      "kind": "body"
+    },
+    {
+      "index": 22,
+      "level": 2,
+      "title": "课题3 利用化学方程式的简单计算",
+      "printed_page": 102,
+      "page": 107,
+      "kind": "body"
+    },
+    {
+      "index": 23,
+      "level": 1,
+      "title": "第六单元 碳和碳的氧化物",
+      "printed_page": 105,
+      "page": 110,
+      "kind": "body"
+    },
+    {
+      "index": 24,
+      "level": 2,
+      "title": "课题1 金刚石、石墨和C₆₀",
+      "printed_page": 106,
+      "page": 111,
+      "kind": "body"
+    },
+    {
+      "index": 25,
+      "level": 2,
+      "title": "课题2 二氧化碳制取的研究",
+      "printed_page": 113,
+      "page": 118,
+      "kind": "body"
+    },
+    {
+      "index": 26,
+      "level": 2,
+      "title": "课题3 二氧化碳和一氧化碳",
+      "printed_page": 117,
+      "page": 122,
+      "kind": "body"
+    },
+    {
+      "index": 27,
+      "level": 2,
+      "title": "实验活动2 二氧化碳的实验室制取与性质",
+      "printed_page": 125,
+      "page": 130,
+      "kind": "body"
+    },
+    {
+      "index": 28,
+      "level": 1,
+      "title": "第七单元 燃料及其利用",
+      "printed_page": 127,
+      "page": 132,
+      "kind": "body"
+    },
+    {
+      "index": 29,
+      "level": 2,
+      "title": "课题1 燃烧和灭火",
+      "printed_page": 128,
+      "page": 133,
+      "kind": "body"
+    },
+    {
+      "index": 30,
+      "level": 2,
+      "title": "课题2 燃料的合理利用与开发",
+      "printed_page": 136,
+      "page": 141,
+      "kind": "body"
+    },
+    {
+      "index": 31,
+      "level": 2,
+      "title": "实验活动3 燃烧的条件",
+      "printed_page": 150,
+      "page": 155,
+      "kind": "body"
+    },
+    {
+      "index": 32,
+      "level": 1,
+      "title": "附录Ⅰ 初中化学实验室常用仪器",
+      "printed_page": 151,
+      "page": 156,
+      "kind": "appendix"
+    },
+    {
+      "index": 33,
+      "level": 1,
+      "title": "附录Ⅱ 相对原子质量表",
+      "printed_page": 153,
+      "page": 158,
+      "kind": "appendix"
+    },
+    {
+      "index": 34,
+      "level": 1,
+      "title": "附录Ⅲ 部分名词中英文对照表",
+      "printed_page": 154,
+      "page": 159,
+      "kind": "appendix"
+    },
+    {
+      "index": 35,
+      "level": 1,
+      "title": "元素周期表",
+      "printed_page": 156,
+      "page": 161,
+      "kind": "appendix"
+    }
+  ]
+}

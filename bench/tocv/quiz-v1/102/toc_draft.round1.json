@@ -1,0 +1,20 @@
+{
+  "toc_pages": [5],
+  "entries": [
+    {"level": 1, "title": "Unit 1 Hello!", "printed_page": 2},
+    {"level": 1, "title": "Unit 2 Colours", "printed_page": 12},
+    {"level": 1, "title": "Unit 3 Look at me!", "printed_page": 22},
+    {"level": 1, "title": "Recycle 1", "printed_page": 32},
+    {"level": 1, "title": "Unit 4 We love animals", "printed_page": 36},
+    {"level": 1, "title": "Unit 5 Let’s eat!", "printed_page": 46},
+    {"level": 1, "title": "Unit 6 Happy birthday!", "printed_page": 56},
+    {"level": 1, "title": "Recycle 2", "printed_page": 66},
+    {"level": 1, "title": "Appendix 1: Words in each unit", "printed_page": 70, "kind": "appendix"},
+    {"level": 1, "title": "Appendix 2: Vocabulary", "printed_page": 72, "kind": "appendix"},
+    {"level": 1, "title": "Appendix 3: Useful expressions", "printed_page": 74, "kind": "appendix"}
+  ],
+  "anchors": [
+    {"printed_page": 2, "physical_page": 7},
+    {"printed_page": 74, "physical_page": 79}
+  ]
+}
